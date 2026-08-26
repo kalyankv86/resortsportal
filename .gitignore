@@ -1,0 +1,33 @@
+# dependencies
+**/node_modules/
+**/vendor/
+
+# builds
+**/.next/
+**/dist/
+**/build/
+
+# env
+.env
+.env.*
+!.env.example
+**/.env.local
+
+# logs
+*.log
+logs/
+
+# os / editor
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# secrets / keys
+*.pem
+*.key
+!deploy/**/*.example
+
+# laravel (backend milestone)
+backend/storage/*.key
+backend/bootstrap/cache/*.php

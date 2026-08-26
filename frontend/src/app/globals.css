@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+/* ============================================================
+   CWETR Enterprise Portal — Design System
+   Centurion Wellness Eco Tourism Resorts
+   Theme: Luxury Eco Wellness
+   ============================================================ */
+
+@theme {
+  /* --- Brand palette --- */
+  --color-sage: #7aa874;
+  --color-sage-50: #f1f6f0;
+  --color-sage-100: #dfeadd;
+  --color-sage-200: #c2d8bd;
+  --color-sage-300: #9fc198;
+  --color-sage-400: #7aa874;
+  --color-sage-500: #5c8f56;
+  --color-sage-600: #467043;
+
+  --color-forest: #14532d;
+  --color-forest-50: #eef5f0;
+  --color-forest-100: #d5e7dc;
+  --color-forest-600: #1c6b3c;
+  --color-forest-700: #14532d;
+  --color-forest-800: #0f3f22;
+  --color-forest-900: #0a2c18;
+
+  --color-ivory: #faf8f2;
+  --color-sand: #e8dfc9;
+  --color-sand-dark: #d8cdb0;
+  --color-terracotta: #c26d4f;
+  --color-terracotta-600: #a9583c;
+
+  /* --- Semantic tokens (light) --- */
+  --color-background: #faf8f2;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f4f1e8;
+  --color-foreground: #1f2a22;
+  --color-muted-foreground: #5b6b5f;
+  --color-border: #e6e0d1;
+  --color-primary: #14532d;
+  --color-primary-foreground: #faf8f2;
+  --color-accent: #c26d4f;
+
+  /* --- Typography --- */
+  --font-heading: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-ui: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+
+  /* --- Radii --- */
+  --radius-card: 28px;
+  --radius-pill: 999px;
+
+  /* --- Shadows (soft luxury) --- */
+  --shadow-soft: 0 1px 2px rgba(20, 83, 45, 0.04),
+    0 12px 32px -12px rgba(20, 83, 45, 0.16);
+  --shadow-lift: 0 2px 6px rgba(20, 83, 45, 0.06),
+    0 32px 64px -24px rgba(20, 83, 45, 0.28);
+
+  /* --- Motion --- */
+  --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Accent gradient token used across bento + heroes */
+:root {
+  --gradient-accent: linear-gradient(135deg, #dff5e3 0%, #f9f7ef 100%);
+  --gradient-forest: linear-gradient(160deg, #14532d 0%, #0a2c18 100%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #0c1410;
+    --color-surface: #12201a;
+    --color-surface-muted: #16261e;
+    --color-foreground: #eef3ee;
+    --color-muted-foreground: #a7b7ab;
+    --color-border: #24352b;
+    --color-primary: #7aa874;
+    --color-primary-foreground: #0a2c18;
+    --gradient-accent: linear-gradient(135deg, #16382a 0%, #12201a 100%);
+  }
+}
+
+/* Base element styles MUST live in @layer base so Tailwind utilities
+   (text-ivory, text-forest-700, …) can override them. Unlayered rules
+   otherwise beat every utility and break per-element colour overrides. */
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    font-feature-settings: "ss01", "cv05";
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer utilities {
+  .font-ui {
+    font-family: var(--font-ui);
+  }
+}
+
+/* --- Frosted glass surface --- */
+@utility glass {
+  background: color-mix(in srgb, var(--color-surface) 62%, transparent);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid color-mix(in srgb, #ffffff 45%, transparent);
+  box-shadow: var(--shadow-soft);
+}
+
+@utility glass-dark {
+  background: color-mix(in srgb, #0a2c18 42%, transparent);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid color-mix(in srgb, #ffffff 14%, transparent);
+}
+
+/* --- Eyebrow / kicker label --- */
+@utility eyebrow {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* --- Floating leaf drift animation --- */
+@keyframes leaf-drift {
+  0% { transform: translateX(0) translateY(0) rotate(0deg); }
+  50% { transform: translateX(24px) translateY(-18px) rotate(8deg); }
+  100% { transform: translateX(0) translateY(0) rotate(0deg); }
+}
+
+.animate-leaf {
+  animation: leaf-drift 14s var(--ease-luxury) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-leaf { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* Thin, elegant scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--color-sage) 45%, transparent);
+  border-radius: 999px;
+}
