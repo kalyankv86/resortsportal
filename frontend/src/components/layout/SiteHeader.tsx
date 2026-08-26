@@ -2,21 +2,34 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { primaryNav, site } from "@/content/site";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
 
 export function SiteHeader() {
-  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const [atTop, setAtTop] = useState(true);
+  const [hasHero, setHasHero] = useState(true);
   const [open, setOpen] = useState(false);
 
+  // Solid (frosted) unless we're at the top of a page that has a dark hero
+  // behind the header.
+  const scrolled = !atTop || !hasHero;
+
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setAtTop(window.scrollY <= 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    // Sync with the DOM: does the current page render a dark hero behind us?
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setHasHero(!!document.querySelector("[data-page-hero]"));
+  }, [pathname]);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";

@@ -17,7 +17,7 @@ export function PageHero({
   parent?: { label: string; href: string };
 }) {
   return (
-    <section className="relative overflow-hidden">
+    <section data-page-hero className="relative overflow-hidden">
       <div className="absolute inset-0">
         <MediaImage item={cover} rounded={false} priority sizes="100vw" className="h-full w-full" />
         <div className="absolute inset-0 bg-gradient-to-b from-forest-900/82 via-forest-900/74 to-forest-900/88" />

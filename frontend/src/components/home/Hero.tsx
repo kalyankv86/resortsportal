@@ -25,7 +25,7 @@ export function Hero({ cover }: { cover: MediaItem }) {
   const fade = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <section ref={ref} className="relative min-h-[100svh] w-full overflow-hidden">
+    <section ref={ref} data-page-hero className="relative min-h-[100svh] w-full overflow-hidden">
       <motion.div
         style={reduce ? undefined : { y, scale }}
         className="absolute inset-0"

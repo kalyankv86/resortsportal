@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
+import { AuthProvider } from "@/lib/auth";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { site } from "@/content/site";
@@ -63,11 +64,13 @@ export default function RootLayout({
       className={`${cormorant.variable} ${inter.variable} ${manrope.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        <SmoothScroll>
-          <SiteHeader />
-          <main className="flex-1">{children}</main>
-          <SiteFooter />
-        </SmoothScroll>
+        <AuthProvider>
+          <SmoothScroll>
+            <SiteHeader />
+            <main className="flex-1">{children}</main>
+            <SiteFooter />
+          </SmoothScroll>
+        </AuthProvider>
       </body>
     </html>
   );
