@@ -67,15 +67,12 @@ function svg(style: CategoryStyle, index: number): string {
   </defs>
   <rect width="1440" height="900" fill="url(#g)"/>
   ${motif(style.motif, style.ink)}
-  <g transform="translate(64 786)">
-    <rect x="0" y="0" rx="14" ry="14" width="${style.label.length * 15 + 132}" height="50"
-          fill="${style.ink}" opacity="0.14"/>
-    <circle cx="30" cy="25" r="9" fill="${style.ink}" opacity="0.85"/>
-    <text x="52" y="26" font-family="Georgia, 'Times New Roman', serif" font-size="24"
-          fill="${style.ink}" dominant-baseline="middle">${style.label}</text>
-    <text x="${style.label.length * 15 + 62}" y="26" font-family="Helvetica, Arial, sans-serif"
-          font-size="12" letter-spacing="2" fill="${style.ink}" opacity="0.7"
-          dominant-baseline="middle">PHOTO PENDING</text>
+  <g text-anchor="middle" fill="${style.ink}">
+    <circle cx="720" cy="376" r="13" opacity="0.85"/>
+    <text x="720" y="452" font-family="Georgia, 'Times New Roman', serif" font-size="52"
+          font-weight="600" letter-spacing="0.5">${style.label}</text>
+    <text x="720" y="492" font-family="Helvetica, Arial, sans-serif" font-size="17"
+          letter-spacing="5" opacity="0.72">CWETR &#183; PHOTO PENDING</text>
   </g>
 </svg>`;
 }
