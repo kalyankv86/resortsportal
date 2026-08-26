@@ -44,7 +44,7 @@ export async function BentoShowcase() {
                   sizes="(max-width: 768px) 100vw, 40vw"
                   className="absolute inset-0 h-full w-full transition-transform duration-700 ease-luxury group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-forest-900/85 via-forest-900/20 to-forest-900/5" />
+                <div className="absolute inset-0 bg-gradient-to-t from-forest-900/95 via-forest-900/55 to-forest-900/25" />
                 <div className="relative z-10 text-ivory">
                   <h3 className="font-heading text-xl sm:text-2xl">
                     {item.title}

@@ -36,7 +36,7 @@ export function MediaImage({
         placeholder={item.blurDataURL ? "blur" : "empty"}
         blurDataURL={item.blurDataURL}
         className="object-cover"
-        unoptimized={item.src.startsWith("data:")}
+        unoptimized={item.src.startsWith("data:") || item.src.startsWith("/media/")}
       />
     </div>
   );

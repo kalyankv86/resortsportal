@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { primaryNav, site } from "@/content/site";
@@ -42,12 +43,21 @@ export function SiteHeader() {
             className="flex items-center gap-3"
             aria-label={`${site.shortName} home`}
           >
-            <LeafMark
+            <span
               className={cn(
-                "h-8 w-8 transition-colors",
-                scrolled ? "text-forest-700" : "text-ivory",
+                "grid h-10 w-10 shrink-0 place-items-center rounded-full transition-colors",
+                scrolled ? "bg-transparent" : "bg-ivory/95 shadow-soft",
               )}
-            />
+            >
+              <Image
+                src="/brand/cutm-crest.png"
+                alt="Centurion University"
+                width={36}
+                height={36}
+                priority
+                className="h-9 w-9 object-contain"
+              />
+            </span>
             <span
               className={cn(
                 "font-heading text-lg leading-none transition-colors sm:text-xl",
@@ -191,13 +201,3 @@ export function SiteHeader() {
   );
 }
 
-function LeafMark({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 32 32" fill="none" className={className} aria-hidden>
-      <path
-        d="M26 4C12 4 5 12 5 24c0 1.5.2 2.9.6 4.2C10 18 17 12 27 10c-3 6-9 11-19 13 2 1.9 5 3 8 3 8 0 13-6 13-15 0-4-1-7-3-10Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
-}

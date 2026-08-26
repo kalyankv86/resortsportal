@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { primaryNav, site, utilityNav } from "@/content/site";
 import { Container } from "@/components/ui/primitives";
@@ -8,12 +9,23 @@ export function SiteFooter() {
       <Container className="py-16">
         <div className="grid gap-12 md:grid-cols-[1.4fr_repeat(3,1fr)]">
           <div className="flex flex-col gap-4">
-            <span className="font-heading text-2xl text-ivory">
-              Centurion Wellness
-            </span>
+            <div className="flex items-center gap-3">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-ivory/95">
+                <Image
+                  src="/brand/cutm-crest.png"
+                  alt="Centurion University"
+                  width={38}
+                  height={38}
+                  className="h-[38px] w-[38px] object-contain"
+                />
+              </span>
+              <span className="font-heading text-2xl text-ivory">
+                Centurion Wellness
+              </span>
+            </div>
             <p className="max-w-xs text-sm leading-relaxed">
-              {site.tagline}. A wellness, Ayurveda and eco-tourism sanctuary by{" "}
-              {site.org}.
+              {site.tagline}. A wellness, Ayurveda and eco-tourism sanctuary — an
+              initiative of {site.org}.
             </p>
             <div className="mt-2 flex flex-col gap-1 text-sm">
               <span>{site.address}</span>

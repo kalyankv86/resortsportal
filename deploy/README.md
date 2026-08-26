@@ -52,6 +52,25 @@ cd /opt/resorts/src && git pull
 bash deploy/deploy-frontend.sh          # atomic symlink swap + pm2 reload, keeps 5 releases
 ```
 
+## Media library (official CUTM Google Photos album)
+
+Production serves local copies only — no cloud dependency at request time.
+
+```bash
+# one-time / on album update, on the server:
+node /opt/resorts/src/scripts/ingest-google-photos.mjs \
+  --album "https://photos.app.goo.gl/a4a4uCXvkiYRb8eo8" \
+  --out /opt/resorts/media/library \
+  --chrome /usr/bin/google-chrome   # or chromium
+
+# then refresh the committed manifest if categories changed:
+#   frontend/src/lib/media/library.manifest.json
+```
+
+Nginx serves the files at `/media/library/<id>.jpg`. Set `MEDIA_PROVIDER=library`
+in `/opt/resorts/frontend/shared/.env.local` (default). Falls back to brand SVG
+placeholders when the manifest is empty.
+
 ## TLS
 
 `setup-nginx.sh` installs a self-signed cert so `:443` works on the LAN now.

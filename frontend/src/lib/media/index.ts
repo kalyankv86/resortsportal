@@ -1,4 +1,5 @@
 import { placeholderProvider } from "./placeholder-provider";
+import { libraryProvider, libraryHasItems } from "./library-provider";
 import type { MediaCategory, MediaItem, MediaProvider } from "./types";
 
 export * from "./types";
@@ -6,18 +7,19 @@ export * from "./types";
 /**
  * Active media provider.
  *
- *   MEDIA_PROVIDER=placeholder   → brand SVG placeholders (default, offline)
- *   MEDIA_PROVIDER=google-photos → official CUTM Google Photos album
- *                                  (wired in a later milestone once the album
- *                                  share URL + API credentials are provided)
+ *   MEDIA_PROVIDER=library     → local library ingested from the official CUTM
+ *                                Google Photos album (default when populated)
+ *   MEDIA_PROVIDER=placeholder → brand SVG placeholders (offline fallback)
+ *
+ * Re-ingest with: node scripts/ingest-google-photos.mjs
  */
 function resolveProvider(): MediaProvider {
-  const name = process.env.MEDIA_PROVIDER ?? "placeholder";
+  const name = process.env.MEDIA_PROVIDER ?? (libraryHasItems ? "library" : "placeholder");
   switch (name) {
+    case "library":
+      return libraryHasItems ? libraryProvider : placeholderProvider;
     case "placeholder":
       return placeholderProvider;
-    // case "google-photos":
-    //   return googlePhotosProvider;
     default:
       return placeholderProvider;
   }

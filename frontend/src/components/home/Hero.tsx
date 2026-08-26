@@ -37,7 +37,7 @@ export function Hero({ cover }: { cover: MediaItem }) {
           sizes="100vw"
           className="h-full w-full"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-forest-900/40 via-forest-900/15 to-forest-900/78" />
+        <div className="absolute inset-0 bg-gradient-to-b from-forest-900/55 via-forest-900/35 to-forest-900/85" />
       </motion.div>
 
       {/* floating leaves */}
