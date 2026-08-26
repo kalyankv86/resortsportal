@@ -34,8 +34,8 @@ resortsportal/
 | 3 | Marketing pages | All 34 IA routes, data-driven, SEO | ✅ done |
 | 4 | Media & branding | CUTM Google Photos ingest, real photos, CUTM logo/favicon | ✅ done |
 | 5 | Backend foundation | Laravel 13, ~35-table schema, JWT auth, RBAC, seeders, `/api` live | ✅ done |
-| 6 | Booking engine | Availability, packages, medical questionnaire, payment, QR pass | ▢ next |
-| 7 | Payments & finance | Internal payment API, GST invoices, refunds, reconciliation, Finance ERP | ▢ |
+| 6 | Booking engine | Availability, quote, multi-step booking, promo codes, questionnaire, QR pass, cancel/reschedule, waitlist, admin management | ✅ done |
+| 7 | Payments & finance | Internal payment API, GST invoices, refunds, reconciliation, Finance ERP | ▢ next |
 | 8 | Guest portal | Schedule, diet chart, invoices, reports, progress, rewards | ▢ |
 | 9 | Staff portals | Doctor, Therapist, Restaurant, Housekeeping dashboards | ▢ |
 | 10 | Admin & CMS | Master dashboard, page/media CMS, user management, audit logs | ▢ |
@@ -50,6 +50,7 @@ resortsportal/
 | Frontend | `http://192.168.5.51/` · `https://192.168.5.51/` (self-signed) — 42 pages, real CUTM photos |
 | API | `http://192.168.5.51/api/*` — Laravel 13, JWT, `/api/health` green |
 | Auth | `/guest-login` works end to end · `/guest` + `/admin` portals live |
+| Booking | `/book-now` 4-step wizard → real bookings + QR pass · `/booking/{ref}` lookup · admin bookings table with status actions |
 | Process mgr | PM2 `cwetr-frontend` ×2 · php8.3-fpm · systemd-persisted |
 | Stack | Node 20.20.2 · PHP 8.3.33-FPM · PostgreSQL 16.15 (`cwetr`) · Redis · Nginx 1.18 · Supervisor |
 | Firewall | ufw: OpenSSH + Nginx Full |

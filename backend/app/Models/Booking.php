@@ -9,8 +9,8 @@ class Booking extends Model
 {
     protected $guarded = [];
     protected $casts = [
-        'check_in' => 'date',
-        'check_out' => 'date',
+        'check_in' => 'date:Y-m-d',
+        'check_out' => 'date:Y-m-d',
         'questionnaire' => 'array',
         'subtotal' => 'decimal:2',
         'discount' => 'decimal:2',
