@@ -27,27 +27,41 @@ resortsportal/
 
 ## Build status
 
-| Milestone | Scope | State |
-|-----------|-------|-------|
-| **1. Frontend foundation** | Design system, layout shell, immersive Home page, media-library abstraction | ✅ done |
-| **7a. Server provisioning** | Bare Ubuntu 22.04 → full native stack, frontend live behind Nginx+PM2 | ✅ done |
-| 2. Backend foundation | Laravel 12 scaffold, PostgreSQL schema, JWT auth + RBAC, seeders | ▢ next |
-| 3. Marketing pages | Remaining 34 pages from the IA, CMS-driven | ▢ |
-| 4. Booking engine | Availability, packages, medical questionnaire, payment, QR pass | ▢ |
-| 5. Portals | Guest / Doctor / Therapist / Restaurant / Housekeeping dashboards | ▢ |
-| 6. ERP | Finance, Inventory, Admin, Analytics | ▢ |
-| 7b. Deployment hardening | Let's Encrypt SSL (needs public DNS), backups, log rotation, CI | ▢ |
+| # | Milestone | Scope | State |
+|---|-----------|-------|-------|
+| 1 | Frontend foundation | Design system, layout shell, immersive Home, media abstraction | ✅ done |
+| 2 | Server provisioning | Bare Ubuntu 22.04 → full native stack, frontend live behind Nginx+PM2 | ✅ done |
+| 3 | Marketing pages | All 34 IA routes, data-driven, SEO | ✅ done |
+| 4 | Media & branding | CUTM Google Photos ingest, real photos, CUTM logo/favicon | ✅ done |
+| 5 | Backend foundation | Laravel 13, ~35-table schema, JWT auth, RBAC, seeders, `/api` live | ✅ done |
+| 6 | Booking engine | Availability, packages, medical questionnaire, payment, QR pass | ▢ next |
+| 7 | Payments & finance | Internal payment API, GST invoices, refunds, reconciliation, Finance ERP | ▢ |
+| 8 | Guest portal | Schedule, diet chart, invoices, reports, progress, rewards | ▢ |
+| 9 | Staff portals | Doctor, Therapist, Restaurant, Housekeeping dashboards | ▢ |
+| 10 | Admin & CMS | Master dashboard, page/media CMS, user management, audit logs | ▢ |
+| 11 | Inventory · Analytics · AI · Notifications · Search | | ▢ |
+| 12 | Hardening & docs | Let's Encrypt SSL, backups, log rotation, CI/CD, SRS/SDD/ER diagram | ▢ |
 
 ### Live now
 
 | | |
 |---|---|
 | Host | `192.168.5.51` (Ubuntu 22.04.5, 8 vCPU / 14 GiB) |
-| Frontend | `http://192.168.5.51/` · `https://192.168.5.51/` (self-signed) — 200 OK |
-| Process mgr | PM2 `cwetr-frontend`, 2 cluster workers, systemd-persisted |
-| Stack | Node 20.20.2 · PHP 8.3.33-FPM · PostgreSQL 16.15 (`cwetr` db) · Redis · Nginx 1.18 · Supervisor |
+| Frontend | `http://192.168.5.51/` · `https://192.168.5.51/` (self-signed) — 42 pages, real CUTM photos |
+| API | `http://192.168.5.51/api/*` — Laravel 13, JWT, `/api/health` green |
+| Auth | `/guest-login` works end to end · `/guest` + `/admin` portals live |
+| Process mgr | PM2 `cwetr-frontend` ×2 · php8.3-fpm · systemd-persisted |
+| Stack | Node 20.20.2 · PHP 8.3.33-FPM · PostgreSQL 16.15 (`cwetr`) · Redis · Nginx 1.18 · Supervisor |
 | Firewall | ufw: OpenSSH + Nginx Full |
-| `/api/*` | 404 until the Laravel backend (Milestone 2) is deployed |
+
+### Seeded logins (change after first login)
+
+| Role | Email | Password |
+|------|-------|----------|
+| Super Admin | `admin@resorts.cutm.ac.in` | `ChangeMe!CWETR2026` |
+| Doctor | `doctor@resorts.cutm.ac.in` | `ChangeMe!CWETR2026` |
+| Therapist | `therapist@resorts.cutm.ac.in` | `ChangeMe!CWETR2026` |
+| Test Guest | `guest@example.com` | `ChangeMe!CWETR2026` |
 
 ---
 
