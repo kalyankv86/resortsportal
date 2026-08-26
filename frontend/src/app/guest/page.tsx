@@ -65,7 +65,11 @@ export default function GuestPortalPage() {
             <tbody>
               {bookings.map((b) => (
                 <tr key={b.id} className="border-b border-border/60 last:border-0">
-                  <td className="px-4 py-3 font-medium text-forest-800">{b.reference}</td>
+                  <td className="px-4 py-3 font-medium text-forest-800">
+                    <Link href={`/booking/${b.reference}`} className="underline decoration-sage underline-offset-2">
+                      {b.reference}
+                    </Link>
+                  </td>
                   <td className="px-4 py-3">{b.program?.name ?? b.room_category?.name ?? "—"}</td>
                   <td className="px-4 py-3">
                     {b.check_in} → {b.check_out} · {b.nights}n

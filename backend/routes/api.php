@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\Api\Admin\BookingAdminController;
 use App\Http\Controllers\Api\Admin\OverviewController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\BookingController;
 use App\Http\Controllers\Api\CatalogController;
 use App\Http\Controllers\Api\ContentController;
 use App\Http\Controllers\Api\LeadController;
 use App\Http\Controllers\Api\MeController;
+use App\Http\Controllers\Api\WaitlistController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/health', fn () => response()->json([
@@ -41,6 +44,18 @@ Route::get('faqs', [ContentController::class, 'faqs']);
 
 Route::post('enquiries', [LeadController::class, 'enquiry'])->middleware('throttle:10,1');
 Route::post('newsletter', [LeadController::class, 'newsletter'])->middleware('throttle:10,1');
+Route::post('waitlist', [WaitlistController::class, 'store'])->middleware('throttle:10,1');
+
+/* ---- Booking engine -------------------------------------------------- */
+Route::post('bookings/quote', [BookingController::class, 'quote'])->middleware('throttle:60,1');
+Route::post('bookings', [BookingController::class, 'store'])->middleware('throttle:20,1');
+Route::get('bookings/{reference}', [BookingController::class, 'show']);
+Route::get('bookings/{reference}/pass', [BookingController::class, 'pass']);
+Route::middleware('auth:api')->group(function () {
+    Route::post('bookings/{booking}/cancel', [BookingController::class, 'cancel']);
+    Route::post('bookings/{booking}/reschedule', [BookingController::class, 'reschedule']);
+    Route::post('bookings/{booking}/documents', [BookingController::class, 'uploadDocument']);
+});
 
 /* ---- Authenticated guest --------------------------------------------- */
 Route::middleware('auth:api')->prefix('me')->group(function () {
@@ -50,8 +65,11 @@ Route::middleware('auth:api')->prefix('me')->group(function () {
 });
 
 /* ---- Admin ---------------------------------------------------------------- */
-Route::middleware(['auth:api', 'role:super-admin|director|resort-manager'])
+Route::middleware(['auth:api', 'role:super-admin|director|resort-manager|reception'])
     ->prefix('admin')
     ->group(function () {
         Route::get('overview', [OverviewController::class, 'index']);
+        Route::get('bookings', [BookingAdminController::class, 'index']);
+        Route::get('bookings/{booking}', [BookingAdminController::class, 'show']);
+        Route::patch('bookings/{booking}/status', [BookingAdminController::class, 'updateStatus']);
     });

@@ -30,6 +30,19 @@ class CoreDataSeeder extends Seeder
         $this->wellness();
         $this->experiences();
         $this->social();
+        $this->promos();
+    }
+
+    private function promos(): void
+    {
+        \App\Models\PromoCode::updateOrCreate(['code' => 'WELCOME10'], [
+            'description' => 'Welcome offer — 10% off',
+            'type' => 'percent', 'value' => 10, 'min_nights' => 3, 'is_active' => true,
+        ]);
+        \App\Models\PromoCode::updateOrCreate(['code' => 'MONSOON5000'], [
+            'description' => 'Monsoon season — ₹5,000 off',
+            'type' => 'fixed', 'value' => 5000, 'min_amount' => 40000, 'min_nights' => 5, 'is_active' => true,
+        ]);
     }
 
     private function settings(): void

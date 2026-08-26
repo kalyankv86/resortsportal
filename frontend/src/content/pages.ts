@@ -853,26 +853,7 @@ export const PAGES: Record<string, PageDef> = {
     ],
   }),
 
-  "book-now": page({
-    slug: "book-now",
-    title: "Book Now",
-    eyebrow: "Reservations",
-    summary: "Check availability and hold your dates. The full engine — packages, promo codes, medical questionnaire, report upload, payment, GST invoice and QR pass — arrives with the backend.",
-    hero: "rooms",
-    sections: [
-      { kind: "booking", heading: "Check availability", body: "Pick your dates and programme to see options and an indicative tariff. You'll be able to complete payment and the pre-arrival questionnaire once the reservations backend is live." },
-      {
-        kind: "steps",
-        heading: "How booking will work",
-        items: [
-          { title: "Dates & programme", text: "Choose length, room category and any promo or gift voucher." },
-          { title: "Medical questionnaire", text: "Complete online and upload recent reports securely." },
-          { title: "Confirm & pay", text: "UPI, card or net-banking; GST invoice and receipt issued." },
-          { title: "QR arrival pass", text: "Sent by email and WhatsApp for fast check-in." },
-        ],
-      },
-    ],
-  }),
+  // "book-now" has a dedicated route: src/app/book-now/page.tsx
 
   "guest-login": page({
     slug: "guest-login",

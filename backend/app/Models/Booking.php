@@ -13,6 +13,7 @@ class Booking extends Model
         'check_out' => 'date',
         'questionnaire' => 'array',
         'subtotal' => 'decimal:2',
+        'discount' => 'decimal:2',
         'tax' => 'decimal:2',
         'total' => 'decimal:2',
     ];
@@ -21,7 +22,23 @@ class Booking extends Model
     {
         static::creating(function (Booking $b) {
             $b->reference ??= 'CW-'.now()->format('ymd').'-'.strtoupper(Str::random(5));
+            $b->qr_token ??= Str::random(48);
         });
+    }
+
+    public function documents()
+    {
+        return $this->hasMany(BookingDocument::class);
+    }
+
+    public function amountPaid(): float
+    {
+        return (float) $this->payments()->where('status', 'paid')->sum('amount');
+    }
+
+    public function balanceDue(): float
+    {
+        return round((float) $this->total - $this->amountPaid(), 2);
     }
 
     public function guest()
