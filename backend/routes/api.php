@@ -69,6 +69,15 @@ Route::middleware('auth:api')->prefix('me')->group(function () {
     Route::get('/', [MeController::class, 'profile']);
     Route::patch('/', [MeController::class, 'updateProfile']);
     Route::get('bookings', [MeController::class, 'bookings']);
+    Route::get('stay', [MeController::class, 'stay']);
+    Route::get('diet-chart', [MeController::class, 'dietChart']);
+    Route::get('prescriptions', [MeController::class, 'prescriptions']);
+    Route::get('progress', [MeController::class, 'progress']);
+    Route::get('invoices', [MeController::class, 'invoices']);
+    Route::get('rewards', [MeController::class, 'rewards']);
+    Route::get('wishlist', [MeController::class, 'wishlist']);
+    Route::post('wishlist', [MeController::class, 'addWishlist']);
+    Route::delete('wishlist/{wishlistItem}', [MeController::class, 'removeWishlist']);
 });
 
 /* ---- Admin ---------------------------------------------------------------- */

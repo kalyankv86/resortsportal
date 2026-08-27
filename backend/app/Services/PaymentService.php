@@ -94,6 +94,11 @@ class PaymentService
             if ($booking->balanceDue() <= 0 && $booking->status === 'pending') {
                 $this->bookings->transition($booking, 'confirmed', $actor, 'Payment received in full');
                 $this->invoices->generateFor($booking->refresh());
+                $booking->guest?->awardPoints(
+                    (int) floor((float) $booking->total / 100),
+                    "Booking {$booking->reference}",
+                    $booking,
+                );
             }
 
             return $payment;

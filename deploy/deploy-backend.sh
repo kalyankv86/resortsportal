@@ -9,12 +9,14 @@ PROV=/opt/resorts/.provision.env
 FRESH="${1:-}"
 
 echo "▶ sync source"
+# storage/ and bootstrap/cache/ are runtime-only and owned by www-data — never
+# sync or delete inside them.
 rsync -a --delete \
   --exclude vendor --exclude node_modules --exclude .env \
-  --exclude 'storage/logs/*' --exclude 'storage/framework/cache/*' \
-  --exclude 'storage/framework/sessions/*' --exclude 'storage/framework/views/*' \
-  --exclude 'bootstrap/cache/*' \
+  --exclude 'storage/***' --exclude 'bootstrap/cache/***' \
   "$SRC/" "$APP/"
+mkdir -p "$APP"/storage/framework/{cache/data,sessions,views} \
+         "$APP"/storage/app/private "$APP"/storage/logs "$APP"/bootstrap/cache
 
 cd "$APP"
 
