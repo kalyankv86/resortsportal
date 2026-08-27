@@ -1,6 +1,6 @@
 # CWETR — Deployment (bare Ubuntu 22.04, no Docker)
 
-Target host: **`192.168.5.51`** → `resorts.cutm.ac.in` · user `ubuntu` (passwordless sudo)
+Target host: **`192.168.5.51`** → `wellness.cutm.ac.in` · user `ubuntu` (passwordless sudo)
 
 Native stack, everything inside CUTM infrastructure:
 
@@ -37,7 +37,7 @@ Native stack, everything inside CUTM infrastructure:
 ```bash
 # on the server, as root
 git clone <repo-url> /opt/resorts/src && cd /opt/resorts/src
-CWETR_DOMAIN=resorts.cutm.ac.in bash deploy/bootstrap.sh   # phases 1-10, idempotent
+CWETR_DOMAIN=wellness.cutm.ac.in bash deploy/bootstrap.sh   # phases 1-10, idempotent
 bash deploy/setup-nginx.sh                                  # vhost + self-signed cert
 
 # as ubuntu
@@ -74,10 +74,10 @@ placeholders when the manifest is empty.
 ## TLS
 
 `setup-nginx.sh` installs a self-signed cert so `:443` works on the LAN now.
-When `resorts.cutm.ac.in` resolves publicly to this host:
+When `wellness.cutm.ac.in` resolves publicly to this host:
 
 ```bash
-sudo certbot --nginx -d resorts.cutm.ac.in --redirect -m resorts@cutm.ac.in --agree-tos -n
+sudo certbot --nginx -d wellness.cutm.ac.in --redirect -m resorts@cutm.ac.in --agree-tos -n
 ```
 
 ## Files
@@ -87,6 +87,6 @@ sudo certbot --nginx -d resorts.cutm.ac.in --redirect -m resorts@cutm.ac.in --ag
 | `bootstrap.sh` | provisions the whole stack from a clean 22.04 box |
 | `setup-nginx.sh` | installs vhost + self-signed cert + ACME webroot |
 | `deploy-frontend.sh` | build + atomic release of the Next.js app |
-| `nginx/resorts.cutm.ac.in.conf` + `nginx/_app.conf` | vhost (`:80` + `:443`) and shared routing |
+| `nginx/wellness.cutm.ac.in.conf` + `nginx/_app.conf` | vhost (`:80` + `:443`) and shared routing |
 | `pm2/ecosystem.config.js` | PM2 process def for `cwetr-frontend` |
 | `supervisor/cwetr-worker.conf` | Laravel queue + scheduler |

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # =============================================================================
 # CWETR Enterprise Portal — bare-metal provisioning for Ubuntu 22.04 LTS
-# Target: resorts.cutm.ac.in  ·  no Docker  ·  no cloud dependency
+# Target: wellness.cutm.ac.in  ·  no Docker  ·  no cloud dependency
 #
 # Installs the full native stack:
 #   Node.js 20 LTS · PHP 8.3 + FPM · PostgreSQL 16 · Redis 7 · Nginx · Supervisor
@@ -19,7 +19,7 @@ DB_USER=cwetr
 DB_PASS="${CWETR_DB_PASS:-$(head -c 18 /dev/urandom | base64 | tr -d '/+=' | head -c 24)}"
 NODE_MAJOR=20
 PG_MAJOR=16
-DOMAIN="${CWETR_DOMAIN:-resorts.cutm.ac.in}"
+DOMAIN="${CWETR_DOMAIN:-wellness.cutm.ac.in}"
 
 log() { printf '\n\033[1;32m▶ %s\033[0m\n' "$*"; }
 warn() { printf '\033[1;33m! %s\033[0m\n' "$*"; }

@@ -1,6 +1,6 @@
 # Centurion Wellness Eco Tourism Resorts — Portal
 
-**resorts.cutm.ac.in** · Centurion University of Technology and Management
+**wellness.cutm.ac.in** · Centurion University of Technology and Management
 *Heal • Stay • Reconnect with Nature*
 
 The public website plus the operational platform behind it: a booking engine,

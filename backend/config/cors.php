@@ -7,7 +7,7 @@ return [
 
     'allowed_origins' => array_filter(explode(',', env(
         'CORS_ALLOWED_ORIGINS',
-        'http://localhost:3000,http://127.0.0.1:3000,https://resorts.cutm.ac.in,http://192.168.5.51'
+        'http://localhost:3000,http://127.0.0.1:3000,https://wellness.cutm.ac.in,http://192.168.5.51'
     ))),
 
     'allowed_origins_patterns' => [],

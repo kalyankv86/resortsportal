@@ -30,7 +30,7 @@ APP_NAME="CWETR API"
 APP_ENV=production
 ${APP_KEY_LINE}
 APP_DEBUG=false
-APP_URL=https://${CWETR_DOMAIN:-resorts.cutm.ac.in}
+APP_URL=https://${CWETR_DOMAIN:-wellness.cutm.ac.in}
 APP_TIMEZONE=Asia/Kolkata
 
 LOG_CHANNEL=stack
@@ -54,7 +54,7 @@ JWT_SECRET=
 JWT_TTL=1440
 JWT_REFRESH_TTL=20160
 
-CORS_ALLOWED_ORIGINS=http://localhost:3000,https://${CWETR_DOMAIN:-resorts.cutm.ac.in},http://192.168.5.51
+CORS_ALLOWED_ORIGINS=http://localhost:3000,https://${CWETR_DOMAIN:-wellness.cutm.ac.in},http://192.168.5.51
 
 MAIL_MAILER=log
 EOF

@@ -5,7 +5,7 @@ export const site = {
   shortName: "CWETR",
   org: "Centurion University of Technology and Management",
   tagline: "Heal • Stay • Reconnect with Nature",
-  url: "https://resorts.cutm.ac.in",
+  url: "https://wellness.cutm.ac.in",
   phone: "+91 90000 00000",
   email: "resorts@cutm.ac.in",
   address: "Centurion University Campus, Odisha, India",

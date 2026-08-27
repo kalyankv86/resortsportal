@@ -5,7 +5,7 @@ set -euo pipefail
 [ "$(id -u)" -eq 0 ] || { echo "run as root"; exit 1; }
 
 REPO_DIR="${REPO_DIR:-/opt/resorts/src}"
-DOMAIN="${CWETR_DOMAIN:-resorts.cutm.ac.in}"
+DOMAIN="${CWETR_DOMAIN:-wellness.cutm.ac.in}"
 
 echo "▶ self-signed certificate"
 install -d -m 0755 /etc/nginx/ssl
@@ -21,8 +21,8 @@ echo "▶ acme webroot"
 install -d -m 0755 /var/www/html/.well-known/acme-challenge
 
 echo "▶ vhost"
-ln -sfn "${REPO_DIR}/deploy/nginx/resorts.cutm.ac.in.conf" \
-        /etc/nginx/sites-enabled/resorts.cutm.ac.in.conf
+ln -sfn "${REPO_DIR}/deploy/nginx/wellness.cutm.ac.in.conf" \
+        /etc/nginx/sites-enabled/wellness.cutm.ac.in.conf
 rm -f /etc/nginx/sites-enabled/default
 
 nginx -t

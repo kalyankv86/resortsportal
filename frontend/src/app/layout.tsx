@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     template: `%s · ${site.shortName}`,
   },
   description:
-    "A luxury wellness, Ayurveda and eco-tourism sanctuary by Centurion University. Residential Panchakarma retreats, forest healing and farm-to-table dining at resorts.cutm.ac.in.",
+    "A luxury wellness, Ayurveda and eco-tourism sanctuary by Centurion University. Residential Panchakarma retreats, forest healing and farm-to-table dining at wellness.cutm.ac.in.",
   keywords: [
     "Ayurveda resort",
     "wellness retreat India",
