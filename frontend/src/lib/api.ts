@@ -6,7 +6,17 @@
  * token uses `api(path, { token })` or the useAuth() helpers.
  */
 
-export const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL ?? "/api";
+const RAW_BASE = process.env.NEXT_PUBLIC_API_BASE_URL ?? "/api";
+
+/**
+ * Browser: use the (possibly relative) public base — same origin via Nginx.
+ * Server (RSC / route handlers): fetch() needs an absolute URL, so resolve a
+ * relative base against INTERNAL_API_ORIGIN (the local Nginx).
+ */
+export const API_BASE =
+  typeof window === "undefined" && RAW_BASE.startsWith("/")
+    ? `${process.env.INTERNAL_API_ORIGIN ?? "http://127.0.0.1"}${RAW_BASE}`
+    : RAW_BASE;
 
 export class ApiError extends Error {
   status: number;

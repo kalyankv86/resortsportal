@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 
 class RefundRequest extends Model
 {
+    use \App\Models\Concerns\RecordsAudit;
     protected $guarded = [];
     protected $casts = [
         'amount' => 'decimal:2',

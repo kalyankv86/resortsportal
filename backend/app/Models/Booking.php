@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 
 class Booking extends Model
 {
+    use \App\Models\Concerns\RecordsAudit;
     protected $guarded = [];
     protected $casts = [
         'check_in' => 'date:Y-m-d',

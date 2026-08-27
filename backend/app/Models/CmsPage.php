@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CmsPage extends Model
 {
+    use \App\Models\Concerns\RecordsAudit;
     protected $guarded = [];
     protected $casts = ['seo' => 'array', 'published_at' => 'datetime'];
 

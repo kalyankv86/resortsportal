@@ -1,8 +1,12 @@
 <?php
 
+use App\Http\Controllers\Api\Admin\AuditController;
 use App\Http\Controllers\Api\Admin\BookingAdminController;
+use App\Http\Controllers\Api\Admin\CmsController;
 use App\Http\Controllers\Api\Admin\FinanceController;
 use App\Http\Controllers\Api\Admin\OverviewController;
+use App\Http\Controllers\Api\Admin\SettingsController;
+use App\Http\Controllers\Api\Admin\UserAdminController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\BookingController;
 use App\Http\Controllers\Api\CatalogController;
@@ -130,3 +134,32 @@ Route::middleware(['auth:api', 'role:super-admin|director|resort-manager|recepti
         Route::post('bookings/{booking}/refunds', [FinanceController::class, 'requestRefund']);
         Route::post('refunds/{refundRequest}/review', [FinanceController::class, 'reviewRefund']);
     });
+
+/* ---- Admin · CMS / users / settings / audit ----------------------------- */
+Route::middleware(['auth:api'])->prefix('admin')->group(function () {
+    Route::middleware('role:super-admin|director|marketing|resort-manager')->group(function () {
+        Route::get('cms/pages', [CmsController::class, 'pages']);
+        Route::get('cms/pages/{page}', [CmsController::class, 'page']);
+        Route::patch('cms/pages/{page}', [CmsController::class, 'updatePage']);
+        Route::post('cms/pages/{page}/sections', [CmsController::class, 'createSection']);
+        Route::patch('cms/sections/{section}', [CmsController::class, 'updateSection']);
+        Route::delete('cms/sections/{section}', [CmsController::class, 'deleteSection']);
+        Route::get('cms/testimonials', [CmsController::class, 'testimonials']);
+        Route::post('cms/testimonials/{testimonial?}', [CmsController::class, 'saveTestimonial']);
+        Route::delete('cms/testimonials/{testimonial}', [CmsController::class, 'deleteTestimonial']);
+        Route::get('cms/faqs', [CmsController::class, 'faqs']);
+        Route::post('cms/faqs/{faq?}', [CmsController::class, 'saveFaq']);
+        Route::delete('cms/faqs/{faq}', [CmsController::class, 'deleteFaq']);
+    });
+
+    Route::middleware('role:super-admin|director')->group(function () {
+        Route::get('users/roles', [UserAdminController::class, 'roles']);
+        Route::get('users', [UserAdminController::class, 'index']);
+        Route::post('users', [UserAdminController::class, 'store']);
+        Route::patch('users/{user}', [UserAdminController::class, 'update']);
+        Route::post('users/{user}/reset-password', [UserAdminController::class, 'resetPassword']);
+        Route::get('settings', [SettingsController::class, 'index']);
+        Route::patch('settings', [SettingsController::class, 'update']);
+        Route::get('audit', [AuditController::class, 'index']);
+    });
+});
