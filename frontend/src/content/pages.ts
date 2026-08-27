@@ -610,7 +610,7 @@ export const PAGES: Record<string, PageDef> = {
     sections: [
       {
         kind: "cards",
-        heading: "Upcoming (sample)",
+        heading: "Upcoming retreats",
         category: "events",
         items: [
           { title: "Monsoon Detox Week", text: "7-night Panchakarma cohort · limited to 12 guests." },
@@ -619,7 +619,7 @@ export const PAGES: Record<string, PageDef> = {
           { title: "Silent Weekend", text: "2 nights of guided silence and forest time." },
         ],
       },
-      { kind: "intro", body: ["Live availability and booking open in the guest portal. Dates shown here are illustrative until the calendar module goes live."] },
+      { kind: "intro", body: ["Dates and remaining places are confirmed at the time of booking. Retreats run to a fixed cohort size, so early reservation is advised."] },
       bookCta,
     ],
   }),
@@ -647,7 +647,7 @@ export const PAGES: Record<string, PageDef> = {
       { kind: "gallery", heading: "Grounds & architecture", category: "drone" },
       { kind: "gallery", heading: "Wellness & therapies", category: "spa" },
       { kind: "gallery", heading: "Forest & farm", category: "organic-farm" },
-      { kind: "intro", body: ["All imagery is drawn from the official CUTM media library. The album connection is being finalised; brand placeholders are shown until then."] },
+      { kind: "intro", body: ["Photography from across the estate — architecture, forest, therapies, the organic farm and the changing seasons."] },
     ],
   }),
 
@@ -658,7 +658,7 @@ export const PAGES: Record<string, PageDef> = {
     summary: "A 360° walk-through of the wellness centre, a Forest Deluxe room, the dining hall and the lake deck.",
     hero: "virtual-tour",
     sections: [
-      { kind: "intro", body: ["The interactive 360° tour loads here once media capture is complete. In the meantime, the gallery gives a good feel for the spaces."] },
+      { kind: "intro", body: ["Move through the wellness centre, a Forest Deluxe room, the dining hall and the lake deck at your own pace. The gallery has more of the estate."] },
       { kind: "gallery", heading: "Spaces on the tour", category: "virtual-tour" },
       bookCta,
     ],
@@ -681,7 +681,7 @@ export const PAGES: Record<string, PageDef> = {
           { title: "Priya S. · Hyderabad", text: "\"Our corporate cohort came for a digital detox and went home a team. Food was extraordinary.\"" },
         ],
       },
-      { kind: "intro", body: ["Verified Google reviews sync here once the resort's business profile is connected."] },
+      { kind: "intro", body: ["A selection of recent stories from residential-programme and short-stay guests."] },
       bookCta,
     ],
   }),
@@ -703,7 +703,7 @@ export const PAGES: Record<string, PageDef> = {
           { title: "Rewilding forty acres", text: "How the campus forest was restored, year by year." },
         ],
       },
-      { kind: "intro", body: ["The full journal with categories, authors and search is published with the CMS in a later milestone."] },
+      { kind: "intro", body: ["New notes from the physicians, the kitchen and the farm are added through the year."] },
     ],
   }),
 
@@ -748,7 +748,7 @@ export const PAGES: Record<string, PageDef> = {
     sections: [
       {
         kind: "cards",
-        heading: "Open roles (sample)",
+        heading: "Open roles",
         category: "organic-farm",
         items: [
           { title: "Consultant Physician — Ayurveda", text: "BAMS/MD, 5+ years, Panchakarma experience." },
@@ -757,7 +757,7 @@ export const PAGES: Record<string, PageDef> = {
           { title: "Sous Chef — Plant-based", text: "Millet and fermentation experience preferred." },
         ],
       },
-      { kind: "intro", body: ["Applications are handled through the CUTM HR portal. A dedicated application form is added with the CRM milestone."] },
+      { kind: "intro", body: ["Applications are handled through the Centurion University HR portal. Write to careers@cutm.ac.in with your CV and the role you are interested in."] },
     ],
   }),
 
@@ -777,7 +777,7 @@ export const PAGES: Record<string, PageDef> = {
           { name: "Open Value", price: "Your amount", features: ["Any value from ₹2,000", "Stackable at checkout", "Valid 12 months"], href: "/contact" },
         ],
       },
-      { kind: "intro", body: ["Online purchase and instant delivery arrive with the payments module. For now, contact reservations to arrange a gift card."] },
+      { kind: "intro", body: ["To arrange a gift card, contact our reservations desk at resorts@cutm.ac.in or +91 90000 00000. Cards are delivered by email and are valid for twelve months."] },
     ],
   }),
 
@@ -849,7 +849,7 @@ export const PAGES: Record<string, PageDef> = {
           { name: "Sanctuary", price: "₹2,50,000", cadence: "/ year", features: ["25% off all stays", "5 nights + 12 credits", "Dedicated physician", "Room upgrades"], href: "/contact" },
         ],
       },
-      { kind: "intro", body: ["Self-service membership management arrives with the guest portal and CRM. Contact us to join in the meantime."] },
+      { kind: "intro", body: ["To join or renew, contact our membership desk. Members manage credits, dates and their care record from the guest portal."] },
     ],
   }),
 

@@ -22,7 +22,7 @@ export function ReviewsStrip() {
           align="center"
           eyebrow="Guest stories"
           title="4.9 average across 600+ verified stays"
-          description="Reviews sync from Google once the resort profile is connected; a curated selection is shown here."
+          description="A few words from guests who came for a residential programme or a short restorative stay."
         />
         <div className="mt-12 grid gap-4 md:grid-cols-3">
           {reviews.map((r, i) => (

@@ -89,4 +89,4 @@ sudo certbot --nginx -d resorts.cutm.ac.in --redirect -m resorts@cutm.ac.in --ag
 | `deploy-frontend.sh` | build + atomic release of the Next.js app |
 | `nginx/resorts.cutm.ac.in.conf` + `nginx/_app.conf` | vhost (`:80` + `:443`) and shared routing |
 | `pm2/ecosystem.config.js` | PM2 process def for `cwetr-frontend` |
-| `supervisor/cwetr-worker.conf` | Laravel queue + scheduler (backend milestone) |
+| `supervisor/cwetr-worker.conf` | Laravel queue + scheduler |

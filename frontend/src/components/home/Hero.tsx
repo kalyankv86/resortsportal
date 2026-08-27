@@ -9,9 +9,9 @@ import { BookingWidget } from "@/components/layout/BookingWidget";
 import { heroContent } from "@/content/home";
 
 /**
- * Fullscreen cinematic hero. Uses the hero MediaItem as the backdrop (a looping
- * video source is dropped in here once the CUTM album provides one). Parallax on
- * the backdrop, floating leaf drift, staggered headline.
+ * Fullscreen cinematic hero — hero image backdrop with parallax, floating leaf
+ * drift and a staggered headline. Swap the backdrop for a looping video by
+ * replacing <MediaImage> with a <video> element.
  */
 export function Hero({ cover }: { cover: MediaItem }) {
   const ref = useRef<HTMLElement>(null);

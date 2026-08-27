@@ -7,11 +7,8 @@ export * from "./types";
 /**
  * Active media provider.
  *
- *   MEDIA_PROVIDER=library     → local library ingested from the official CUTM
- *                                Google Photos album (default when populated)
- *   MEDIA_PROVIDER=placeholder → brand SVG placeholders (offline fallback)
- *
- * Re-ingest with: node scripts/ingest-google-photos.mjs
+ *   MEDIA_PROVIDER=library     → the estate photo library (default when populated)
+ *   MEDIA_PROVIDER=placeholder → house-style SVG fallback
  */
 function resolveProvider(): MediaProvider {
   const name = process.env.MEDIA_PROVIDER ?? (libraryHasItems ? "library" : "placeholder");

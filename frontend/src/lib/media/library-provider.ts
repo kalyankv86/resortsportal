@@ -9,9 +9,8 @@ import { MEDIA_CATEGORIES, type MediaCategory, type MediaItem, type MediaProvide
  * by Nginx at /media/library/<id>.jpg. This provider reads the committed
  * manifest (id + category + dimensions) — no network, no cloud dependency.
  *
- * Images without an explicit category are spread across the still-thin
- * categories so every page gets real photography while the CMS assigns the
- * rest.
+ * Images without an explicit category are spread across the thinner
+ * categories so every page has photography.
  */
 
 interface ManifestItem {

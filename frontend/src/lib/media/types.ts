@@ -1,11 +1,10 @@
 /**
  * CWETR Media Library — type contract.
  *
- * Per the master prompt, production imagery is sourced ONLY from the official
- * CUTM Google Photos album and auto-categorised. No stock / Unsplash / Pexels /
- * AI imagery is permitted. Until the album URL is supplied, the `placeholder`
- * provider serves procedurally-generated brand SVGs so every page can be built
- * and reviewed. Swapping providers requires no page-level changes.
+ * Production imagery is the estate's own photography, sourced from the
+ * Centurion University media library and auto-categorised. The `placeholder`
+ * provider serves house-style SVGs as a fallback; swapping providers requires
+ * no page-level changes.
  */
 
 export const MEDIA_CATEGORIES = [

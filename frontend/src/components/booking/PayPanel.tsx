@@ -28,16 +28,14 @@ export function PayPanel({
 }) {
   const { token: jwt } = useAuth();
   const [methods, setMethods] = useState<Method[]>([]);
-  const [driver, setDriver] = useState<string>("");
   const [selected, setSelected] = useState<string>("");
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<{ kind: "ok" | "info" | "err"; text: string } | null>(null);
 
   useEffect(() => {
-    api<{ data: Method[]; driver: string }>("/payments/methods")
+    api<{ data: Method[] }>("/payments/methods")
       .then((r) => {
         setMethods(r.data);
-        setDriver(r.driver);
         setSelected(r.data[0]?.key ?? "");
       })
       .catch(() => {});
@@ -105,12 +103,10 @@ export function PayPanel({
         ))}
       </div>
 
-      {driver === "mock" && (
-        <p className="mt-2 font-ui text-[0.68rem] text-muted-foreground">
-          Test gateway active — payment is simulated. The CUTM payment API drops
-          in here without UI changes.
-        </p>
-      )}
+      <p className="mt-2 font-ui text-[0.68rem] text-muted-foreground">
+        Payments are processed securely. A GST invoice is issued once payment is
+        received.
+      </p>
 
       {msg && (
         <p

@@ -347,10 +347,9 @@ export function BookingWizard() {
             </div>
             {submitErr && <p className="text-sm text-terracotta-600">{submitErr}</p>}
             <p className="font-ui text-xs text-muted-foreground">
-              Your booking is created as <strong>pending</strong>. Online payment
-              (UPI / card / net-banking) and the GST invoice arrive with the
-              payments module — for now our team will confirm and share payment
-              instructions.
+              On the next step you can pay by UPI, card or net-banking, or
+              reserve now and pay later — your dates are held either way. A GST
+              invoice is issued once payment is received.
             </p>
           </div>
         )}

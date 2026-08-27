@@ -188,7 +188,7 @@ export default function DoctorPage() {
                     })}>
                       Set diet chart
                     </Button>
-                    <p className="font-ui text-[0.68rem] text-muted-foreground">This replaces the active chart. Add one meal row here; the full multi-meal editor is a later refinement.</p>
+                    <p className="font-ui text-[0.68rem] text-muted-foreground">Saving replaces the guest&rsquo;s current active diet chart.</p>
                   </div>
                 )}
                 {tab === "progress" && (

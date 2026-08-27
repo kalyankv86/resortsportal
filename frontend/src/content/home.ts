@@ -69,12 +69,12 @@ export const bento: BentoItem[] = [
     cta: "Retreat calendar",
   },
   {
-    title: "AI Wellness Guide",
-    copy: "Answer a short dosha assessment and receive therapy, diet and yoga suggestions.",
+    title: "Find your programme",
+    copy: "Answer a short dosha questionnaire and our advisors suggest a retreat, therapies and a daily rhythm.",
     href: "/wellness-programs",
     category: "meditation",
     span: "sm",
-    cta: "Start assessment",
+    cta: "Start questionnaire",
   },
 ];
 

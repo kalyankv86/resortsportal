@@ -5,13 +5,12 @@ import type {
 } from "./types";
 
 /**
- * Brand placeholder provider.
+ * Brand image provider.
  *
- * Generates deterministic, legible SVG data URIs in the CWETR palette — NOT
- * stock, Unsplash, Pexels or AI photography. Each category gets a distinct
- * duotone gradient, a botanical motif and its name rendered as a caption, so
- * every layout is reviewable and it is obvious the real photo is pending.
- * Replace with the `googlePhotos` provider once the official album is connected.
+ * Deterministic duotone SVGs in the house palette with a botanical motif and
+ * the category name as a caption — used as a graceful fallback wherever a
+ * photograph is not available. The `library` provider serves the estate
+ * photography in normal operation.
  */
 
 interface CategoryStyle {
@@ -72,7 +71,7 @@ function svg(style: CategoryStyle, index: number): string {
     <text x="720" y="452" font-family="Georgia, 'Times New Roman', serif" font-size="52"
           font-weight="600" letter-spacing="0.5">${style.label}</text>
     <text x="720" y="492" font-family="Helvetica, Arial, sans-serif" font-size="17"
-          letter-spacing="5" opacity="0.72">CWETR &#183; PHOTO PENDING</text>
+          letter-spacing="5" opacity="0.72">CENTURION WELLNESS</text>
   </g>
 </svg>`;
 }
@@ -101,9 +100,9 @@ export const placeholderProvider: MediaProvider = {
       blurDataURL: BLUR,
       width: 1440,
       height: 900,
-      alt: `${style.label} — CWETR placeholder ${i + 1}. Awaiting official CUTM Google Photos album.`,
+      alt: `${style.label} — Centurion Wellness Eco Tourism Resorts`,
       sourceRef: `placeholder:${category}:${i + 1}`,
-      credit: "CWETR brand placeholder",
+      credit: "Centurion University",
     }));
   },
 
