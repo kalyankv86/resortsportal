@@ -10,6 +10,10 @@ use App\Http\Controllers\Api\ContentController;
 use App\Http\Controllers\Api\LeadController;
 use App\Http\Controllers\Api\MeController;
 use App\Http\Controllers\Api\PaymentController;
+use App\Http\Controllers\Api\Staff\DoctorController;
+use App\Http\Controllers\Api\Staff\HousekeepingController;
+use App\Http\Controllers\Api\Staff\RestaurantController;
+use App\Http\Controllers\Api\Staff\TherapistController;
 use App\Http\Controllers\Api\WaitlistController;
 use Illuminate\Support\Facades\Route;
 
@@ -78,6 +82,36 @@ Route::middleware('auth:api')->prefix('me')->group(function () {
     Route::get('wishlist', [MeController::class, 'wishlist']);
     Route::post('wishlist', [MeController::class, 'addWishlist']);
     Route::delete('wishlist/{wishlistItem}', [MeController::class, 'removeWishlist']);
+});
+
+/* ---- Staff portals -------------------------------------------------------- */
+Route::middleware('auth:api')->prefix('staff')->group(function () {
+    Route::middleware('role:super-admin|director|resort-manager|doctor|nutritionist')->group(function () {
+        Route::get('doctor/dashboard', [DoctorController::class, 'dashboard']);
+        Route::get('doctor/patients/{guest}', [DoctorController::class, 'patient']);
+        Route::post('doctor/patients/{guest}/dosha', [DoctorController::class, 'storeDosha']);
+        Route::post('doctor/patients/{guest}/diet-chart', [DoctorController::class, 'storeDietChart']);
+        Route::post('doctor/patients/{guest}/prescription', [DoctorController::class, 'storePrescription']);
+        Route::post('doctor/patients/{guest}/progress', [DoctorController::class, 'storeProgress']);
+        Route::post('doctor/appointments/{appointment}/complete', [DoctorController::class, 'completeAppointment']);
+    });
+
+    Route::middleware('role:super-admin|director|resort-manager|therapist')->group(function () {
+        Route::get('therapist/dashboard', [TherapistController::class, 'dashboard']);
+        Route::post('therapist/appointments/{appointment}/complete', [TherapistController::class, 'complete']);
+    });
+
+    Route::middleware('role:super-admin|director|resort-manager|housekeeping')->group(function () {
+        Route::get('housekeeping/board', [HousekeepingController::class, 'board']);
+        Route::post('housekeeping/tasks', [HousekeepingController::class, 'createTask']);
+        Route::patch('housekeeping/tasks/{housekeepingTask}', [HousekeepingController::class, 'updateTask']);
+        Route::patch('housekeeping/rooms/{room}/status', [HousekeepingController::class, 'setRoomStatus']);
+    });
+
+    Route::middleware('role:super-admin|director|resort-manager|restaurant-manager|nutritionist')->group(function () {
+        Route::get('restaurant/board', [RestaurantController::class, 'board']);
+        Route::patch('restaurant/orders/{mealOrder}', [RestaurantController::class, 'updateOrder']);
+    });
 });
 
 /* ---- Admin ---------------------------------------------------------------- */

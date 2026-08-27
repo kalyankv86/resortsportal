@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
             RolePermissionSeeder::class,
             CoreDataSeeder::class,
             GuestCareSeeder::class,
+            StaffOpsSeeder::class,
         ]);
 
         $this->command->info('');
