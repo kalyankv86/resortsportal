@@ -6,6 +6,7 @@ import Link from "next/link";
 import { api, ApiError } from "@/lib/api";
 import { useAuth } from "@/lib/auth";
 import { Button } from "@/components/ui/Button";
+import { PayPanel } from "@/components/booking/PayPanel";
 import { cn } from "@/lib/cn";
 
 const field =
@@ -43,6 +44,7 @@ interface CreatedBooking {
   reference: string;
   status: string;
   total: number;
+  balance_due: number;
   currency: string;
   check_in: string;
   check_out: string;
@@ -444,29 +446,52 @@ function Row({ label, value }: { label: string; value: string }) {
 }
 
 function Confirmation({ booking }: { booking: CreatedBooking }) {
+  const [status, setStatus] = useState(booking.status);
+  const [balance, setBalance] = useState(booking.balance_due ?? booking.total);
+  const qrToken = booking.pass.url.split("t=")[1] ?? "";
+
   return (
-    <div className="mx-auto max-w-lg rounded-card border border-border bg-surface p-8 text-center">
-      <p className="eyebrow text-terracotta">Booking received</p>
-      <h2 className="mt-2 font-heading text-3xl text-forest-800">{booking.reference}</h2>
-      <p className="mt-2 text-sm text-muted-foreground">
-        Status: <span className="capitalize">{booking.status}</span> · {booking.check_in} → {booking.check_out}
-      </p>
-      <div
-        className="mx-auto mt-6 w-44"
-        dangerouslySetInnerHTML={{ __html: booking.pass.qr_svg }}
-      />
-      <p className="mt-4 text-sm text-muted-foreground">
-        A confirmation has been sent to <strong>{booking.contact_email}</strong>.
-        Show this QR pass at reception on arrival.
-      </p>
-      <p className="mt-2 font-heading text-lg text-forest-800">
-        Total {booking.currency} {Math.round(booking.total).toLocaleString("en-IN")}
-      </p>
-      <div className="mt-6 flex flex-wrap justify-center gap-3">
-        <Button href={`/booking/${booking.reference}?t=${encodeURIComponent(booking.pass.url.split("t=")[1] ?? "")}`}>
-          View booking
-        </Button>
-        <Button href="/" variant="secondary">Back to site</Button>
+    <div className="mx-auto grid max-w-3xl gap-6 md:grid-cols-[1.1fr_1fr]">
+      <div className="rounded-card border border-border bg-surface p-8 text-center">
+        <p className="eyebrow text-terracotta">Booking received</p>
+        <h2 className="mt-2 font-heading text-3xl text-forest-800">{booking.reference}</h2>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Status: <span className="capitalize">{status}</span> · {booking.check_in} → {booking.check_out}
+        </p>
+        <div className="mx-auto mt-6 w-40" dangerouslySetInnerHTML={{ __html: booking.pass.qr_svg }} />
+        <p className="mt-4 text-sm text-muted-foreground">
+          A confirmation has been sent to <strong>{booking.contact_email}</strong>.
+          Show this QR pass at reception on arrival.
+        </p>
+        <p className="mt-2 font-heading text-lg text-forest-800">
+          Total {booking.currency} {Math.round(booking.total).toLocaleString("en-IN")}
+        </p>
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <Button href={`/booking/${booking.reference}?t=${encodeURIComponent(qrToken)}`}>
+            View booking
+          </Button>
+          <Button href="/" variant="secondary">Back to site</Button>
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-4">
+        <PayPanel
+          reference={booking.reference}
+          token={qrToken}
+          balanceDue={balance}
+          currency={booking.currency}
+          onPaid={() => {
+            setStatus("confirmed");
+            setBalance(0);
+          }}
+        />
+        {balance > 0 && (
+          <p className="font-ui text-xs text-muted-foreground">
+            Prefer to pay later? That&rsquo;s fine — your dates are held as{" "}
+            <strong>pending</strong> and our team will follow up with payment
+            options.
+          </p>
+        )}
       </div>
     </div>
   );

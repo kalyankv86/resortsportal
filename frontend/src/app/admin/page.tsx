@@ -5,6 +5,7 @@ import { api } from "@/lib/api";
 import { useAuth } from "@/lib/auth";
 import { PortalShell, StatCard } from "@/components/portal/PortalShell";
 import { AdminBookings } from "@/components/portal/AdminBookings";
+import { AdminFinance } from "@/components/portal/AdminFinance";
 
 interface Overview {
   counts: Record<string, number>;
@@ -69,6 +70,7 @@ export default function AdminPage() {
           </div>
 
           <AdminBookings />
+          <AdminFinance />
 
           <div className="mt-10 grid gap-8 lg:grid-cols-2">
             <section>

@@ -62,8 +62,9 @@ echo "▶ composer install"
 composer install --no-dev --optimize-autoloader --no-interaction
 
 # extra runtime packages (idempotent — only touches composer.* if missing)
-composer show bacon/bacon-qr-code >/dev/null 2>&1 || \
-  composer require bacon/bacon-qr-code --no-interaction --no-scripts
+for pkg in bacon/bacon-qr-code barryvdh/laravel-dompdf; do
+  composer show "$pkg" >/dev/null 2>&1 || composer require "$pkg" --no-interaction --no-scripts
+done
 
 echo "▶ publish vendor config (idempotent)"
 # spatie/laravel-permission: publishes config/permission.php + the

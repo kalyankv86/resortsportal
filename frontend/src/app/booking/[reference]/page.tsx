@@ -6,6 +6,8 @@ import { api, ApiError } from "@/lib/api";
 import { useAuth } from "@/lib/auth";
 import { Container } from "@/components/ui/primitives";
 import { Button } from "@/components/ui/Button";
+import { PayPanel } from "@/components/booking/PayPanel";
+import { API_BASE } from "@/lib/api";
 import { cn } from "@/lib/cn";
 
 interface Booking {
@@ -193,15 +195,40 @@ export default function BookingLookupPage({
               )}
             </div>
 
-            {booking.pass && (
-              <aside className="h-fit rounded-card border border-border bg-surface p-6 text-center">
-                <p className="eyebrow text-terracotta">Arrival pass</p>
-                <div className="mx-auto mt-4 w-44" dangerouslySetInnerHTML={{ __html: booking.pass.qr_svg }} />
-                <p className="mt-3 font-ui text-xs text-muted-foreground">
-                  Show this at reception on arrival for fast check-in.
-                </p>
-              </aside>
-            )}
+            <div className="flex flex-col gap-4">
+              {booking.pass && (
+                <aside className="h-fit rounded-card border border-border bg-surface p-6 text-center">
+                  <p className="eyebrow text-terracotta">Arrival pass</p>
+                  <div className="mx-auto mt-4 w-44" dangerouslySetInnerHTML={{ __html: booking.pass.qr_svg }} />
+                  <p className="mt-3 font-ui text-xs text-muted-foreground">
+                    Show this at reception on arrival for fast check-in.
+                  </p>
+                </aside>
+              )}
+
+              {booking.status !== "cancelled" && (
+                <PayPanel
+                  reference={booking.reference}
+                  token={t || undefined}
+                  balanceDue={booking.balance_due}
+                  currency={booking.currency}
+                  onPaid={() => load(email || undefined)}
+                />
+              )}
+
+              {booking.amount_paid > 0 && (
+                <a
+                  href={`${API_BASE}/bookings/${encodeURIComponent(booking.reference)}/invoice.pdf${
+                    t ? `?t=${encodeURIComponent(t)}` : email ? `?email=${encodeURIComponent(email)}` : ""
+                  }`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-card border border-border bg-surface px-4 py-3 text-center font-ui text-sm font-semibold text-forest-700 hover:border-sage"
+                >
+                  Download GST invoice (PDF)
+                </a>
+              )}
+            </div>
           </div>
         )}
       </Container>

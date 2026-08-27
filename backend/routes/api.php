@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\Admin\BookingAdminController;
+use App\Http\Controllers\Api\Admin\FinanceController;
 use App\Http\Controllers\Api\Admin\OverviewController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\BookingController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\Api\CatalogController;
 use App\Http\Controllers\Api\ContentController;
 use App\Http\Controllers\Api\LeadController;
 use App\Http\Controllers\Api\MeController;
+use App\Http\Controllers\Api\PaymentController;
 use App\Http\Controllers\Api\WaitlistController;
 use Illuminate\Support\Facades\Route;
 
@@ -49,8 +51,13 @@ Route::post('waitlist', [WaitlistController::class, 'store'])->middleware('throt
 /* ---- Booking engine -------------------------------------------------- */
 Route::post('bookings/quote', [BookingController::class, 'quote'])->middleware('throttle:60,1');
 Route::post('bookings', [BookingController::class, 'store'])->middleware('throttle:20,1');
-Route::get('bookings/{reference}', [BookingController::class, 'show']);
 Route::get('bookings/{reference}/pass', [BookingController::class, 'pass']);
+Route::get('bookings/{reference}/invoice', [PaymentController::class, 'invoice']);
+Route::get('bookings/{reference}/invoice.pdf', [PaymentController::class, 'invoicePdf']);
+Route::get('bookings/{reference}', [BookingController::class, 'show']);
+Route::post('bookings/{reference}/pay', [PaymentController::class, 'pay'])->middleware('throttle:30,1');
+Route::post('payments/{reference}/callback', [PaymentController::class, 'callback']);
+Route::get('payments/methods', [PaymentController::class, 'methods']);
 Route::middleware('auth:api')->group(function () {
     Route::post('bookings/{booking}/cancel', [BookingController::class, 'cancel']);
     Route::post('bookings/{booking}/reschedule', [BookingController::class, 'reschedule']);
@@ -65,11 +72,18 @@ Route::middleware('auth:api')->prefix('me')->group(function () {
 });
 
 /* ---- Admin ---------------------------------------------------------------- */
-Route::middleware(['auth:api', 'role:super-admin|director|resort-manager|reception'])
+Route::middleware(['auth:api', 'role:super-admin|director|resort-manager|reception|finance'])
     ->prefix('admin')
     ->group(function () {
         Route::get('overview', [OverviewController::class, 'index']);
         Route::get('bookings', [BookingAdminController::class, 'index']);
         Route::get('bookings/{booking}', [BookingAdminController::class, 'show']);
         Route::patch('bookings/{booking}/status', [BookingAdminController::class, 'updateStatus']);
+
+        Route::get('finance/summary', [FinanceController::class, 'summary']);
+        Route::get('payments', [FinanceController::class, 'payments']);
+        Route::post('bookings/{booking}/record-payment', [FinanceController::class, 'recordPayment']);
+        Route::get('refunds', [FinanceController::class, 'refunds']);
+        Route::post('bookings/{booking}/refunds', [FinanceController::class, 'requestRefund']);
+        Route::post('refunds/{refundRequest}/review', [FinanceController::class, 'reviewRefund']);
     });

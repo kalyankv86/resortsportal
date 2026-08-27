@@ -13,4 +13,9 @@ class Invoice extends Model
     {
         return $this->belongsTo(Booking::class);
     }
+
+    public function gstType(): string
+    {
+        return ((float) $this->igst) > 0 ? 'igst' : 'cgst_sgst';
+    }
 }
