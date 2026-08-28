@@ -33,9 +33,9 @@ export const metadata: Metadata = {
     template: `%s · ${site.shortName}`,
   },
   description:
-    "A luxury wellness, Ayurveda and eco-tourism sanctuary by Centurion University. Residential Panchakarma retreats, forest healing and farm-to-table dining at wellness.cutm.ac.in.",
+    "The official wellness and eco-tourism destination of Centurion University, Paralakhemundi — classical Ayurveda, residential Panchakarma, forest healing and farm-to-table dining at the foothills of the Eastern Ghats.",
   keywords: [
-    "Ayurveda resort",
+    "Ayurveda wellness centre",
     "wellness retreat India",
     "Panchakarma",
     "eco tourism Odisha",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: "#14532d",
-  colorScheme: "light dark",
+  colorScheme: "light",
 };
 
 export default function RootLayout({

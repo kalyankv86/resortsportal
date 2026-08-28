@@ -90,7 +90,7 @@ Route::middleware('auth:api')->prefix('me')->group(function () {
 
 /* ---- Staff portals -------------------------------------------------------- */
 Route::middleware('auth:api')->prefix('staff')->group(function () {
-    Route::middleware('role:super-admin|director|resort-manager|doctor|nutritionist')->group(function () {
+    Route::middleware('role:super-admin|director|wellness-manager|doctor|nutritionist')->group(function () {
         Route::get('doctor/dashboard', [DoctorController::class, 'dashboard']);
         Route::get('doctor/patients/{guest}', [DoctorController::class, 'patient']);
         Route::post('doctor/patients/{guest}/dosha', [DoctorController::class, 'storeDosha']);
@@ -100,26 +100,26 @@ Route::middleware('auth:api')->prefix('staff')->group(function () {
         Route::post('doctor/appointments/{appointment}/complete', [DoctorController::class, 'completeAppointment']);
     });
 
-    Route::middleware('role:super-admin|director|resort-manager|therapist')->group(function () {
+    Route::middleware('role:super-admin|director|wellness-manager|therapist')->group(function () {
         Route::get('therapist/dashboard', [TherapistController::class, 'dashboard']);
         Route::post('therapist/appointments/{appointment}/complete', [TherapistController::class, 'complete']);
     });
 
-    Route::middleware('role:super-admin|director|resort-manager|housekeeping')->group(function () {
+    Route::middleware('role:super-admin|director|wellness-manager|housekeeping')->group(function () {
         Route::get('housekeeping/board', [HousekeepingController::class, 'board']);
         Route::post('housekeeping/tasks', [HousekeepingController::class, 'createTask']);
         Route::patch('housekeeping/tasks/{housekeepingTask}', [HousekeepingController::class, 'updateTask']);
         Route::patch('housekeeping/rooms/{room}/status', [HousekeepingController::class, 'setRoomStatus']);
     });
 
-    Route::middleware('role:super-admin|director|resort-manager|restaurant-manager|nutritionist')->group(function () {
+    Route::middleware('role:super-admin|director|wellness-manager|restaurant-manager|nutritionist')->group(function () {
         Route::get('restaurant/board', [RestaurantController::class, 'board']);
         Route::patch('restaurant/orders/{mealOrder}', [RestaurantController::class, 'updateOrder']);
     });
 });
 
 /* ---- Admin ---------------------------------------------------------------- */
-Route::middleware(['auth:api', 'role:super-admin|director|resort-manager|reception|finance'])
+Route::middleware(['auth:api', 'role:super-admin|director|wellness-manager|reception|finance'])
     ->prefix('admin')
     ->group(function () {
         Route::get('overview', [OverviewController::class, 'index']);
@@ -137,7 +137,7 @@ Route::middleware(['auth:api', 'role:super-admin|director|resort-manager|recepti
 
 /* ---- Admin · CMS / users / settings / audit ----------------------------- */
 Route::middleware(['auth:api'])->prefix('admin')->group(function () {
-    Route::middleware('role:super-admin|director|marketing|resort-manager')->group(function () {
+    Route::middleware('role:super-admin|director|marketing|wellness-manager')->group(function () {
         Route::get('cms/pages', [CmsController::class, 'pages']);
         Route::get('cms/pages/{page}', [CmsController::class, 'page']);
         Route::patch('cms/pages/{page}', [CmsController::class, 'updatePage']);

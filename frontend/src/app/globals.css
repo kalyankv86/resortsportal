@@ -67,18 +67,10 @@
   --gradient-forest: linear-gradient(160deg, #14532d 0%, #0a2c18 100%);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: #0c1410;
-    --color-surface: #12201a;
-    --color-surface-muted: #16261e;
-    --color-foreground: #eef3ee;
-    --color-muted-foreground: #a7b7ab;
-    --color-border: #24352b;
-    --color-primary: #7aa874;
-    --color-primary-foreground: #0a2c18;
-    --gradient-accent: linear-gradient(135deg, #16382a 0%, #12201a 100%);
-  }
+/* Light theme only — the palette is fixed regardless of the OS setting.
+   color-scheme:light keeps form controls and scrollbars light too. */
+:root {
+  color-scheme: light;
 }
 
 /* Base element styles MUST live in @layer base so Tailwind utilities

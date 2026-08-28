@@ -140,9 +140,9 @@ class BookingController extends Controller
     /* ---------------------------------------------------------------- */
 
     /**
-     * Confirmation notification. Delivery channel is the log mailer until SMTP
-     * / WhatsApp credentials are configured (Milestone 7 / integrations); the
-     * attempt is always recorded in notification_log.
+     * Booking confirmation. Mail is delivered by the configured mailer (SMTP
+     * when set, otherwise logged); the attempt is always recorded in
+     * notification_log.
      */
     private function sendConfirmation(Booking $booking): void
     {
@@ -159,7 +159,7 @@ class BookingController extends Controller
             ."Status: {$booking->status}\n\n"
             ."View your booking and arrival pass: {$url}\n\n"
             ."Our team will confirm your dates and share payment instructions shortly.\n"
-            ."— Centurion Wellness Eco Tourism Resorts";
+            ."— Centurion Wellness Eco Tourism";
 
         $status = 'sent';
         $error = null;

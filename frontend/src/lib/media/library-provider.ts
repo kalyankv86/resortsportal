@@ -33,7 +33,7 @@ function toMediaItem(m: ManifestItem, category: MediaCategory): MediaItem {
     src: `${MEDIA_BASE}/${m.file}`,
     width: m.width || 2560,
     height: m.height || 1707,
-    alt: m.alt ?? "Centurion Wellness Eco Tourism Resorts",
+    alt: m.alt ?? "Centurion Wellness Eco Tourism",
     sourceRef: `google-photos:${m.id}`,
     credit: "Centurion University",
   };

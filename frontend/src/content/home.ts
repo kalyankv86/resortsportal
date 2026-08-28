@@ -2,7 +2,7 @@ import type { StatItem } from "@/components/ui/Stat";
 import type { MediaCategory } from "@/lib/media";
 
 export const heroContent = {
-  eyebrow: "Centurion Wellness Eco Tourism Resorts",
+  eyebrow: "Centurion Wellness Eco Tourism",
   headline: "Reconnect with Yourself.",
   subtitle: ["Ancient Ayurveda.", "Forest Healing.", "Sustainable Luxury."],
   primaryCta: { label: "Book Wellness Stay", href: "/book-now" },

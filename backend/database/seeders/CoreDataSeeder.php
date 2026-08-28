@@ -48,9 +48,9 @@ class CoreDataSeeder extends Seeder
     private function settings(): void
     {
         $rows = [
-            ['general', 'site.name', 'string', true, 'Centurion Wellness Eco Tourism Resorts'],
+            ['general', 'site.name', 'string', true, 'Centurion Wellness Eco Tourism'],
             ['general', 'site.tagline', 'string', true, 'Heal • Stay • Reconnect with Nature'],
-            ['general', 'contact.email', 'string', true, 'resorts@cutm.ac.in'],
+            ['general', 'contact.email', 'string', true, 'wellness@cutm.ac.in'],
             ['general', 'contact.phone', 'string', true, '+91 90000 00000'],
             ['general', 'contact.address', 'string', true, 'Centurion University Campus, Odisha, India'],
             ['booking', 'booking.min_nights', 'int', false, 2],
@@ -68,13 +68,13 @@ class CoreDataSeeder extends Seeder
     private function staff(): void
     {
         $admin = User::updateOrCreate(
-            ['email' => 'admin@resorts.cutm.ac.in'],
-            ['name' => 'CWETR Administrator', 'password' => Hash::make('ChangeMe!CWETR2026'), 'is_staff' => true, 'status' => 'active'],
+            ['email' => 'admin@wellness.cutm.ac.in'],
+            ['name' => 'Centurion Wellness Administrator', 'password' => Hash::make('ChangeMe!CWETR2026'), 'is_staff' => true, 'status' => 'active'],
         );
         $admin->syncRoles(['super-admin']);
 
         $doctorUser = User::updateOrCreate(
-            ['email' => 'doctor@resorts.cutm.ac.in'],
+            ['email' => 'doctor@wellness.cutm.ac.in'],
             ['name' => 'Dr. A. Mohanty', 'password' => Hash::make('ChangeMe!CWETR2026'), 'is_staff' => true, 'status' => 'active'],
         );
         $doctorUser->syncRoles(['doctor']);
@@ -92,7 +92,7 @@ class CoreDataSeeder extends Seeder
         );
 
         $therapistUser = User::updateOrCreate(
-            ['email' => 'therapist@resorts.cutm.ac.in'],
+            ['email' => 'therapist@wellness.cutm.ac.in'],
             ['name' => 'S. Nayak', 'password' => Hash::make('ChangeMe!CWETR2026'), 'is_staff' => true, 'status' => 'active'],
         );
         $therapistUser->syncRoles(['therapist']);
@@ -103,7 +103,7 @@ class CoreDataSeeder extends Seeder
 
         foreach (['reception', 'finance', 'housekeeping', 'restaurant-manager'] as $role) {
             $u = User::updateOrCreate(
-                ['email' => "{$role}@resorts.cutm.ac.in"],
+                ['email' => "{$role}@wellness.cutm.ac.in"],
                 ['name' => Str::headline($role), 'password' => Hash::make('ChangeMe!CWETR2026'), 'is_staff' => true, 'status' => 'active'],
             );
             $u->syncRoles([$role]);

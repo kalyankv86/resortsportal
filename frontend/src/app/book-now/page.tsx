@@ -6,7 +6,7 @@ import { BookingWizard } from "@/components/booking/BookingWizard";
 export const metadata: Metadata = {
   title: "Book Now",
   description:
-    "Check availability and reserve your wellness stay at Centurion Wellness Eco Tourism Resorts.",
+    "Check availability and reserve your wellness stay at Centurion Wellness Eco Tourism, Paralakhemundi.",
 };
 
 export default function BookNowPage() {

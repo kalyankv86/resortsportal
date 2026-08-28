@@ -24,7 +24,7 @@
     <tr>
       <td>
         <h1>{{ $gst['legal_name'] }}</h1>
-        <div class="muted">Centurion Wellness Eco Tourism Resorts</div>
+        <div class="muted">Centurion Wellness Eco Tourism</div>
         <div class="muted">{{ $gst['address'] }}</div>
         @if($gst['gstin'])<div class="muted">GSTIN: {{ $gst['gstin'] }}</div>@endif
       </td>
@@ -83,7 +83,7 @@
   </table>
 
   <div class="foot">
-    This is a computer-generated invoice. For queries contact {{ $booking->contact_email ? 'resorts@cutm.ac.in' : 'resorts@cutm.ac.in' }}.<br>
+    This is a computer-generated invoice. For queries contact {{ $booking->contact_email ? 'wellness@cutm.ac.in' : 'wellness@cutm.ac.in' }}.<br>
     Cancellation &amp; refund terms apply as per the booking policy.
   </div>
 </body>

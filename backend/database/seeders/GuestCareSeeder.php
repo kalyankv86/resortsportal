@@ -61,7 +61,7 @@ class GuestCareSeeder extends Seeder
         // Pay in full → confirms + invoice + loyalty
         app(PaymentService::class)->recordManual($booking, [
             'amount' => $booking->total, 'method' => 'offline', 'reference' => 'SEED', 'note' => 'Seed data',
-        ], User::where('email', 'finance@resorts.cutm.ac.in')->first() ?? $user);
+        ], User::where('email', 'finance@wellness.cutm.ac.in')->first() ?? $user);
 
         $booking->refresh();
 

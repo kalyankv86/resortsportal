@@ -24,7 +24,7 @@ export async function BentoShowcase() {
         <SectionHeading
           eyebrow="One sanctuary, many paths"
           title="Everything your stay can hold"
-          description="A residential wellness resort on the Centurion University eco-campus — Ayurveda, forest, farm and a table that follows your prescription."
+          description="A residential wellness centre on the Centurion University campus at Paralakhemundi — Ayurveda, forest, organic farm and a table that follows your prescription."
         />
 
         <div className="mt-12 grid auto-rows-[220px] grid-cols-1 gap-4 md:grid-cols-6">

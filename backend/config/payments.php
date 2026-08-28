@@ -22,7 +22,7 @@ return [
         ['key' => 'card', 'label' => 'Credit / Debit card'],
         ['key' => 'netbanking', 'label' => 'Net banking'],
         ['key' => 'qr', 'label' => 'Scan & pay (QR)'],
-        ['key' => 'offline', 'label' => 'Bank transfer / pay at resort'],
+        ['key' => 'offline', 'label' => 'Bank transfer / pay at the wellness centre'],
     ],
 
     /* Shared secret the gateway callback must present (mock + real webhooks). */

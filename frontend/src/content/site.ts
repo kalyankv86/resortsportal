@@ -1,14 +1,15 @@
 /** Global site configuration + primary navigation (full IA from the brief). */
 
 export const site = {
-  name: "Centurion Wellness Eco Tourism Resorts",
-  shortName: "CWETR",
+  name: "Centurion Wellness Eco Tourism",
+  shortName: "Centurion Wellness",
   org: "Centurion University of Technology and Management",
   tagline: "Heal • Stay • Reconnect with Nature",
   url: "https://wellness.cutm.ac.in",
   phone: "+91 90000 00000",
-  email: "resorts@cutm.ac.in",
-  address: "Centurion University Campus, Odisha, India",
+  email: "wellness@cutm.ac.in",
+  address: "Centurion University, Paralakhemundi, Gajapati, Odisha 761211",
+  campus: "Paralakhemundi Campus · foothills of the Eastern Ghats",
   socials: {
     instagram: "https://instagram.com/",
     facebook: "https://facebook.com/",
@@ -39,7 +40,7 @@ export const primaryNav: NavNode[] = [
     label: "Stay",
     href: "/luxury-stay",
     children: [
-      { label: "Luxury Stay", href: "/luxury-stay" },
+      { label: "Wellness Stay", href: "/luxury-stay" },
       { label: "Rooms", href: "/rooms" },
       { label: "Villas", href: "/villas" },
       { label: "Eco Cottages", href: "/eco-cottages" },
@@ -67,6 +68,19 @@ export const primaryNav: NavNode[] = [
     ],
   },
   {
+    label: "Explore Gajapati",
+    href: "/explore-gajapati",
+    children: [
+      { label: "Explore Gajapati", href: "/explore-gajapati" },
+      { label: "Mahendragiri Hills", href: "/explore-gajapati/mahendragiri-hills" },
+      { label: "Gandahati Waterfall", href: "/explore-gajapati/gandahati-waterfall" },
+      { label: "Gajapati Palace", href: "/explore-gajapati/gajapati-palace" },
+      { label: "Padmasambhava Mahavihara", href: "/explore-gajapati/padmasambhava-mahavihara" },
+      { label: "Saura Tribal Villages", href: "/explore-gajapati/saura-villages" },
+      { label: "Campus Experiences", href: "/campus-experiences" },
+    ],
+  },
+  {
     label: "Discover",
     href: "/gallery",
     children: [
@@ -75,7 +89,8 @@ export const primaryNav: NavNode[] = [
       { label: "Events", href: "/events" },
       { label: "Testimonials", href: "/testimonials" },
       { label: "Blog", href: "/blog" },
-      { label: "About Resort", href: "/about" },
+      { label: "About Centurion Wellness", href: "/about" },
+      { label: "About Centurion University", href: "/about-university" },
     ],
   },
 ];

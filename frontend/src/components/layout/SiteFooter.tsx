@@ -66,7 +66,7 @@ export function SiteFooter() {
             ))}
           </ul>
           <p className="text-xs text-ivory/50">
-            © {new Date().getFullYear()} {site.org}. CWETR Enterprise Portal v1.0.
+            © {new Date().getFullYear()} {site.org}. {site.name}.
           </p>
         </div>
       </Container>

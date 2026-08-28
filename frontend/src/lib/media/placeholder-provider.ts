@@ -100,7 +100,7 @@ export const placeholderProvider: MediaProvider = {
       blurDataURL: BLUR,
       width: 1440,
       height: 900,
-      alt: `${style.label} — Centurion Wellness Eco Tourism Resorts`,
+      alt: `${style.label} — Centurion Wellness Eco Tourism`,
       sourceRef: `placeholder:${category}:${i + 1}`,
       credit: "Centurion University",
     }));

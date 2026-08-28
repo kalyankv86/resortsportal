@@ -60,7 +60,7 @@ function page(def: PageDef): PageDef {
 export const PAGES: Record<string, PageDef> = {
   about: page({
     slug: "about",
-    title: "About the Resort",
+    title: "About Centurion Wellness",
     eyebrow: "Our story",
     summary:
       "A residential wellness and eco-tourism sanctuary on the Centurion University campus — where classical Ayurveda meets restored forest, an organic farm and quiet, sustainable luxury.",
@@ -70,7 +70,7 @@ export const PAGES: Record<string, PageDef> = {
         kind: "intro",
         heading: "Healing, the way nature intended",
         body: [
-          "Centurion Wellness Eco Tourism Resorts was created by Centurion University of Technology and Management as a living campus for whole-person health. Guests come for a few days of rest or a full residential Panchakarma programme, and leave having reconnected with a slower rhythm.",
+          "Centurion Wellness Eco Tourism is the official wellness and eco-tourism destination of Centurion University of Technology and Management, set inside the Paralakhemundi campus at the foothills of the Eastern Ghats. It is a living campus for whole-person health — guests come for a few days of rest or a full residential Panchakarma programme, and leave having reconnected with a slower rhythm.",
           "Everything here is designed to lower the noise: architecture that opens to the tree line, a kitchen that cooks to your doctor's prescription, and 120 acres of trails, water bodies and farmland to wander.",
         ],
       },
@@ -91,7 +91,99 @@ export const PAGES: Record<string, PageDef> = {
           { title: "Nature first", text: "Low-impact building, native planting, solar hot water and zero single-use plastic across the estate." },
           { title: "Clinical Ayurveda", text: "Qualified vaidyas lead every programme with documented assessment, treatment and follow-up." },
           { title: "Farm to table", text: "Most produce is grown on our organic farm and cooked in a sattvic, millet-forward kitchen." },
-          { title: "University-backed", text: "Research, training and continuity of care from CUTM's health-sciences faculty." },
+          { title: "University-backed", text: "Research, training and continuity of care from Centurion University's health-sciences faculty." },
+        ],
+      },
+      bookCta,
+    ],
+  }),
+
+  "about-university": page({
+    slug: "about-university",
+    title: "About Centurion University",
+    eyebrow: "The university",
+    summary:
+      "Centurion Wellness Eco Tourism is an initiative of Centurion University of Technology and Management — a multi-sector, skill-integrated university rooted in Odisha, with its founding campus at Paralakhemundi in the Gajapati district.",
+    hero: "drone",
+    parent: { label: "About Centurion Wellness", href: "/about" },
+    sections: [
+      {
+        kind: "intro",
+        heading: "A university built on skill and community",
+        body: [
+          "Centurion University of Technology and Management (CUTM) was established in 2010 as a state private university in Odisha. It grew from a rural engineering and skills institute at Paralakhemundi into a multi-campus university spanning Odisha and Andhra Pradesh, with a mandate to make higher education practical, employable and inclusive.",
+          "The Paralakhemundi campus — where the wellness centre sits — lies at the foothills of the Eastern Ghats near Mahendragiri, on a large green campus of farmland, orchards, water bodies and forest. Agriculture, fisheries, veterinary science, food processing, engineering and management are taught alongside working farms, hatcheries and skill parks, and much of the university's work is with the tribal and farming communities of the Gajapati region.",
+        ],
+      },
+      {
+        kind: "stats",
+        items: [
+          { value: 120, label: "Acre green campus, Paralakhemundi" },
+          { value: 2, label: "States — Odisha & Andhra Pradesh" },
+          { value: 30, suffix: "+", label: "Skill-integrated disciplines" },
+          { value: 15, suffix: "+", label: "Years of the Paralakhemundi campus" },
+        ],
+      },
+      {
+        kind: "features",
+        heading: "What the university is known for",
+        items: [
+          { title: "Skill-integrated education", text: "Degrees delivered with hands-on production centres — students learn by doing across every school." },
+          { title: "Agriculture, fisheries & veterinary", text: "Working farms, hatcheries and animal-science facilities on the Paralakhemundi campus." },
+          { title: "Research & innovation", text: "Applied research in food, agri-tech, renewable energy and rural livelihoods." },
+          { title: "Community & tribal engagement", text: "Long-running programmes with farmer producer groups and Saura tribal communities of Gajapati." },
+          { title: "Sustainability", text: "Solar energy, organic cultivation, water harvesting and biodiversity conservation across the estate." },
+          { title: "The Eastern Ghats setting", text: "A campus among hills, rivers and forest — the natural backdrop for the wellness centre." },
+        ],
+      },
+      {
+        kind: "cards",
+        heading: "Around the campus",
+        category: "organic-farm",
+        items: [
+          { title: "Campus Experiences", text: "Guided visits to the organic farm, medicinal garden, hatchery and skill parks.", href: "/campus-experiences" },
+          { title: "Explore Gajapati", text: "Mahendragiri, Gandahati Waterfall, palaces and Saura villages within reach of the campus.", href: "/explore-gajapati" },
+          { title: "Gallery", text: "The campus and its surroundings through the seasons.", href: "/gallery" },
+        ],
+      },
+      {
+        kind: "cta",
+        heading: "About the university",
+        body: "For admissions, schools, research and campuses, visit the main Centurion University website.",
+        primary: { label: "cutm.ac.in", href: "https://cutm.ac.in" },
+        secondary: { label: "Explore Gajapati", href: "/explore-gajapati" },
+      },
+    ],
+  }),
+
+  "campus-experiences": page({
+    slug: "campus-experiences",
+    title: "Campus Experiences",
+    eyebrow: "The university",
+    summary:
+      "The Paralakhemundi campus is a working landscape of farms, orchards, a hatchery and skill workshops. Guests can join guided visits between wellness sessions.",
+    hero: "organic-farm",
+    parent: { label: "About Centurion University", href: "/about-university" },
+    sections: [
+      {
+        kind: "cards",
+        heading: "Guided campus visits",
+        category: "organic-farm",
+        items: [
+          { title: "Organic Farm Tour", text: "Walk the vegetable plots, orchards and composting yards that supply the wellness kitchen." },
+          { title: "Fish Farm Experience", text: "See the university's aquaculture ponds and hatchery with a fisheries-science guide." },
+          { title: "Dairy Experience", text: "A morning at the campus dairy — milking, fodder and animal care." },
+          { title: "Medicinal Garden Walk", text: "A curated garden of Ayurvedic herbs used in the treatments, with a vaidya." },
+          { title: "Innovation Labs", text: "Food processing, agri-tech and renewable-energy workshops where students build and test." },
+          { title: "Skill Park Tour", text: "Hands-on trade workshops — the heart of the university's learn-by-doing model." },
+          { title: "Sports Complex", text: "Athletics track, courts and the campus lake for early-morning activity." },
+          { title: "Cultural Experience", text: "Folk music, Saura art and seasonal festivals with the campus community." },
+        ],
+      },
+      {
+        kind: "intro",
+        body: [
+          "Campus visits are arranged around your wellness schedule and run in small groups. A festival and events calendar is shared at reception and in the guest portal.",
         ],
       },
       bookCta,
@@ -103,7 +195,7 @@ export const PAGES: Record<string, PageDef> = {
     title: "Ayurveda Wellness Centre",
     eyebrow: "Wellness",
     summary:
-      "The clinical heart of the resort: consultation rooms, a Panchakarma theatre, herbal pharmacy and treatment suites, staffed by resident doctors and trained therapists.",
+      "The clinical heart of the wellness centre: consultation rooms, a Panchakarma theatre, herbal pharmacy and treatment suites, staffed by resident doctors and trained therapists.",
     hero: "ayurveda",
     sections: [
       {
@@ -300,7 +392,7 @@ export const PAGES: Record<string, PageDef> = {
 
   "luxury-stay": page({
     slug: "luxury-stay",
-    title: "Luxury Stay",
+    title: "Wellness Stay",
     eyebrow: "Stay",
     summary:
       "Sixty-four rooms, cottages and villas — each with a private verandah, natural materials and a view into the tree line or across the lake.",
@@ -339,7 +431,7 @@ export const PAGES: Record<string, PageDef> = {
     eyebrow: "Stay",
     summary: "Forest Deluxe and Family Suites — canopy-level rooms a short walk from the wellness centre and dining hall.",
     hero: "rooms",
-    parent: { label: "Luxury Stay", href: "/luxury-stay" },
+    parent: { label: "Wellness Stay", href: "/luxury-stay" },
     sections: [
       { kind: "gallery", heading: "Inside the rooms", category: "rooms" },
       {
@@ -363,7 +455,7 @@ export const PAGES: Record<string, PageDef> = {
     eyebrow: "Stay",
     summary: "Bamboo Villas and the Executive Wellness Suite — standalone, private and quiet, for longer residential programmes.",
     hero: "rooms",
-    parent: { label: "Luxury Stay", href: "/luxury-stay" },
+    parent: { label: "Wellness Stay", href: "/luxury-stay" },
     sections: [
       { kind: "gallery", heading: "The villas", category: "rooms" },
       {
@@ -386,7 +478,7 @@ export const PAGES: Record<string, PageDef> = {
     eyebrow: "Stay",
     summary: "Premium and Lake Cottages built with low-impact methods — rammed earth, bamboo, reclaimed timber and passive cooling.",
     hero: "forest",
-    parent: { label: "Luxury Stay", href: "/luxury-stay" },
+    parent: { label: "Wellness Stay", href: "/luxury-stay" },
     sections: [
       { kind: "gallery", heading: "The cottages", category: "forest" },
       {
@@ -777,7 +869,7 @@ export const PAGES: Record<string, PageDef> = {
           { name: "Open Value", price: "Your amount", features: ["Any value from ₹2,000", "Stackable at checkout", "Valid 12 months"], href: "/contact" },
         ],
       },
-      { kind: "intro", body: ["To arrange a gift card, contact our reservations desk at resorts@cutm.ac.in or +91 90000 00000. Cards are delivered by email and are valid for twelve months."] },
+      { kind: "intro", body: ["To arrange a gift card, contact our reservations desk at wellness@cutm.ac.in or +91 90000 00000. Cards are delivered by email and are valid for twelve months."] },
     ],
   }),
 

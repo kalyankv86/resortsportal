@@ -34,7 +34,7 @@ export function ContactForm() {
       setStatus("sent");
     } catch (err) {
       setStatus("error");
-      setError(err instanceof ApiError ? err.message : "Something went wrong. Please email resorts@cutm.ac.in.");
+      setError(err instanceof ApiError ? err.message : "Something went wrong. Please email wellness@cutm.ac.in.");
     }
   }
 

@@ -79,7 +79,7 @@ export function SiteHeader() {
             >
               Centurion Wellness
               <span className="block font-ui text-[0.6rem] font-semibold uppercase tracking-[0.24em] opacity-70">
-                Eco Tourism Resorts
+                Eco Tourism
               </span>
             </span>
           </Link>

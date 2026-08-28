@@ -12,7 +12,7 @@ class RolePermissionSeeder extends Seeder
 {
     /** All CWETR roles (master prompt § User Roles). */
     private const ROLES = [
-        'super-admin', 'director', 'resort-manager', 'reception', 'doctor',
+        'super-admin', 'director', 'wellness-manager', 'reception', 'doctor',
         'therapist', 'nutritionist', 'yoga-trainer', 'restaurant-manager',
         'housekeeping', 'finance', 'inventory-manager', 'marketing',
         'guest', 'corporate-guest', 'travel-agent',
@@ -44,7 +44,7 @@ class RolePermissionSeeder extends Seeder
 
     private const ROLE_GRANTS = [
         'director' => ['*'],
-        'resort-manager' => [
+        'wellness-manager' => [
             'bookings.*', 'payments.view', 'invoices.view', 'guests.*', 'therapies.*',
             'programs.*', 'doctors.*', 'appointments.*', 'housekeeping.*', 'restaurant.*',
             'inventory.view', 'reports.view', 'cms.*', 'media.*', 'crm.*',
