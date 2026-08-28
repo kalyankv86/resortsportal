@@ -5,8 +5,9 @@ import {
   destinations,
   destinationBySlug,
   destinationImage,
+  destinationGallery,
 } from "@/content/destinations";
-import { getCover, getMedia } from "@/lib/media";
+import { getCover } from "@/lib/media";
 import { PageHero } from "@/components/page/PageHero";
 import { Container, Section, SectionHeading } from "@/components/ui/primitives";
 import { MediaImage } from "@/components/ui/MediaImage";
@@ -43,8 +44,11 @@ export default async function DestinationPage({
   if (!d) notFound();
 
   const cover = destinationImage(d) ?? (await getCover(d.hero));
-  const gallery = (await getMedia(d.hero)).slice(0, 4);
+  const gallery = destinationGallery(d);
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${d.coords.lat},${d.coords.lng}`;
+  const credits = Array.from(
+    new Set([d.image, ...(d.gallery ?? [])].filter(Boolean).map((x) => x!.credit)),
+  );
 
   return (
     <>
@@ -60,7 +64,7 @@ export default async function DestinationPage({
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1.6fr_1fr]">
             <div>
-              <SectionHeading eyebrow={d.tag} title="History & the visit" />
+              <SectionHeading eyebrow={d.tag} title={`About ${d.name}`} />
               <div className="mt-4 flex flex-col gap-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
                 {d.history.map((p, i) => (
                   <p key={i}>{p}</p>
@@ -93,28 +97,58 @@ export default async function DestinationPage({
                   rel="noreferrer"
                   className="rounded-2xl border border-border bg-surface px-4 py-3 text-center font-ui text-sm font-semibold text-forest-700 hover:border-sage"
                 >
-                  Open in Maps
+                  Open in Google Maps
                 </a>
                 <Button href="/contact">Book a guided visit</Button>
               </div>
             </aside>
           </div>
-
-          <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {gallery.map((img, i) => (
-              <Reveal key={img.id} delay={i * 0.05}>
-                <MediaImage item={img} sizes="(max-width:640px) 50vw, 25vw" className="aspect-[3/4] w-full" />
-              </Reveal>
-            ))}
-          </div>
-
-          {d.image ? (
-            <p className="mt-6 text-xs text-muted-foreground">
-              Location photograph: {d.image.credit}.
-            </p>
-          ) : null}
         </Container>
       </Section>
+
+      <Section className="bg-surface-muted">
+        <Container>
+          <SectionHeading eyebrow="Plan the trip" title="How to reach" />
+          <ul className="mt-6 flex max-w-3xl flex-col gap-3">
+            {d.gettingThere.map((p, i) => (
+              <li key={i} className="flex gap-3 text-base leading-relaxed text-muted-foreground">
+                <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-sage-300" />
+                {p}
+              </li>
+            ))}
+          </ul>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Button href={mapsUrl} target="_blank" rel="noreferrer" variant="secondary">
+              Open in Google Maps
+            </Button>
+            <Button href="/contact">Ask reception to arrange it</Button>
+          </div>
+        </Container>
+      </Section>
+
+      {gallery.length > 0 ? (
+        <Section>
+          <Container>
+            <SectionHeading eyebrow="Photographs" title={d.name} />
+            <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+              {gallery.map((img, i) => (
+                <Reveal key={img.id} delay={i * 0.05}>
+                  <MediaImage
+                    item={img}
+                    sizes="(max-width:640px) 50vw, 25vw"
+                    className={i === 0 ? "aspect-[4/3] w-full" : "aspect-square w-full"}
+                  />
+                </Reveal>
+              ))}
+            </div>
+            {credits.length > 0 ? (
+              <p className="mt-5 text-xs leading-relaxed text-muted-foreground">
+                Photographs: {credits.join("; ")}.
+              </p>
+            ) : null}
+          </Container>
+        </Section>
+      ) : null}
 
       <Section className="bg-surface-muted">
         <Container>

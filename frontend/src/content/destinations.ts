@@ -8,6 +8,19 @@ import type { MediaCategory, MediaItem } from "@/lib/media";
  * approximate; roads and river crossings vary by season.
  */
 
+/**
+ * Freely-licensed image from Wikimedia Commons, served from /media/library/
+ * (fetched by scripts/fetch-sightseeing-media.mjs). `credit` is rendered on the
+ * page to satisfy the CC attribution requirement.
+ */
+export interface DestImage {
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
+  credit: string;
+}
+
 export interface Destination {
   slug: string;
   name: string;
@@ -19,14 +32,14 @@ export interface Destination {
   travelTime: string;
   bestSeason: string;
   activities: string[];
+  /** How to get there from the Paralakhemundi campus. */
+  gettingThere: string[];
   /** Approximate coordinates for the "Open in Maps" link. */
   coords: { lat: number; lng: number };
-  /**
-   * Location photograph. Freely-licensed images from Wikimedia Commons, served
-   * from /media/library/ (see scripts/sightseeing-media.json). Destinations
-   * without one fall back to the house category photography.
-   */
-  image?: { src: string; width: number; height: number; alt: string; credit: string };
+  /** Primary photograph (hero). Falls back to house category imagery if absent. */
+  image?: DestImage;
+  /** Extra photographs shown in the detail-page gallery. */
+  gallery?: DestImage[];
 }
 
 export const destinations: Destination[] = [
@@ -38,21 +51,37 @@ export const destinations: Destination[] = [
     summary:
       "The second-highest peak in Odisha, wrapped in myth and mist. A pilgrimage hill of ancient stone temples, cool forest and long views over Gajapati.",
     history: [
-      "Mahendragiri rises to about 1,500 metres in the southern Eastern Ghats. It is named in the Mahabharata and the Ramayana as the abode of Parashurama, and a cluster of temples on its upper slopes — Kunti, Yudhishthira, Bhima and the Parashurama shrine — are attributed to the Pandavas and built in early Kalinga stone style.",
-      "The hill is also a botanist's site: its higher reaches hold relict patches of semi-evergreen forest and orchids not found in the plains. A festival draws pilgrims each Shivaratri; the rest of the year it is quiet.",
+      "Mahendragiri rises to about 1,500 metres in the southern Eastern Ghats — the second-highest point in Odisha. It is named in the Mahabharata and the Ramayana as the abode of Parashurama, and a cluster of temples on its upper slopes — Kunti, Yudhishthira, Bhima and the Parashurama shrine — are attributed to the Pandavas and built in early Kalinga stone style.",
+      "The climb passes through dry deciduous forest that turns semi-evergreen higher up, with relict patches of montane grassland and orchids not found in the plains. The summit ridge gives long views across the Gajapati and Srikakulam hills, and the air is noticeably cooler than the valley.",
+      "A large fair draws pilgrims on Shivaratri; for the rest of the year the hill is quiet and best visited early, before the afternoon haze.",
     ],
     distanceKm: 35,
     travelTime: "1 hr 15 min",
     bestSeason: "October – February",
-    activities: ["Guided temple walk", "Forest birding", "Sunrise viewpoint", "Photography"],
+    activities: ["Guided temple walk", "Forest birding", "Summit-ridge viewpoint", "Photography"],
+    gettingThere: [
+      "About 35 km from the campus (1 hr 15 min) — take the road to R.Udayagiri, then the marked turn for Mahendragiri.",
+      "The last stretch is a narrow, winding hill road; a car or SUV manages it in the dry season, and reception arranges the vehicle and a driver who knows the route.",
+      "Vehicles park near the base of the temple cluster; reaching the upper shrines is a short, steep walk of 20–30 minutes.",
+      "Nearest railway station: Palasa (about 55 km) on the Howrah–Chennai line. Nearest airports: Visakhapatnam (VTZ, ~150 km) and Bhubaneswar (BBI, ~230 km).",
+    ],
     coords: { lat: 18.9667, lng: 84.3667 },
     image: {
       src: "/media/library/sightseeing-mahendragiri-hills.jpg",
-      width: 1600,
-      height: 1142,
+      width: 1080,
+      height: 771,
       alt: "Forested slopes of the Mahendragiri hills, Gajapati, Odisha",
       credit: "Subhamsahoo2008, CC BY-SA 4.0, via Wikimedia Commons",
     },
+    gallery: [
+      {
+        src: "/media/library/sightseeing-mahendragiri-hills-2.jpg",
+        width: 1600,
+        height: 1200,
+        alt: "Early Kalinga-style stone temple on Mahendragiri attributed to Bhima",
+        credit: "Vsvlss, CC BY-SA 4.0, via Wikimedia Commons",
+      },
+    ],
   },
   {
     slug: "gandahati-waterfall",
@@ -62,13 +91,18 @@ export const destinations: Destination[] = [
     summary:
       "The Mahendratanaya river drops through forest near Mohana, inside a small deer park. A short, easy trail leads to the pools — a favourite half-day trip.",
     history: [
-      "Gandahati sits on the edge of a reserve forest in the Mohana block of Gajapati. The falls are fed by the Mahendratanaya, which rises on Mahendragiri, and run strongest from July to November.",
-      "A fenced enclosure beside the falls shelters spotted deer, and the surrounding sal forest is good for butterflies and small birds. Simple steps and a viewing platform make it accessible for most guests.",
+      "Gandahati sits on the edge of a reserve forest in the Mohana block of Gajapati. The falls are fed by the Mahendratanaya, which rises on Mahendragiri, and run strongest from July to November; by late spring they can slow to a trickle.",
+      "A fenced enclosure beside the falls shelters spotted deer, and the surrounding sal forest is good for butterflies and small birds. Simple steps and a viewing platform make the main pool accessible for most visitors.",
     ],
     distanceKm: 38,
     travelTime: "1 hr 20 min",
     bestSeason: "August – December (post-monsoon flow)",
     activities: ["Waterfall trail", "Deer park", "Riverside picnic", "Butterfly watching"],
+    gettingThere: [
+      "About 38 km from the campus (1 hr 20 min) on the Mohana road; a metalled road runs almost to the site, then a flight of steps leads down to the pool.",
+      "Best as a half-day trip — reception arranges a car and a packed breakfast.",
+      "Flow is heaviest August–December. In the dry months the falls are gentle but the deer park and forest walk are still worthwhile.",
+    ],
     coords: { lat: 19.1333, lng: 84.2167 },
     image: {
       src: "/media/library/sightseeing-gandahati-waterfall.jpg",
@@ -77,6 +111,15 @@ export const destinations: Destination[] = [
       alt: "Gandahati waterfall on the Mahendratanaya river near Mohana",
       credit: "Dream is ToExplore, CC BY-SA 4.0, via Wikimedia Commons",
     },
+    gallery: [
+      {
+        src: "/media/library/sightseeing-gandahati-waterfall-2.jpg",
+        width: 1600,
+        height: 957,
+        alt: "The wide lower cascade of the Gandahati falls",
+        credit: "Soumyajyoti1997, CC BY-SA 4.0, via Wikimedia Commons",
+      },
+    ],
   },
   {
     slug: "gajapati-palace",
@@ -93,6 +136,11 @@ export const destinations: Destination[] = [
     travelTime: "15 min",
     bestSeason: "All year",
     activities: ["Heritage walk", "Architecture photography", "Old-town temples", "Local market"],
+    gettingThere: [
+      "In Paralakhemundi town, about 5 km from the campus — 15 minutes by car or auto-rickshaw.",
+      "The palace is viewed from the outside; the surrounding old town, temples and market are part of the walk.",
+      "Easy to combine with Brundaban Palace and a stop at the Mahendratanaya on the same morning.",
+    ],
     coords: { lat: 18.7807, lng: 84.0827 },
     image: {
       src: "/media/library/sightseeing-gajapati-palace.jpg",
@@ -101,6 +149,15 @@ export const destinations: Destination[] = [
       alt: "The Gajapati palace at Paralakhemundi",
       credit: "Santosh Kumar Panda, CC0, via Wikimedia Commons",
     },
+    gallery: [
+      {
+        src: "/media/library/sightseeing-gajapati-palace-2.jpg",
+        width: 597,
+        height: 531,
+        alt: "Facade detail of the Gajapati palace, Paralakhemundi",
+        credit: "Chinmaya1973, CC BY-SA 4.0, via Wikimedia Commons",
+      },
+    ],
   },
   {
     slug: "brundaban-palace",
@@ -117,6 +174,10 @@ export const destinations: Destination[] = [
     travelTime: "12 min",
     bestSeason: "All year",
     activities: ["Garden walk", "Heritage photography", "Combined palace circuit"],
+    gettingThere: [
+      "About 4 km from the campus on the edge of Paralakhemundi — 12 minutes by car.",
+      "Usually visited together with the main Gajapati Palace on one short heritage circuit.",
+    ],
     coords: { lat: 18.79, lng: 84.09 },
   },
   {
@@ -134,6 +195,11 @@ export const destinations: Destination[] = [
     travelTime: "1 hr 45 min",
     bestSeason: "October – March",
     activities: ["Monastery visit", "Prayer-hall darshan", "Tibetan handicrafts", "Quiet meditation"],
+    gettingThere: [
+      "About 55 km from the campus (1 hr 45 min) via the Chandragiri–Jirang road, which climbs a good ghat road into forested hills.",
+      "Open to visitors through the day; dress modestly and remove shoes for the prayer hall.",
+      "Best as a full-day trip — the Tibetan settlement has small eateries, and carpet weaving can be seen on weekdays. Often combined with Taptapani.",
+    ],
     coords: { lat: 19.0333, lng: 84.0167 },
   },
   {
@@ -151,14 +217,35 @@ export const destinations: Destination[] = [
     travelTime: "1 hr 30 min",
     bestSeason: "November – February",
     activities: ["Hot-spring soak", "Forest drive", "Deer park", "Temple visit"],
+    gettingThere: [
+      "About 58 km from the campus (1 hr 30 min) via the Digapahandi–Taptapani ghat road, a scenic climb through reserve forest.",
+      "The spring, shrine and OTDC guest house are right by the road; the bathing pool is a short walk.",
+      "Easy to combine with the monastery at Jirang, which is on the way back.",
+    ],
     coords: { lat: 19.5167, lng: 84.4167 },
     image: {
       src: "/media/library/sightseeing-taptapani.jpg",
-      width: 1600,
-      height: 1200,
+      width: 1333,
+      height: 1000,
       alt: "The Taptapani hot spring pool in the forest, Odisha",
       credit: "Krupasindhu Muduli, CC BY-SA 3.0, via Wikimedia Commons",
     },
+    gallery: [
+      {
+        src: "/media/library/sightseeing-taptapani-2.jpg",
+        width: 1333,
+        height: 1000,
+        alt: "Steam rising off the Taptapani spring",
+        credit: "Krupasindhu Muduli, CC BY-SA 3.0, via Wikimedia Commons",
+      },
+      {
+        src: "/media/library/sightseeing-taptapani-3.jpg",
+        width: 1333,
+        height: 1000,
+        alt: "The shrine beside the Taptapani spring",
+        credit: "Krupasindhu Muduli, CC BY-SA 3.0, via Wikimedia Commons",
+      },
+    ],
   },
   {
     slug: "saura-villages",
@@ -175,6 +262,11 @@ export const destinations: Destination[] = [
     travelTime: "1 hr 30 min",
     bestSeason: "November – March",
     activities: ["Community-hosted village walk", "Idital wall art", "Craft & music", "Farm terraces"],
+    gettingThere: [
+      "The villages lie 40–50 km into the hills around R.Udayagiri and Serango; the roads are narrow and slow, so allow 1 hr 30 min or more each way.",
+      "This is not a drop-in visit — it is set up in advance with community hosts and the university's tribal-outreach team, who travel with the group.",
+      "Full-day trip; carry water, wear modest clothing and ask before photographing people or homes.",
+    ],
     coords: { lat: 19.0833, lng: 83.8167 },
     image: {
       src: "/media/library/sightseeing-saura-villages.jpg",
@@ -183,6 +275,15 @@ export const destinations: Destination[] = [
       alt: "Saura idital wall painting from the Gajapati hills",
       credit: "Hpsatapathy, CC BY-SA 3.0, via Wikimedia Commons",
     },
+    gallery: [
+      {
+        src: "/media/library/sightseeing-saura-villages-2.jpg",
+        width: 1239,
+        height: 1600,
+        alt: "Detail of a Saura idital painting with figures and geometry",
+        credit: "Sumita Roy Dutta, CC BY-SA 4.0, via Wikimedia Commons",
+      },
+    ],
   },
   {
     slug: "mahendratanaya-river",
@@ -199,28 +300,63 @@ export const destinations: Destination[] = [
     travelTime: "20 min",
     bestSeason: "October – March",
     activities: ["Riverside walk", "Sunrise photography", "Birding on the sandbars", "Picnic"],
+    gettingThere: [
+      "The river runs past Paralakhemundi; the nearest ghats and the Pathapatnam bridge are 8–12 km from the campus.",
+      "Any auto-rickshaw or car from town reaches the riverbank in about 20 minutes.",
+      "Best light is early morning and late evening. Keep away from the bank when the river is in spate during heavy monsoon.",
+    ],
     coords: { lat: 18.81, lng: 84.06 },
+    image: {
+      src: "/media/library/sightseeing-mahendratanaya-river.jpg",
+      width: 1600,
+      height: 756,
+      alt: "The Mahendratanaya river and the Pathapatnam–Paralakhemundi bridge",
+      credit: "Narendra Modi, CC BY 3.0, via Wikimedia Commons",
+    },
+    gallery: [
+      {
+        src: "/media/library/sightseeing-mahendratanaya-river-2.jpg",
+        width: 648,
+        height: 486,
+        alt: "Broad sandy stretch of the Mahendratanaya near Paralakhemundi",
+        credit: "Chinmaya1973, CC BY-SA 4.0, via Wikimedia Commons",
+      },
+    ],
   },
 ];
 
 export const destinationBySlug = (slug: string) =>
   destinations.find((d) => d.slug === slug);
 
-/** The destination's own photograph as a MediaItem, or null to fall back. */
-export function destinationImage(d: Destination): MediaItem | null {
-  if (!d.image) return null;
+function toItem(d: Destination, img: DestImage, i: number): MediaItem {
   return {
-    id: `sightseeing-${d.slug}`,
+    id: `sightseeing-${d.slug}-${i}`,
     category: d.hero,
-    src: d.image.src,
-    width: d.image.width,
-    height: d.image.height,
-    alt: d.image.alt,
-    credit: d.image.credit,
+    src: img.src,
+    width: img.width,
+    height: img.height,
+    alt: img.alt,
+    credit: img.credit,
   };
 }
 
-/** Attribution lines for every destination that uses a licensed photo. */
+/** The destination's primary photograph as a MediaItem, or null to fall back. */
+export function destinationImage(d: Destination): MediaItem | null {
+  return d.image ? toItem(d, d.image, 0) : null;
+}
+
+/** Primary + extra photographs for the detail-page gallery. */
+export function destinationGallery(d: Destination): MediaItem[] {
+  const imgs = [d.image, ...(d.gallery ?? [])].filter((x): x is DestImage => Boolean(x));
+  return imgs.map((img, i) => toItem(d, img, i));
+}
+
+/** One attribution line per destination that uses licensed photos. */
 export const destinationImageCredits = destinations
-  .filter((d) => d.image)
-  .map((d) => ({ name: d.name, credit: d.image!.credit }));
+  .filter((d) => d.image || d.gallery)
+  .map((d) => {
+    const credits = [d.image, ...(d.gallery ?? [])]
+      .filter((x): x is DestImage => Boolean(x))
+      .map((x) => x.credit);
+    return { name: d.name, credit: Array.from(new Set(credits)).join("; ") };
+  });

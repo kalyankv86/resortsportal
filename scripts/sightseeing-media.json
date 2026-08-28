@@ -1,40 +1,109 @@
 {
-  "note": "Freely-licensed photographs for the /sightseeing destination pages. Fetched by fetch-sightseeing-media.mjs into /opt/resorts/media/library/ (served by Nginx at /media/library/). Attribution is rendered on the sightseeing pages.",
+  "note": "Freely-licensed photographs for the /sightseeing destination pages. Fetched by fetch-sightseeing-media.mjs into /opt/resorts/media/library/ (served by Nginx at /media/library/). Attribution is rendered on the sightseeing pages. 'role' is primary (hero) or gallery (extra image on the detail page).",
   "items": [
     {
       "slug": "mahendragiri-hills",
+      "role": "primary",
       "file": "sightseeing-mahendragiri-hills.jpg",
       "url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Mahendragiri_Hills.jpg",
       "credit": "Subhamsahoo2008, CC BY-SA 4.0, via Wikimedia Commons",
       "alt": "Forested slopes of the Mahendragiri hills, Gajapati, Odisha"
     },
     {
+      "slug": "mahendragiri-hills",
+      "role": "gallery",
+      "file": "sightseeing-mahendragiri-hills-2.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/8/89/BhimaTemple-Mahendragiri-Odisha-001.jpg",
+      "credit": "Vsvlss, CC BY-SA 4.0, via Wikimedia Commons",
+      "alt": "Early Kalinga-style stone temple on Mahendragiri attributed to Bhima"
+    },
+    {
       "slug": "gandahati-waterfall",
+      "role": "primary",
       "file": "sightseeing-gandahati-waterfall.jpg",
       "url": "https://upload.wikimedia.org/wikipedia/commons/4/42/Gandahathi_Waterfalls_2025.jpg",
       "credit": "Dream is ToExplore, CC BY-SA 4.0, via Wikimedia Commons",
       "alt": "Gandahati waterfall on the Mahendratanaya river near Mohana"
     },
     {
+      "slug": "gandahati-waterfall",
+      "role": "gallery",
+      "file": "sightseeing-gandahati-waterfall-2.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Elephant_faced_waterfall.jpg",
+      "credit": "Soumyajyoti1997, CC BY-SA 4.0, via Wikimedia Commons",
+      "alt": "The wide lower cascade of the Gandahati falls"
+    },
+    {
       "slug": "gajapati-palace",
+      "role": "primary",
       "file": "sightseeing-gajapati-palace.jpg",
       "url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Gajapati_Palace_2025.png",
       "credit": "Santosh Kumar Panda, CC0, via Wikimedia Commons",
       "alt": "The Gajapati palace at Paralakhemundi"
     },
     {
+      "slug": "gajapati-palace",
+      "role": "gallery",
+      "file": "sightseeing-gajapati-palace-2.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/8/89/Gajapati_Palace.jpeg",
+      "credit": "Chinmaya1973, CC BY-SA 4.0, via Wikimedia Commons",
+      "alt": "Facade detail of the Gajapati palace, Paralakhemundi"
+    },
+    {
       "slug": "taptapani",
+      "role": "primary",
       "file": "sightseeing-taptapani.jpg",
       "url": "https://upload.wikimedia.org/wikipedia/commons/1/11/Tapta_Pani_%28Hot_Spring%29%2C_Odisha_%281%29.jpg",
       "credit": "Krupasindhu Muduli, CC BY-SA 3.0, via Wikimedia Commons",
       "alt": "The Taptapani hot spring pool in the forest, Odisha"
     },
     {
+      "slug": "taptapani",
+      "role": "gallery",
+      "file": "sightseeing-taptapani-2.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Tapta_Pani_%28Hot_Spring%29%2C_Odisha_%282%29.jpg",
+      "credit": "Krupasindhu Muduli, CC BY-SA 3.0, via Wikimedia Commons",
+      "alt": "Steam rising off the Taptapani spring"
+    },
+    {
+      "slug": "taptapani",
+      "role": "gallery",
+      "file": "sightseeing-taptapani-3.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Tapta_Pani_%28Hot_Spring%29%2C_Odisha_%283%29.jpg",
+      "credit": "Krupasindhu Muduli, CC BY-SA 3.0, via Wikimedia Commons",
+      "alt": "The shrine beside the Taptapani spring"
+    },
+    {
       "slug": "saura-villages",
+      "role": "primary",
       "file": "sightseeing-saura-villages.jpg",
       "url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Idital_Wall_Painting.jpg",
       "credit": "Hpsatapathy, CC BY-SA 3.0, via Wikimedia Commons",
-      "alt": "Saura idital wall painting"
+      "alt": "Saura idital wall painting from the Gajapati hills"
+    },
+    {
+      "slug": "saura-villages",
+      "role": "gallery",
+      "file": "sightseeing-saura-villages-2.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/8/86/Saura_painting_of_Odisha_DSCN1052_05.jpg",
+      "credit": "Sumita Roy Dutta, CC BY-SA 4.0, via Wikimedia Commons",
+      "alt": "Detail of a Saura idital painting with figures and geometry"
+    },
+    {
+      "slug": "mahendratanaya-river",
+      "role": "primary",
+      "file": "sightseeing-mahendratanaya-river.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Pathapatnam_Parlakhemundi_bridge_and_Mahendratanya_river.png",
+      "credit": "Narendra Modi, CC BY 3.0, via Wikimedia Commons",
+      "alt": "The Mahendratanaya river and the Pathapatnam–Paralakhemundi bridge"
+    },
+    {
+      "slug": "mahendratanaya-river",
+      "role": "gallery",
+      "file": "sightseeing-mahendratanaya-river-2.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Mahendra_Tanaya_River6.jpeg",
+      "credit": "Chinmaya1973, CC BY-SA 4.0, via Wikimedia Commons",
+      "alt": "Broad sandy stretch of the Mahendratanaya near Paralakhemundi"
     }
   ]
 }
