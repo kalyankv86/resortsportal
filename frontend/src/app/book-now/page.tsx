@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function BookNowPage() {
   return (
-    <div className="pt-28">
+    <div className="pt-36">
       <Container className="py-10">
         <p className="eyebrow text-terracotta">Reservations</p>
         <h1 className="mt-2 text-4xl sm:text-5xl">Book your stay</h1>

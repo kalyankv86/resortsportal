@@ -38,7 +38,7 @@ export function PortalShell({
   }
 
   return (
-    <div className="min-h-[80svh] bg-surface-muted pt-28">
+    <div className="min-h-[80svh] bg-surface-muted pt-36">
       <Container className="py-10">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4 border-b border-border pb-6">
           <div>

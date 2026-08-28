@@ -23,7 +23,7 @@ export function PageHero({
         <div className="absolute inset-0 bg-gradient-to-b from-forest-900/82 via-forest-900/74 to-forest-900/88" />
       </div>
 
-      <Container className="relative z-10 pb-14 pt-40 sm:pb-20 sm:pt-52">
+      <Container className="relative z-10 pb-14 pt-44 sm:pb-20 sm:pt-56">
         <nav className="mb-6 flex flex-wrap items-center gap-2 font-ui text-xs text-ivory/70">
           <Link href="/" className="hover:text-ivory">Home</Link>
           <span aria-hidden>/</span>

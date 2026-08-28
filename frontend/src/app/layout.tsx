@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
 import { AuthProvider } from "@/lib/auth";
+import { AffiliationStrip } from "@/components/layout/AffiliationStrip";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { site } from "@/content/site";
@@ -66,6 +67,7 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col">
         <AuthProvider>
           <SmoothScroll>
+            <AffiliationStrip />
             <SiteHeader />
             <main className="flex-1">{children}</main>
             <SiteFooter />
