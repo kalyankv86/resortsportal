@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { primaryNav, site } from "@/content/site";
+import { primaryNav } from "@/content/site";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
 
@@ -48,32 +48,50 @@ export function SiteHeader() {
           <Link
             href="/"
             className="flex items-center gap-3"
-            aria-label={`${site.shortName} home`}
+            aria-label="Centurion University — Wellness Eco Tourism, home"
           >
             <span
               className={cn(
-                "grid h-10 w-10 shrink-0 place-items-center rounded-full transition-colors",
+                "grid h-12 w-12 shrink-0 place-items-center rounded-full transition-colors",
                 solid ? "bg-transparent" : "bg-ivory/95 shadow-soft",
               )}
             >
               <Image
                 src="/brand/cutm-crest.png"
                 alt="Centurion University"
-                width={36}
-                height={36}
+                width={44}
+                height={44}
                 priority
-                className="h-9 w-9 object-contain"
+                className="h-11 w-11 object-contain"
               />
             </span>
             <span
               className={cn(
-                "font-heading text-lg leading-none transition-colors sm:text-xl",
-                solid ? "text-forest-800" : "text-ivory",
+                "flex items-center gap-2.5 border-l pl-2.5 transition-colors sm:gap-3 sm:pl-3",
+                solid ? "border-border" : "border-white/30",
               )}
             >
-              Centurion Wellness
-              <span className="block font-ui text-[0.6rem] font-semibold uppercase tracking-[0.24em] opacity-70">
-                Eco Tourism
+              <span
+                className={cn(
+                  "leading-tight transition-colors",
+                  solid ? "text-forest-800" : "text-ivory",
+                )}
+              >
+                <span className="block font-heading text-base leading-none sm:text-lg">
+                  Centurion University
+                </span>
+                <span className="hidden font-ui text-[0.58rem] italic tracking-wide opacity-70 sm:block">
+                  Shaping Lives… Empowering Communities…
+                </span>
+              </span>
+              <span
+                className={cn(
+                  "hidden font-ui text-[0.62rem] font-semibold uppercase tracking-[0.18em] xl:inline-block",
+                  solid ? "text-forest-600" : "text-ivory/70",
+                )}
+              >
+                <span aria-hidden className="mr-2 opacity-50">/</span>
+                Wellness Eco&nbsp;Tourism
               </span>
             </span>
           </Link>

@@ -19,8 +19,11 @@ export function SiteFooter() {
                   className="h-[38px] w-[38px] object-contain"
                 />
               </span>
-              <span className="font-heading text-2xl text-ivory">
-                Centurion Wellness
+              <span className="leading-tight text-ivory">
+                <span className="block font-heading text-xl">Centurion University</span>
+                <span className="block font-ui text-[0.65rem] italic tracking-wide text-ivory/60">
+                  Shaping Lives… Empowering Communities…
+                </span>
               </span>
             </div>
             <p className="max-w-xs text-sm leading-relaxed">
