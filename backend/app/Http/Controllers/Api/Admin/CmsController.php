@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Api\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\CmsPage;
 use App\Models\CmsSection;
+use App\Models\Event;
 use App\Models\Faq;
 use App\Models\Testimonial;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CmsController extends Controller
 {
@@ -127,6 +129,48 @@ class CmsController extends Controller
     public function deleteFaq(Faq $faq): JsonResponse
     {
         $faq->delete();
+
+        return response()->json(['message' => 'Deleted.']);
+    }
+
+    /* ---- events ---- */
+    public function events(): JsonResponse
+    {
+        return response()->json([
+            'data' => Event::with('media:id,url,alt')->orderByDesc('starts_at')->orderByDesc('id')->get(),
+        ]);
+    }
+
+    public function saveEvent(Request $request, ?Event $event = null): JsonResponse
+    {
+        $data = $request->validate([
+            'title' => ['required', 'string', 'max:160'],
+            'description' => ['nullable', 'string', 'max:4000'],
+            'starts_at' => ['nullable', 'date'],
+            'ends_at' => ['nullable', 'date', 'after_or_equal:starts_at'],
+            'location' => ['nullable', 'string', 'max:160'],
+            'media_id' => ['nullable', 'integer', 'exists:media_assets,id'],
+            'status' => ['nullable', 'in:draft,published'],
+        ]);
+
+        if (! $event) {
+            $base = Str::slug($data['title']) ?: 'event';
+            $slug = $base;
+            for ($i = 2; Event::where('slug', $slug)->exists(); $i++) {
+                $slug = "{$base}-{$i}";
+            }
+            $data['slug'] = $slug;
+        }
+        $data['status'] ??= 'published';
+
+        $row = $event ? tap($event)->update($data) : Event::create($data);
+
+        return response()->json(['data' => $row->load('media:id,url,alt')], $event ? 200 : 201);
+    }
+
+    public function deleteEvent(Event $event): JsonResponse
+    {
+        $event->delete();
 
         return response()->json(['message' => 'Deleted.']);
     }

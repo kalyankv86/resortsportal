@@ -47,6 +47,18 @@ return [
             'report' => false,
         ],
 
+        // Marketing media library — uploaded from the admin dashboard and served
+        // straight off disk by Nginx at /media/. On the server MEDIA_ROOT points
+        // at /opt/resorts/media (see deploy/deploy-backend.sh).
+        'media' => [
+            'driver' => 'local',
+            'root' => env('MEDIA_ROOT', storage_path('app/media')),
+            'url' => env('MEDIA_URL', '/media'),
+            'visibility' => 'public',
+            'throw' => false,
+            'report' => false,
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

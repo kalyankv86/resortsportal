@@ -56,6 +56,9 @@ JWT_REFRESH_TTL=20160
 
 CORS_ALLOWED_ORIGINS=http://localhost:3000,https://${CWETR_DOMAIN:-wellness.cutm.ac.in},http://192.168.5.51
 
+MEDIA_ROOT=/opt/resorts/media
+MEDIA_URL=/media
+
 MAIL_MAILER=log
 EOF
 fi

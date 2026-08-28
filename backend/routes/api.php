@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\Admin\AuditController;
 use App\Http\Controllers\Api\Admin\BookingAdminController;
 use App\Http\Controllers\Api\Admin\CmsController;
 use App\Http\Controllers\Api\Admin\FinanceController;
+use App\Http\Controllers\Api\Admin\MediaController;
 use App\Http\Controllers\Api\Admin\OverviewController;
 use App\Http\Controllers\Api\Admin\SettingsController;
 use App\Http\Controllers\Api\Admin\UserAdminController;
@@ -50,6 +51,8 @@ Route::get('experiences', [CatalogController::class, 'experiences']);
 
 Route::get('pages/{slug}', [ContentController::class, 'page']);
 Route::get('testimonials', [ContentController::class, 'testimonials']);
+Route::get('events', [ContentController::class, 'events']);
+Route::get('gallery', [ContentController::class, 'gallery']);
 Route::get('faqs', [ContentController::class, 'faqs']);
 
 Route::post('enquiries', [LeadController::class, 'enquiry'])->middleware('throttle:10,1');
@@ -150,6 +153,12 @@ Route::middleware(['auth:api'])->prefix('admin')->group(function () {
         Route::get('cms/faqs', [CmsController::class, 'faqs']);
         Route::post('cms/faqs/{faq?}', [CmsController::class, 'saveFaq']);
         Route::delete('cms/faqs/{faq}', [CmsController::class, 'deleteFaq']);
+        Route::get('cms/events', [CmsController::class, 'events']);
+        Route::post('cms/events/{event?}', [CmsController::class, 'saveEvent']);
+        Route::delete('cms/events/{event}', [CmsController::class, 'deleteEvent']);
+        Route::get('cms/media', [MediaController::class, 'index']);
+        Route::post('cms/media', [MediaController::class, 'store']);
+        Route::delete('cms/media/{mediaAsset}', [MediaController::class, 'destroy']);
     });
 
     Route::middleware('role:super-admin|director')->group(function () {

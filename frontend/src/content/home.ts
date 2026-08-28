@@ -61,12 +61,12 @@ export const bento: BentoItem[] = [
     cta: "Plan experiences",
   },
   {
-    title: "Today's Retreat",
+    title: "Daily Practice",
     copy: "Guided sunrise yoga, pranayama and a forest sound-bath — open to resident guests.",
-    href: "/retreat-calendar",
+    href: "/yoga",
     category: "yoga",
     span: "sm",
-    cta: "Retreat calendar",
+    cta: "Yoga & meditation",
   },
   {
     title: "Find your programme",

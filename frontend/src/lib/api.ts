@@ -38,15 +38,20 @@ export interface ApiOptions extends Omit<RequestInit, "body"> {
 export async function api<T = unknown>(path: string, opts: ApiOptions = {}): Promise<T> {
   const { body, token, revalidate, headers, ...rest } = opts;
 
+  // FormData (file uploads) is passed through untouched — the browser sets the
+  // multipart boundary; everything else is JSON.
+  const isForm = typeof FormData !== "undefined" && body instanceof FormData;
+
   const res = await fetch(`${API_BASE}${path}`, {
     ...rest,
     headers: {
       Accept: "application/json",
-      ...(body !== undefined ? { "Content-Type": "application/json" } : {}),
+      ...(body !== undefined && !isForm ? { "Content-Type": "application/json" } : {}),
       ...(token ? { Authorization: `Bearer ${token}` } : {}),
       ...headers,
     },
-    body: body !== undefined ? JSON.stringify(body) : undefined,
+    body:
+      body === undefined ? undefined : isForm ? (body as FormData) : JSON.stringify(body),
     ...(revalidate !== undefined ? { next: { revalidate } } : {}),
   });
 

@@ -399,16 +399,16 @@ export const PAGES: Record<string, PageDef> = {
     hero: "rooms",
     sections: [
       {
-        kind: "cards",
-        heading: "Accommodation",
-        category: "rooms",
+        kind: "features",
+        heading: "Rooms, villas & cottages",
+        body: "One place to stay, six ways — from a canopy-level room to a standalone bamboo villa.",
         items: [
-          { title: "Forest Deluxe", text: "Canopy-level room opening to a planted balcony.", href: "/rooms" },
-          { title: "Premium Cottage", text: "Standalone cottage with a garden sit-out.", href: "/eco-cottages" },
-          { title: "Lake Cottage", text: "Water-facing cottage with a private deck.", href: "/eco-cottages" },
-          { title: "Bamboo Villa", text: "Two-room villa built in engineered bamboo.", href: "/villas" },
-          { title: "Family Suite", text: "Connected rooms for four with a shared lounge.", href: "/rooms" },
-          { title: "Executive Wellness Suite", text: "Largest suite, with an in-room therapy space.", href: "/villas" },
+          { title: "Forest Deluxe Room", text: "Canopy-level room opening to a planted balcony." },
+          { title: "Family Suite", text: "Connected rooms for four with a shared lounge." },
+          { title: "Premium Cottage", text: "Standalone cottage with a garden sit-out." },
+          { title: "Lake Cottage", text: "Water-facing cottage with a private deck." },
+          { title: "Bamboo Villa", text: "Two-room villa built in engineered bamboo." },
+          { title: "Executive Wellness Suite", text: "Largest suite, with an in-room therapy space." },
         ],
       },
       {
@@ -419,76 +419,6 @@ export const PAGES: Record<string, PageDef> = {
           { title: "Natural materials", text: "Lime plaster, local stone, bamboo and cotton." },
           { title: "Circadian lighting", text: "Warm, dimmable light tuned for rest." },
           { title: "Filtered air & water", text: "No synthetic fragrance anywhere on the estate." },
-        ],
-      },
-      bookCta,
-    ],
-  }),
-
-  rooms: page({
-    slug: "rooms",
-    title: "Rooms",
-    eyebrow: "Stay",
-    summary: "Forest Deluxe and Family Suites — canopy-level rooms a short walk from the wellness centre and dining hall.",
-    hero: "rooms",
-    parent: { label: "Wellness Stay", href: "/luxury-stay" },
-    sections: [
-      { kind: "gallery", heading: "Inside the rooms", category: "rooms" },
-      {
-        kind: "features",
-        heading: "Room amenities",
-        items: [
-          { title: "King or twin", text: "Organic-cotton linen and a choice of pillow firmness." },
-          { title: "Work nook", text: "A small desk and fast Wi-Fi, tucked out of the sleeping zone." },
-          { title: "Rain shower", text: "Solar-heated water and plant-based toiletries." },
-          { title: "Verandah seating", text: "Two chairs and a low table facing the trees." },
-        ],
-      },
-      { kind: "intro", heading: "Every room page will carry", body: ["Image gallery · amenities · floor plan · availability calendar · tariff · offers · virtual tour · nearby attractions · direct booking."] },
-      bookCta,
-    ],
-  }),
-
-  villas: page({
-    slug: "villas",
-    title: "Villas",
-    eyebrow: "Stay",
-    summary: "Bamboo Villas and the Executive Wellness Suite — standalone, private and quiet, for longer residential programmes.",
-    hero: "rooms",
-    parent: { label: "Wellness Stay", href: "/luxury-stay" },
-    sections: [
-      { kind: "gallery", heading: "The villas", category: "rooms" },
-      {
-        kind: "features",
-        heading: "Villa features",
-        items: [
-          { title: "Two rooms + lounge", text: "Space to spread out for a two-week stay." },
-          { title: "Private therapy space", text: "In the Executive Suite — treatments come to you." },
-          { title: "Outdoor bath", text: "A screened open-air bathing court." },
-          { title: "Garden & sit-out", text: "Your own planted enclosure." },
-        ],
-      },
-      bookCta,
-    ],
-  }),
-
-  "eco-cottages": page({
-    slug: "eco-cottages",
-    title: "Eco Cottages",
-    eyebrow: "Stay",
-    summary: "Premium and Lake Cottages built with low-impact methods — rammed earth, bamboo, reclaimed timber and passive cooling.",
-    hero: "forest",
-    parent: { label: "Wellness Stay", href: "/luxury-stay" },
-    sections: [
-      { kind: "gallery", heading: "The cottages", category: "forest" },
-      {
-        kind: "features",
-        heading: "Built lightly",
-        items: [
-          { title: "Rammed-earth walls", text: "Thermal mass keeps interiors cool without air-conditioning." },
-          { title: "Solar hot water", text: "Roof collectors on every cottage." },
-          { title: "Greywater reuse", text: "Irrigation for the surrounding native planting." },
-          { title: "Lake deck", text: "On Lake Cottages — a private platform over the water." },
         ],
       },
       bookCta,
@@ -573,9 +503,8 @@ export const PAGES: Record<string, PageDef> = {
     hero: "forest",
     sections: [
       {
-        kind: "cards",
+        kind: "features",
         heading: "Experiences",
-        category: "forest",
         items: [
           { title: "Forest Walk", text: "Dawn walk with a resident naturalist." },
           { title: "Bird Watching", text: "Over 140 species recorded on the estate." },
@@ -605,23 +534,21 @@ export const PAGES: Record<string, PageDef> = {
     slug: "nature-trails",
     title: "Nature Trails",
     eyebrow: "Eco Tourism",
-    summary: "Five waymarked trails from 800 metres to 6 kilometres, threading the forest, the lake bund and the farm.",
+    summary: "Waymarked walking routes across the campus — through restored forest, along the water and around the working farm.",
     hero: "forest",
     parent: { label: "Eco Tourism", href: "/eco-tourism" },
     sections: [
       {
-        kind: "cards",
-        heading: "The trails",
-        category: "forest",
+        kind: "features",
+        heading: "Walking the campus",
         items: [
-          { title: "Canopy Loop · 0.8 km", text: "Level, shaded, wheelchair-friendly for the first half." },
-          { title: "Lake Bund · 2.1 km", text: "Open water views, best at sunrise." },
-          { title: "Farm Circuit · 3.4 km", text: "Through the orchards and vegetable plots." },
-          { title: "Ridge Path · 5.0 km", text: "One steady climb to a lookout." },
-          { title: "Cascade Trail · 6.2 km", text: "Seasonal — to the waterfall and back." },
+          { title: "Graded routes", text: "Short level loops through to longer walks with a climb — a naturalist can match one to your morning." },
+          { title: "Forest & water", text: "Shaded canopy paths, open stretches by the water and a circuit through the orchards and vegetable plots." },
+          { title: "Best at first light", text: "Cooler air, more birds, and the quietest part of the day." },
+          { title: "Guided or self-guided", text: "Join a scheduled walk or ask reception for directions and set out on your own." },
         ],
       },
-      { kind: "intro", body: ["Trail maps download to your phone from the guest portal and work fully offline with GPS."] },
+      { kind: "intro", body: ["Walks are arranged through reception or the guest portal and adjusted around your treatment schedule."] },
       bookCta,
     ],
   }),
@@ -634,7 +561,6 @@ export const PAGES: Record<string, PageDef> = {
     hero: "events",
     parent: { label: "Eco Tourism", href: "/eco-tourism" },
     sections: [
-      { kind: "gallery", heading: "A sense of it", category: "events" },
       {
         kind: "steps",
         heading: "Booking an experience",
@@ -665,7 +591,6 @@ export const PAGES: Record<string, PageDef> = {
           { title: "Private sessions", text: "One-to-one on request with a yoga therapist." },
         ],
       },
-      { kind: "gallery", heading: "On the deck", category: "yoga" },
       bookCta,
     ],
   }),
@@ -678,124 +603,17 @@ export const PAGES: Record<string, PageDef> = {
     hero: "meditation",
     sections: [
       {
-        kind: "cards",
+        kind: "features",
         heading: "Ways to practise",
-        category: "meditation",
         items: [
           { title: "Morning sit", text: "20 minutes, breath-based, all experience levels." },
-          { title: "Forest Sound Bath", text: "Reclined session with singing bowls under the trees." },
-          { title: "Walking meditation", text: "Slow, attentive laps of the canopy loop." },
-          { title: "Yoga Nidra", text: "Guided body-scan for deep afternoon rest." },
+          { title: "Forest sound bath", text: "Reclined session with singing bowls under the trees." },
+          { title: "Walking meditation", text: "Slow, attentive laps of a shaded forest path." },
+          { title: "Yoga nidra", text: "Guided body-scan for deep afternoon rest." },
         ],
       },
       { kind: "intro", body: ["Recorded guided audio is available in the guest portal to continue the practice at home."] },
       bookCta,
-    ],
-  }),
-
-  "retreat-calendar": page({
-    slug: "retreat-calendar",
-    title: "Retreat Calendar",
-    eyebrow: "Eco Tourism",
-    summary: "Themed group retreats and visiting-teacher weeks, published a season ahead.",
-    hero: "events",
-    sections: [
-      {
-        kind: "cards",
-        heading: "Upcoming retreats",
-        category: "events",
-        items: [
-          { title: "Monsoon Detox Week", text: "7-night Panchakarma cohort · limited to 12 guests." },
-          { title: "Breath & Stillness", text: "5-night stress-relief retreat with a visiting pranayama teacher." },
-          { title: "Women's Wellness", text: "6-night programme around cycle and hormonal health." },
-          { title: "Silent Weekend", text: "2 nights of guided silence and forest time." },
-        ],
-      },
-      { kind: "intro", body: ["Dates and remaining places are confirmed at the time of booking. Retreats run to a fixed cohort size, so early reservation is advised."] },
-      bookCta,
-    ],
-  }),
-
-  events: page({
-    slug: "events",
-    title: "Events",
-    eyebrow: "Discover",
-    summary: "Wellness talks, farm suppers, folk-music evenings and seasonal celebrations — open to resident guests.",
-    hero: "events",
-    sections: [
-      { kind: "gallery", heading: "Recent gatherings", category: "events" },
-      { kind: "intro", body: ["A weekly events sheet is placed in your room and published in the guest portal."] },
-      bookCta,
-    ],
-  }),
-
-  gallery: page({
-    slug: "gallery",
-    title: "Gallery",
-    eyebrow: "Discover",
-    summary: "The estate through the seasons — architecture, forest, treatments, food and the farm.",
-    hero: "gallery",
-    sections: [
-      { kind: "gallery", heading: "Grounds & architecture", category: "drone" },
-      { kind: "gallery", heading: "Wellness & therapies", category: "spa" },
-      { kind: "gallery", heading: "Forest & farm", category: "organic-farm" },
-      { kind: "intro", body: ["Photography from across the estate — architecture, forest, therapies, the organic farm and the changing seasons."] },
-    ],
-  }),
-
-  "virtual-tour": page({
-    slug: "virtual-tour",
-    title: "Virtual Tour",
-    eyebrow: "Discover",
-    summary: "A 360° walk-through of the wellness centre, a Forest Deluxe room, the dining hall and the lake deck.",
-    hero: "virtual-tour",
-    sections: [
-      { kind: "intro", body: ["Move through the wellness centre, a Forest Deluxe room, the dining hall and the lake deck at your own pace. The gallery has more of the estate."] },
-      { kind: "gallery", heading: "Spaces on the tour", category: "virtual-tour" },
-      bookCta,
-    ],
-  }),
-
-  testimonials: page({
-    slug: "testimonials",
-    title: "Testimonials",
-    eyebrow: "Discover",
-    summary: "In guests' own words — verified reviews from residential programmes and short stays.",
-    hero: "meditation",
-    sections: [
-      {
-        kind: "cards",
-        heading: "From recent guests",
-        category: "meditation",
-        items: [
-          { title: "Ananya R. · Bengaluru", text: "\"Fifteen days of Panchakarma and I left lighter in every sense. The forest does half the healing.\"" },
-          { title: "Michael T. · Melbourne", text: "\"The most thoughtfully run wellness centre I have visited in India. Doctors who actually listen.\"" },
-          { title: "Priya S. · Hyderabad", text: "\"Our corporate cohort came for a digital detox and went home a team. Food was extraordinary.\"" },
-        ],
-      },
-      { kind: "intro", body: ["A selection of recent stories from residential-programme and short-stay guests."] },
-      bookCta,
-    ],
-  }),
-
-  blog: page({
-    slug: "blog",
-    title: "Journal",
-    eyebrow: "Discover",
-    summary: "Notes from the physicians, the kitchen and the farm — on Ayurveda, seasonal living and sustainable hospitality.",
-    hero: "forest",
-    sections: [
-      {
-        kind: "cards",
-        heading: "Latest posts",
-        category: "organic-farm",
-        items: [
-          { title: "What Panchakarma actually does", text: "A physician explains the five actions in plain language." },
-          { title: "Cooking with millets", text: "Three everyday preparations from the wellness kitchen." },
-          { title: "Rewilding forty acres", text: "How the campus forest was restored, year by year." },
-        ],
-      },
-      { kind: "intro", body: ["New notes from the physicians, the kitchen and the farm are added through the year."] },
     ],
   }),
 
