@@ -139,7 +139,7 @@ export const destinations: Destination[] = [
     gettingThere: [
       "In Paralakhemundi town, about 5 km from the campus — 15 minutes by car or auto-rickshaw.",
       "The palace is viewed from the outside; the surrounding old town, temples and market are part of the walk.",
-      "Easy to combine with Brundaban Palace and a stop at the Mahendratanaya on the same morning.",
+      "Easy to combine with a stop at the Mahendratanaya river on the same morning.",
     ],
     coords: { lat: 18.7807, lng: 84.0827 },
     image: {
@@ -160,49 +160,6 @@ export const destinations: Destination[] = [
     ],
   },
   {
-    slug: "brundaban-palace",
-    name: "Brundaban Palace",
-    tag: "Garden palace of the Gajapatis",
-    hero: "gallery",
-    summary:
-      "A quieter royal residence set in gardens on the edge of Paralakhemundi, used by the family for retreat. Its grounds and pavilions make an easy morning visit.",
-    history: [
-      "Brundaban was built as a garden palace away from the ceremonial main palace, with orchards, a tank and open pavilions in the Odia style.",
-      "It reflects the same period of Gajapati patronage as the town's other landmarks and is often paired with the main palace on a single heritage circuit.",
-    ],
-    distanceKm: 4,
-    travelTime: "12 min",
-    bestSeason: "All year",
-    activities: ["Garden walk", "Heritage photography", "Combined palace circuit"],
-    gettingThere: [
-      "About 4 km from the campus on the edge of Paralakhemundi — 12 minutes by car.",
-      "Usually visited together with the main Gajapati Palace on one short heritage circuit.",
-    ],
-    coords: { lat: 18.79, lng: 84.09 },
-  },
-  {
-    slug: "padmasambhava-mahavihara",
-    name: "Padmasambhava Mahavihara, Jirang",
-    tag: "Himalayan monastery in the Ghats",
-    hero: "meditation",
-    summary:
-      "One of the largest Tibetan Buddhist monasteries in eastern India, at Chandragiri–Jirang. Gilded halls, a giant Padmasambhava statue and a settlement of Tibetan refugees.",
-    history: [
-      "Tibetan families resettled at Chandragiri in the 1960s. The Padmasambhava Mahavihara, consecrated by the Dalai Lama in 2010, is the spiritual centre of the settlement and follows the Nyingma tradition.",
-      "The prayer hall, stupa and 23-foot Padmasambhava image sit against forested hills, and the settlement's carpet weaving and Tibetan food are part of the visit.",
-    ],
-    distanceKm: 55,
-    travelTime: "1 hr 45 min",
-    bestSeason: "October – March",
-    activities: ["Monastery visit", "Prayer-hall darshan", "Tibetan handicrafts", "Quiet meditation"],
-    gettingThere: [
-      "About 55 km from the campus (1 hr 45 min) via the Chandragiri–Jirang road, which climbs a good ghat road into forested hills.",
-      "Open to visitors through the day; dress modestly and remove shoes for the prayer hall.",
-      "Best as a full-day trip — the Tibetan settlement has small eateries, and carpet weaving can be seen on weekdays. Often combined with Taptapani.",
-    ],
-    coords: { lat: 19.0333, lng: 84.0167 },
-  },
-  {
     slug: "taptapani",
     name: "Taptapani Hot Spring",
     tag: "Sulphur spring in the forest",
@@ -220,7 +177,6 @@ export const destinations: Destination[] = [
     gettingThere: [
       "About 58 km from the campus (1 hr 30 min) via the Digapahandi–Taptapani ghat road, a scenic climb through reserve forest.",
       "The spring, shrine and OTDC guest house are right by the road; the bathing pool is a short walk.",
-      "Easy to combine with the monastery at Jirang, which is on the way back.",
     ],
     coords: { lat: 19.5167, lng: 84.4167 },
     image: {

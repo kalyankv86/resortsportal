@@ -70,7 +70,6 @@ export const primaryNav: NavNode[] = [
       { label: "Mahendragiri Hills", href: "/sightseeing/mahendragiri-hills" },
       { label: "Gandahati Waterfall", href: "/sightseeing/gandahati-waterfall" },
       { label: "Gajapati Palace", href: "/sightseeing/gajapati-palace" },
-      { label: "Padmasambhava Mahavihara", href: "/sightseeing/padmasambhava-mahavihara" },
       { label: "Taptapani Hot Spring", href: "/sightseeing/taptapani" },
       { label: "Saura Tribal Villages", href: "/sightseeing/saura-villages" },
       { label: "Mahendratanaya River", href: "/sightseeing/mahendratanaya-river" },

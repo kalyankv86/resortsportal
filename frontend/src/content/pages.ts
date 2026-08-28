@@ -142,7 +142,7 @@ export const PAGES: Record<string, PageDef> = {
         category: "organic-farm",
         items: [
           { title: "Campus Experiences", text: "Guided visits to the organic farm, medicinal garden, hatchery and skill parks.", href: "/campus-experiences" },
-          { title: "Sightseeing", text: "Mahendragiri, Gandahati Waterfall, palaces and Saura villages within reach of the campus.", href: "/sightseeing" },
+          { title: "Sightseeing", text: "Mahendragiri, Gandahati Waterfall, the Gajapati palace and Saura villages within reach of the campus.", href: "/sightseeing" },
           { title: "Gallery", text: "The campus and its surroundings through the seasons.", href: "/gallery" },
         ],
       },
