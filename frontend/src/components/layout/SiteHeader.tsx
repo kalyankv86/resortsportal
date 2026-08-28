@@ -47,62 +47,46 @@ export function SiteHeader() {
         >
           <Link
             href="/"
-            className="flex items-center gap-3"
-            aria-label="Centurion University — Wellness Eco Tourism, home"
+            className="flex shrink-0 items-center gap-2.5"
+            aria-label="Centurion Wellness Eco Tourism, home"
           >
             <span
               className={cn(
-                "grid h-12 w-12 shrink-0 place-items-center rounded-full transition-colors",
+                "grid h-11 w-11 shrink-0 place-items-center rounded-full transition-colors",
                 solid ? "bg-transparent" : "bg-ivory/95 shadow-soft",
               )}
             >
               <Image
                 src="/brand/cutm-crest.png"
                 alt="Centurion University"
-                width={44}
-                height={44}
+                width={40}
+                height={40}
                 priority
-                className="h-11 w-11 object-contain"
+                className="h-10 w-10 object-contain"
               />
             </span>
             <span
               className={cn(
-                "flex items-center gap-2.5 border-l pl-2.5 transition-colors sm:gap-3 sm:pl-3",
-                solid ? "border-border" : "border-white/30",
+                "font-heading leading-none transition-colors",
+                solid ? "text-forest-800" : "text-ivory",
               )}
             >
-              <span
-                className={cn(
-                  "leading-tight transition-colors",
-                  solid ? "text-forest-800" : "text-ivory",
-                )}
-              >
-                <span className="block font-heading text-base leading-none sm:text-lg">
-                  Centurion University
-                </span>
-                <span className="hidden font-ui text-[0.58rem] italic tracking-wide opacity-70 sm:block">
-                  Shaping Lives… Empowering Communities…
-                </span>
+              <span className="block text-base leading-none sm:text-[1.05rem]">
+                Centurion Wellness
               </span>
-              <span
-                className={cn(
-                  "hidden font-ui text-[0.62rem] font-semibold uppercase tracking-[0.18em] xl:inline-block",
-                  solid ? "text-forest-600" : "text-ivory/70",
-                )}
-              >
-                <span aria-hidden className="mr-2 opacity-50">/</span>
-                Wellness Eco&nbsp;Tourism
+              <span className="mt-0.5 block font-ui text-[0.58rem] font-semibold uppercase tracking-[0.22em] opacity-70">
+                Eco Tourism
               </span>
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-1 lg:flex">
+          <nav className="hidden items-center gap-0.5 lg:flex xl:gap-1">
             {primaryNav.map((node) => (
               <div key={node.label} className="group relative">
                 <Link
                   href={node.href}
                   className={cn(
-                    "rounded-pill px-3 py-2 font-ui text-sm font-medium transition-colors",
+                    "whitespace-nowrap rounded-pill px-2.5 py-2 font-ui text-[0.82rem] font-medium transition-colors xl:px-3 xl:text-sm",
                     solid
                       ? "text-forest-800 hover:bg-sage-100/70"
                       : "text-ivory/90 hover:bg-white/10 hover:text-ivory",
