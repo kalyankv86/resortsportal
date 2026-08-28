@@ -15,9 +15,8 @@ export const site = {
     "https://www.google.com/maps/search/?api=1&query=Centurion+University+of+Technology+and+Management%2C+Paralakhemundi",
   campus: "Paralakhemundi Campus · foothills of the Eastern Ghats",
   socials: {
-    instagram: "https://instagram.com/",
-    facebook: "https://facebook.com/",
-    youtube: "https://youtube.com/",
+    instagram: "https://www.instagram.com/cuwellnessonline",
+    facebook: "https://www.facebook.com/profile.php?id=61593676091408",
   },
 } as const;
 

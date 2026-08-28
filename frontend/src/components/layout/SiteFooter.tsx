@@ -43,6 +43,38 @@ export function SiteFooter() {
               <a href={`tel:${site.phone.replace(/\s/g, "")}`}>{site.phone}</a>
               <a href={`mailto:${site.email}`}>{site.email}</a>
             </div>
+
+            <div className="mt-3 flex flex-col gap-2">
+              <span className="font-ui text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-ivory/50">
+                Follow us
+              </span>
+              <div className="flex items-center gap-3">
+                <a
+                  href={site.socials.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Centurion Wellness on Instagram"
+                  className="grid h-9 w-9 place-items-center rounded-full border border-white/15 text-ivory/70 transition-colors hover:border-white/40 hover:text-ivory"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-[18px] w-[18px]">
+                    <rect x="2" y="2" width="20" height="20" rx="5" />
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                  </svg>
+                </a>
+                <a
+                  href={site.socials.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Centurion Wellness on Facebook"
+                  className="grid h-9 w-9 place-items-center rounded-full border border-white/15 text-ivory/70 transition-colors hover:border-white/40 hover:text-ivory"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-[18px] w-[18px]">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
           </div>
 
           {primaryNav.slice(0, 3).map((col) => (
