@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class RoomCategory extends Model
 {
     protected $guarded = [];
-    protected $casts = ['amenities' => 'array'];
+    protected $casts = ['amenities' => 'array', 'gallery' => 'array'];
 
     public function rooms()
     {

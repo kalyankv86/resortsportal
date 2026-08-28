@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\Admin\AuditController;
 use App\Http\Controllers\Api\Admin\BookingAdminController;
+use App\Http\Controllers\Api\Admin\CatalogAdminController;
 use App\Http\Controllers\Api\Admin\CmsController;
 use App\Http\Controllers\Api\Admin\FinanceController;
 use App\Http\Controllers\Api\Admin\MediaController;
@@ -159,6 +160,18 @@ Route::middleware(['auth:api'])->prefix('admin')->group(function () {
         Route::get('cms/media', [MediaController::class, 'index']);
         Route::post('cms/media', [MediaController::class, 'store']);
         Route::delete('cms/media/{mediaAsset}', [MediaController::class, 'destroy']);
+    });
+
+    Route::middleware('role:super-admin|director|wellness-manager')->group(function () {
+        Route::get('catalog/rooms', [CatalogAdminController::class, 'rooms']);
+        Route::post('catalog/rooms/{room?}', [CatalogAdminController::class, 'saveRoom']);
+        Route::delete('catalog/rooms/{room}', [CatalogAdminController::class, 'deleteRoom']);
+        Route::get('catalog/services', [CatalogAdminController::class, 'services']);
+        Route::post('catalog/services/{service?}', [CatalogAdminController::class, 'saveService']);
+        Route::delete('catalog/services/{service}', [CatalogAdminController::class, 'deleteService']);
+        Route::get('catalog/packages', [CatalogAdminController::class, 'packages']);
+        Route::post('catalog/packages/{package?}', [CatalogAdminController::class, 'savePackage']);
+        Route::delete('catalog/packages/{package}', [CatalogAdminController::class, 'deletePackage']);
     });
 
     Route::middleware('role:super-admin|director')->group(function () {

@@ -12,6 +12,7 @@ class WellnessProgram extends Model
         'daily_schedule' => 'array',
         'doctor_led' => 'boolean',
         'price_from' => 'decimal:2',
+        'gallery' => 'array',
     ];
 
     public function scopePublished($q)

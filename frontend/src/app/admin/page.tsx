@@ -7,6 +7,7 @@ import { PortalShell, StatCard } from "@/components/portal/PortalShell";
 import { AdminBookings } from "@/components/portal/AdminBookings";
 import { AdminFinance } from "@/components/portal/AdminFinance";
 import { AdminContent } from "@/components/portal/AdminContent";
+import { AdminCatalogue } from "@/components/portal/AdminCatalogue";
 import { AdminUsers } from "@/components/portal/AdminUsers";
 import { AdminSettings, AdminAudit } from "@/components/portal/AdminSettingsAudit";
 import { cn } from "@/lib/cn";
@@ -34,7 +35,7 @@ const LABELS: Record<string, string> = {
   enquiries_new: "New enquiries",
 };
 
-const TABS = ["Overview", "Bookings", "Finance", "Content", "Users", "Settings", "Audit"] as const;
+const TABS = ["Overview", "Bookings", "Catalogue", "Finance", "Content", "Users", "Settings", "Audit"] as const;
 
 export default function AdminPage() {
   const { token, hasRole } = useAuth();
@@ -43,6 +44,7 @@ export default function AdminPage() {
   const [tab, setTab] = useState<(typeof TABS)[number]>("Overview");
 
   const admin = hasRole("super-admin", "director");
+  const canCatalog = hasRole("super-admin", "director", "wellness-manager");
 
   useEffect(() => {
     if (!token) return;
@@ -51,7 +53,11 @@ export default function AdminPage() {
       .catch((e) => setError(e?.message ?? "Failed to load"));
   }, [token]);
 
-  const visibleTabs = TABS.filter((t) => admin || !["Users", "Settings", "Audit"].includes(t));
+  const visibleTabs = TABS.filter((t) => {
+    if (["Users", "Settings", "Audit"].includes(t)) return admin;
+    if (t === "Catalogue") return canCatalog;
+    return true;
+  });
 
   return (
     <PortalShell title="Master dashboard" requireStaff>
@@ -109,6 +115,7 @@ export default function AdminPage() {
       )}
 
       {tab === "Bookings" && <AdminBookings />}
+      {tab === "Catalogue" && canCatalog && <AdminCatalogue />}
       {tab === "Finance" && <AdminFinance />}
       {tab === "Content" && <AdminContent />}
       {tab === "Users" && admin && <AdminUsers />}

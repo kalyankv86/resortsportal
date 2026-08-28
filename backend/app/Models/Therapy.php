@@ -8,7 +8,7 @@ class Therapy extends Model
 {
     protected $table = 'therapies';
     protected $guarded = [];
-    protected $casts = ['benefits' => 'array', 'price' => 'decimal:2'];
+    protected $casts = ['benefits' => 'array', 'price' => 'decimal:2', 'gallery' => 'array'];
 
     public function category()
     {
