@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { site } from "@/content/site";
 import { api, ApiError } from "@/lib/api";
 import { Button } from "@/components/ui/Button";
@@ -51,48 +51,11 @@ const fieldC =
   "w-full rounded-xl border border-border bg-surface px-3 py-2.5 font-ui text-sm text-forest-800 outline-none transition-colors focus:border-sage";
 
 export function ContactDock() {
-  const railRef = useRef<HTMLDivElement | null>(null);
   const [open, setOpen] = useState(false);
 
-  // Gentle scroll-reactive drift: the rail eases toward an offset driven by
-  // scroll velocity, then springs back to centre. Skipped for reduced motion.
   useEffect(() => {
-    const el = railRef.current;
-    if (!el) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    let raf = 0;
-    let last = window.scrollY;
-    let target = 0;
-    let cur = 0;
-
-    const onScroll = () => {
-      const dy = window.scrollY - last;
-      last = window.scrollY;
-      target = Math.max(-48, Math.min(48, target + dy * 0.25));
-      if (!raf) raf = requestAnimationFrame(tick);
-    };
-    const tick = () => {
-      cur += (target - cur) * 0.12;
-      target *= 0.9;
-      el.style.transform = `translateY(calc(-50% + ${cur.toFixed(2)}px))`;
-      if (Math.abs(cur) > 0.3 || Math.abs(target) > 0.3) {
-        raf = requestAnimationFrame(tick);
-      } else {
-        el.style.transform = "translateY(-50%)";
-        raf = 0;
-      }
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      if (raf) cancelAnimationFrame(raf);
-    };
-  }, []);
-
-  useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    if (!open) return;
+    document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = "";
     };
@@ -100,10 +63,7 @@ export function ContactDock() {
 
   return (
     <>
-      <div
-        ref={railRef}
-        className="fixed right-3 top-1/2 z-30 flex -translate-y-1/2 flex-col gap-2.5 print:hidden sm:right-4"
-      >
+      <div className="fixed right-3 top-1/2 z-30 flex -translate-y-1/2 flex-col gap-2.5 print:hidden sm:right-4">
         <button
           type="button"
           onClick={() => setOpen(true)}
