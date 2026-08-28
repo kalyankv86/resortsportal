@@ -236,16 +236,8 @@ class CoreDataSeeder extends Seeder
 
     private function social(): void
     {
-        $testimonials = [
-            ['Ananya R.', 'Bengaluru', 'Fifteen days of Panchakarma and I left lighter in every sense. The forest does half the healing.', 5],
-            ['Michael T.', 'Melbourne', 'The most thoughtfully run wellness centre I have visited in India. Doctors who actually listen.', 5],
-            ['Priya S.', 'Hyderabad', 'Our corporate cohort came for a digital detox and went home a team. Food was extraordinary.', 5],
-        ];
-        foreach ($testimonials as [$name, $origin, $quote, $rating]) {
-            Testimonial::updateOrCreate(['name' => $name, 'quote' => $quote], [
-                'origin' => $origin, 'rating' => $rating, 'status' => 'published', 'published_at' => now(),
-            ]);
-        }
+        // Testimonials are entered by staff in the admin dashboard (Content →
+        // Testimonials); none are seeded so nothing invented ships by default.
 
         $faqs = [
             ['booking', 'How do I choose a programme?', 'Tell us your goal and dates via the enquiry form or booking flow; a wellness advisor recommends a programme, and your on-site doctor confirms it.'],
