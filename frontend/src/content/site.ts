@@ -91,10 +91,38 @@ export const primaryNav: NavNode[] = [
 ];
 
 export const utilityNav = [
-  { label: "Corporate Retreats", href: "/corporate-retreats" },
-  { label: "Gift Cards", href: "/gift-cards" },
-  { label: "Membership", href: "/membership" },
-  { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
   { label: "FAQ", href: "/faq" },
+];
+
+/** Footer link columns — curated, not derived from the main menu. */
+export const footerNav: { label: string; children: { label: string; href: string }[] }[] = [
+  {
+    label: "About",
+    children: [
+      { label: "About Centurion Wellness", href: "/about" },
+      { label: "About Centurion University", href: "/about-university" },
+      { label: "Campus Experience", href: "/campus-experiences" },
+    ],
+  },
+  {
+    label: "Wellness",
+    children: [
+      { label: "Ayurveda Wellness Centre", href: "/ayurveda-wellness-centre" },
+      { label: "Wellness Programs", href: "/wellness-programs" },
+      { label: "Panchakarma Treatments", href: "/panchakarma-treatments" },
+      { label: "Therapies", href: "/therapies" },
+      { label: "Wellness Packages", href: "/wellness-packages" },
+    ],
+  },
+  {
+    label: "Stay & Dining",
+    children: [
+      { label: "Rooms, Villas & Cottages", href: "/luxury-stay" },
+      { label: "Dining", href: "/dining" },
+      { label: "Organic Café", href: "/organic-cafe" },
+      { label: "Wellness Kitchen", href: "/wellness-kitchen" },
+      { label: "Sightseeing", href: "/sightseeing" },
+    ],
+  },
 ];

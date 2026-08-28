@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { primaryNav, site, utilityNav } from "@/content/site";
+import { footerNav, site, utilityNav } from "@/content/site";
 import { Container } from "@/components/ui/primitives";
 
 export function SiteFooter() {
   return (
     <footer className="mt-24 bg-forest-900 text-ivory/80">
       <Container className="py-16">
-        <div className="grid gap-12 md:grid-cols-[1.4fr_repeat(3,1fr)]">
-          <div className="flex flex-col gap-4">
+        <div className="grid gap-12 md:grid-cols-[1.5fr_repeat(3,1fr)]">
+          <div className="flex flex-col gap-5">
             <div className="flex items-center gap-3">
               <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-ivory/95">
                 <Image
@@ -30,25 +30,33 @@ export function SiteFooter() {
               {site.tagline}. A wellness, Ayurveda and eco-tourism sanctuary — an
               initiative of {site.org}.
             </p>
-            <div className="mt-2 flex flex-col gap-1 text-sm">
-              <a
-                href={site.mapUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-colors hover:text-ivory"
-              >
-                {site.address}
-              </a>
-              <span className="pt-1 text-ivory/60">{site.contactName}</span>
-              <a href={`tel:${site.phone.replace(/\s/g, "")}`}>{site.phone}</a>
-              <a href={`mailto:${site.email}`}>{site.email}</a>
-            </div>
 
-            <div className="mt-3 flex flex-col gap-2">
-              <span className="font-ui text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-ivory/50">
-                Follow us
-              </span>
-              <div className="flex items-center gap-3">
+            {/* Contact widget */}
+            <div className="max-w-xs rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+              <h3 className="font-ui text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-ivory/50">
+                Get in touch
+              </h3>
+              <div className="mt-3 flex flex-col gap-1.5 text-sm">
+                <a
+                  href={site.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="leading-relaxed transition-colors hover:text-ivory"
+                >
+                  {site.address}
+                </a>
+                <span className="pt-1 text-ivory/60">{site.contactName}</span>
+                <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="transition-colors hover:text-ivory">
+                  {site.phone}
+                </a>
+                <a href={`mailto:${site.email}`} className="transition-colors hover:text-ivory">
+                  {site.email}
+                </a>
+              </div>
+              <div className="mt-4 flex items-center gap-3 border-t border-white/10 pt-4">
+                <span className="font-ui text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-ivory/50">
+                  Follow
+                </span>
                 <a
                   href={site.socials.instagram}
                   target="_blank"
@@ -77,13 +85,13 @@ export function SiteFooter() {
             </div>
           </div>
 
-          {primaryNav.slice(0, 3).map((col) => (
+          {footerNav.map((col) => (
             <div key={col.label} className="flex flex-col gap-3">
               <h3 className="font-ui text-xs font-semibold uppercase tracking-[0.18em] text-ivory">
                 {col.label}
               </h3>
               <ul className="flex flex-col gap-2 text-sm">
-                {(col.children ?? []).slice(0, 7).map((c) => (
+                {col.children.map((c) => (
                   <li key={c.href}>
                     <Link
                       href={c.href}
