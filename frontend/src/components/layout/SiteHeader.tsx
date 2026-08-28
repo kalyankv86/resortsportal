@@ -11,12 +11,12 @@ import { cn } from "@/lib/cn";
 export function SiteHeader() {
   const pathname = usePathname();
   const [atTop, setAtTop] = useState(true);
-  const [hasHero, setHasHero] = useState(true);
   const [open, setOpen] = useState(false);
 
-  // Solid (frosted) unless we're at the top of a page that has a dark hero
-  // behind the header.
-  const scrolled = !atTop || !hasHero;
+  // The header only goes transparent over the cinematic home hero. Everywhere
+  // else — and as soon as the page is scrolled — it carries an opaque surface
+  // so navigation never bleeds into page content.
+  const solid = !atTop || pathname !== "/";
 
   useEffect(() => {
     const onScroll = () => setAtTop(window.scrollY <= 24);
@@ -26,12 +26,6 @@ export function SiteHeader() {
   }, []);
 
   useEffect(() => {
-    // Sync with the DOM: does the current page render a dark hero behind us?
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setHasHero(!!document.querySelector("[data-page-hero]"));
-  }, [pathname]);
-
-  useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
   }, [open]);
 
@@ -39,16 +33,16 @@ export function SiteHeader() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-luxury",
-        scrolled ? "py-2" : "py-4",
+        solid ? "py-2" : "py-4",
       )}
     >
       <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-6">
         <div
           className={cn(
             "flex items-center justify-between rounded-pill px-4 py-2.5 transition-all duration-500 ease-luxury sm:px-6",
-            scrolled
-              ? "glass"
-              : "bg-transparent border border-transparent shadow-none",
+            solid
+              ? "border border-border/50 bg-ivory/95 shadow-soft backdrop-blur-md supports-[backdrop-filter]:bg-ivory/80"
+              : "border border-transparent bg-transparent shadow-none",
           )}
         >
           <Link
@@ -59,7 +53,7 @@ export function SiteHeader() {
             <span
               className={cn(
                 "grid h-10 w-10 shrink-0 place-items-center rounded-full transition-colors",
-                scrolled ? "bg-transparent" : "bg-ivory/95 shadow-soft",
+                solid ? "bg-transparent" : "bg-ivory/95 shadow-soft",
               )}
             >
               <Image
@@ -74,7 +68,7 @@ export function SiteHeader() {
             <span
               className={cn(
                 "font-heading text-lg leading-none transition-colors sm:text-xl",
-                scrolled ? "text-forest-800" : "text-ivory",
+                solid ? "text-forest-800" : "text-ivory",
               )}
             >
               Centurion Wellness
@@ -91,7 +85,7 @@ export function SiteHeader() {
                   href={node.href}
                   className={cn(
                     "rounded-pill px-3 py-2 font-ui text-sm font-medium transition-colors",
-                    scrolled
+                    solid
                       ? "text-forest-800 hover:bg-sage-100/70"
                       : "text-ivory/90 hover:bg-white/10 hover:text-ivory",
                   )}
@@ -100,7 +94,7 @@ export function SiteHeader() {
                 </Link>
                 {node.children ? (
                   <div className="invisible absolute left-0 top-full pt-3 opacity-0 transition-all duration-300 group-hover:visible group-hover:opacity-100">
-                    <ul className="glass w-60 rounded-3xl p-2">
+                    <ul className="w-60 rounded-3xl border border-border/60 bg-ivory p-2 shadow-lift">
                       {node.children.map((c) => (
                         <li key={c.href}>
                           <Link
@@ -121,7 +115,7 @@ export function SiteHeader() {
           <div className="flex items-center gap-2">
             <Button
               href="/guest-login"
-              variant={scrolled ? "ghost" : "glass"}
+              variant={solid ? "ghost" : "glass"}
               size="sm"
               className="hidden sm:inline-flex"
             >
@@ -137,7 +131,7 @@ export function SiteHeader() {
               aria-expanded={open}
               className={cn(
                 "flex h-10 w-10 items-center justify-center rounded-full lg:hidden",
-                scrolled ? "text-forest-800" : "text-ivory",
+                solid ? "text-forest-800" : "text-ivory",
               )}
             >
               <span className="relative block h-3 w-5">
