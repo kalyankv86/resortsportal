@@ -24,7 +24,7 @@
     <tr>
       <td>
         <h1>{{ $gst['legal_name'] }}</h1>
-        <div class="muted">Centurion Wellness Eco Tourism</div>
+        <div class="muted">Centurion Wellness & Eco Tourism</div>
         <div class="muted">{{ $gst['address'] }}</div>
         @if($gst['gstin'])<div class="muted">GSTIN: {{ $gst['gstin'] }}</div>@endif
       </td>

@@ -48,7 +48,7 @@ export function SiteHeader() {
           <Link
             href="/"
             className="flex shrink-0 items-center gap-2.5"
-            aria-label="Centurion Wellness Eco Tourism, home"
+            aria-label="Centurion Wellness & Eco Tourism, home"
           >
             <span
               className={cn(
@@ -72,10 +72,10 @@ export function SiteHeader() {
               )}
             >
               <span className="block text-base leading-none sm:text-[1.05rem]">
-                Centurion Wellness
+                Centurion
               </span>
-              <span className="mt-0.5 block font-ui text-[0.58rem] font-semibold uppercase tracking-[0.22em] opacity-70">
-                Eco Tourism
+              <span className="mt-0.5 block font-ui text-[0.58rem] font-semibold uppercase tracking-[0.2em] opacity-70">
+                Wellness &amp; Eco Tourism
               </span>
             </span>
           </Link>

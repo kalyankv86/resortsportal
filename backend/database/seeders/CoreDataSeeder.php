@@ -48,7 +48,7 @@ class CoreDataSeeder extends Seeder
     private function settings(): void
     {
         $rows = [
-            ['general', 'site.name', 'string', true, 'Centurion Wellness Eco Tourism'],
+            ['general', 'site.name', 'string', true, 'Centurion Wellness & Eco Tourism'],
             ['general', 'site.tagline', 'string', true, 'Heal • Stay • Reconnect with Nature'],
             ['general', 'contact.email', 'string', true, 'prasant.panda@cutm.ac.in'],
             ['general', 'contact.phone', 'string', true, '+91 63717 45061'],

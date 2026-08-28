@@ -20,9 +20,9 @@ export function SiteFooter() {
                 />
               </span>
               <span className="font-heading leading-none text-ivory">
-                <span className="block text-xl">Centurion Wellness</span>
-                <span className="mt-0.5 block font-ui text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-ivory/60">
-                  Eco Tourism
+                <span className="block text-xl">Centurion</span>
+                <span className="mt-0.5 block font-ui text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-ivory/60">
+                  Wellness &amp; Eco Tourism
                 </span>
               </span>
             </div>

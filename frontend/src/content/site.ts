@@ -1,7 +1,7 @@
 /** Global site configuration + primary navigation (full IA from the brief). */
 
 export const site = {
-  name: "Centurion Wellness Eco Tourism",
+  name: "Centurion Wellness & Eco Tourism",
   shortName: "Centurion Wellness",
   org: "Centurion University of Technology and Management",
   tagline: "Heal • Stay • Reconnect with Nature",

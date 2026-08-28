@@ -159,7 +159,7 @@ class BookingController extends Controller
             ."Status: {$booking->status}\n\n"
             ."View your booking and arrival pass: {$url}\n\n"
             ."Our team will confirm your dates and share payment instructions shortly.\n"
-            ."— Centurion Wellness Eco Tourism";
+            ."— Centurion Wellness & Eco Tourism";
 
         $status = 'sent';
         $error = null;
