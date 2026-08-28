@@ -767,20 +767,20 @@ export const PAGES: Record<string, PageDef> = {
 
   "guest-login": page({
     slug: "guest-login",
-    title: "Guest Login",
-    eyebrow: "Guest Portal",
-    summary: "Your stay, therapy schedule, diet chart, invoices, medical reports and progress — in one place.",
+    title: "Sign in",
+    eyebrow: "Account",
+    summary: "One sign-in for guests and staff. Choose your account type, and you'll be taken straight to the right dashboard.",
     hero: "meditation",
     sections: [
-      { kind: "login", heading: "Sign in to the guest portal" },
+      { kind: "login", heading: "Sign in" },
       {
         kind: "features",
-        heading: "Inside the portal",
+        heading: "What you'll find inside",
         items: [
-          { title: "Upcoming stay", text: "Countdown, itinerary and QR check-in." },
-          { title: "Daily schedule", text: "Therapies, consultations, yoga and meals." },
-          { title: "Records", text: "Diet chart, prescriptions, lab reports and progress timeline." },
-          { title: "Billing", text: "Invoices, payments and downloadable receipts." },
+          { title: "Guests", text: "Your stay, daily schedule, diet chart, prescriptions, invoices and progress." },
+          { title: "Doctors & therapists", text: "Today's patients and appointments, notes, diet charts and prescriptions." },
+          { title: "Housekeeping & restaurant", text: "Room-status board, task list and live meal orders." },
+          { title: "Administration", text: "Bookings, payments, refunds, content, users, settings and the audit trail." },
         ],
       },
     ],

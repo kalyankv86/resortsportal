@@ -117,7 +117,24 @@ class AuthController extends Controller
             'is_staff' => $user->is_staff,
             'roles' => $user->getRoleNames(),
             'permissions' => $user->getAllPermissions()->pluck('name'),
-            'home' => $user->is_staff ? '/admin' : '/guest',
+            'home' => $this->homeFor($user),
         ];
+    }
+
+    /** Post-login landing route, resolved from the account's role. */
+    private function homeFor(User $user): string
+    {
+        if (! $user->is_staff) {
+            return '/guest';
+        }
+        $roles = $user->getRoleNames();
+
+        return match (true) {
+            $roles->contains('doctor') => '/doctor',
+            $roles->contains('therapist') => '/therapist',
+            $roles->contains('housekeeping') => '/housekeeping',
+            $roles->contains('restaurant-manager') => '/restaurant',
+            default => '/admin',
+        };
     }
 }

@@ -121,7 +121,7 @@ export function SiteHeader() {
               size="sm"
               className="hidden sm:inline-flex"
             >
-              Guest Login
+              Login
             </Button>
             <Button href="/book-now" size="sm" className="hidden sm:inline-flex">
               Book Now
@@ -200,7 +200,7 @@ export function SiteHeader() {
                 size="lg"
                 onClick={() => setOpen(false)}
               >
-                Guest Login
+                Login
               </Button>
             </div>
           </nav>

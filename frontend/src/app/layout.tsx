@@ -6,6 +6,7 @@ import { AuthProvider } from "@/lib/auth";
 import { AffiliationStrip } from "@/components/layout/AffiliationStrip";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { ContactDock } from "@/components/layout/ContactDock";
 import { site } from "@/content/site";
 
 const cormorant = Cormorant_Garamond({
@@ -71,6 +72,7 @@ export default function RootLayout({
             <SiteHeader />
             <main className="flex-1">{children}</main>
             <SiteFooter />
+            <ContactDock />
           </SmoothScroll>
         </AuthProvider>
       </body>
