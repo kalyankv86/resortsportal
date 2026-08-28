@@ -28,7 +28,14 @@ export function SiteFooter() {
               initiative of {site.org}.
             </p>
             <div className="mt-2 flex flex-col gap-1 text-sm">
-              <span>{site.address}</span>
+              <a
+                href={site.mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-ivory"
+              >
+                {site.address}
+              </a>
               <span className="pt-1 text-ivory/60">{site.contactName}</span>
               <a href={`tel:${site.phone.replace(/\s/g, "")}`}>{site.phone}</a>
               <a href={`mailto:${site.email}`}>{site.email}</a>
@@ -41,7 +48,7 @@ export function SiteFooter() {
                 {col.label}
               </h3>
               <ul className="flex flex-col gap-2 text-sm">
-                {(col.children ?? []).map((c) => (
+                {(col.children ?? []).slice(0, 7).map((c) => (
                   <li key={c.href}>
                     <Link
                       href={c.href}

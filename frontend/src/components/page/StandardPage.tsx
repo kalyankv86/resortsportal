@@ -279,7 +279,18 @@ function SectionRenderer({
                   </div>
                   <div>
                     <dt className="font-ui text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">Address</dt>
-                    <dd className="mt-1 text-forest-800">{site.address}</dd>
+                    <dd className="mt-1 text-forest-800">
+                      {site.address}
+                      <br />
+                      <a
+                        href={site.mapUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-terracotta-600"
+                      >
+                        Open in Google Maps →
+                      </a>
+                    </dd>
                   </div>
                 </dl>
               </div>

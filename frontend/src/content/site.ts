@@ -9,7 +9,10 @@ export const site = {
   phone: "+91 63717 45061",
   email: "prasant.panda@cutm.ac.in",
   contactName: "Prasanth Panda",
-  address: "Centurion University, Paralakhemundi, Gajapati, Odisha 761211",
+  address:
+    "Village Alluri Nagar, P.O. – R Sitapur, Via – Uppalada, Paralakhemundi, Gajapati, Odisha, India – 761211",
+  mapUrl:
+    "https://www.google.com/maps/search/?api=1&query=Centurion+University+of+Technology+and+Management%2C+Paralakhemundi",
   campus: "Paralakhemundi Campus · foothills of the Eastern Ghats",
   socials: {
     instagram: "https://instagram.com/",
@@ -46,28 +49,16 @@ export const primaryNav: NavNode[] = [
     ],
   },
   {
-    label: "Stay",
+    label: "Stay & Experiences",
     href: "/luxury-stay",
     children: [
       { label: "Wellness Stay", href: "/luxury-stay" },
       { label: "Rooms", href: "/rooms" },
       { label: "Villas", href: "/villas" },
       { label: "Eco Cottages", href: "/eco-cottages" },
-    ],
-  },
-  {
-    label: "Dining",
-    href: "/dining",
-    children: [
       { label: "Dining", href: "/dining" },
       { label: "Organic Café", href: "/organic-cafe" },
       { label: "Wellness Kitchen", href: "/wellness-kitchen" },
-    ],
-  },
-  {
-    label: "Eco Tourism",
-    href: "/eco-tourism",
-    children: [
       { label: "Eco Tourism", href: "/eco-tourism" },
       { label: "Nature Trails", href: "/nature-trails" },
       { label: "Experiences", href: "/experiences" },

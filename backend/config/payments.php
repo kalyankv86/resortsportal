@@ -39,6 +39,6 @@ return [
         'gstin' => env('CWETR_GSTIN', ''),
         'legal_name' => env('CWETR_LEGAL_NAME', 'Centurion University of Technology and Management'),
         'home_state' => env('CWETR_GST_STATE', 'Odisha'),
-        'address' => env('CWETR_GST_ADDRESS', 'Centurion University Campus, Odisha, India'),
+        'address' => env('CWETR_GST_ADDRESS', 'Village Alluri Nagar, P.O. – R Sitapur, Via – Uppalada, Paralakhemundi, Gajapati, Odisha, India – 761211'),
     ],
 ];

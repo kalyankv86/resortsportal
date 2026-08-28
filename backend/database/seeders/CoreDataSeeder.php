@@ -52,7 +52,7 @@ class CoreDataSeeder extends Seeder
             ['general', 'site.tagline', 'string', true, 'Heal • Stay • Reconnect with Nature'],
             ['general', 'contact.email', 'string', true, 'prasant.panda@cutm.ac.in'],
             ['general', 'contact.phone', 'string', true, '+91 63717 45061'],
-            ['general', 'contact.address', 'string', true, 'Centurion University, Paralakhemundi, Gajapati, Odisha 761211'],
+            ['general', 'contact.address', 'string', true, 'Village Alluri Nagar, P.O. – R Sitapur, Via – Uppalada, Paralakhemundi, Gajapati, Odisha, India – 761211'],
             ['booking', 'booking.min_nights', 'int', false, 2],
             ['booking', 'booking.max_nights', 'int', false, 21],
             ['booking', 'booking.checkin_time', 'string', true, '14:00'],
