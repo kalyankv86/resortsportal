@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { destinations, destinationBySlug } from "@/content/destinations";
+import {
+  destinations,
+  destinationBySlug,
+  destinationImage,
+} from "@/content/destinations";
 import { getCover, getMedia } from "@/lib/media";
 import { PageHero } from "@/components/page/PageHero";
 import { Container, Section, SectionHeading } from "@/components/ui/primitives";
@@ -38,7 +42,7 @@ export default async function DestinationPage({
   const d = destinationBySlug(slug);
   if (!d) notFound();
 
-  const cover = await getCover(d.hero);
+  const cover = destinationImage(d) ?? (await getCover(d.hero));
   const gallery = (await getMedia(d.hero)).slice(0, 4);
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${d.coords.lat},${d.coords.lng}`;
 
@@ -103,6 +107,12 @@ export default async function DestinationPage({
               </Reveal>
             ))}
           </div>
+
+          {d.image ? (
+            <p className="mt-6 text-xs text-muted-foreground">
+              Location photograph: {d.image.credit}.
+            </p>
+          ) : null}
         </Container>
       </Section>
 

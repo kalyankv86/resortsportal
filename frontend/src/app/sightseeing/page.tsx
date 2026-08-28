@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { destinations } from "@/content/destinations";
+import {
+  destinations,
+  destinationBySlug,
+  destinationImage,
+  destinationImageCredits,
+} from "@/content/destinations";
 import { getCover } from "@/lib/media";
 import { PageHero } from "@/components/page/PageHero";
 import { Container, Section, SectionHeading } from "@/components/ui/primitives";
@@ -16,9 +21,14 @@ export const metadata: Metadata = {
 };
 
 export default async function ExploreGajapatiPage() {
-  const cover = await getCover("forest");
+  const cover =
+    destinationImage(destinationBySlug("gandahati-waterfall")!) ??
+    (await getCover("forest"));
   const cards = await Promise.all(
-    destinations.map(async (d) => ({ ...d, img: await getCover(d.hero) })),
+    destinations.map(async (d) => ({
+      ...d,
+      img: destinationImage(d) ?? (await getCover(d.hero)),
+    })),
   );
 
   return (
@@ -81,6 +91,17 @@ export default async function ExploreGajapatiPage() {
               <Button href="/experiences" variant="glass" size="lg">On-campus experiences</Button>
             </div>
           </div>
+
+          <p className="mt-10 text-xs leading-relaxed text-muted-foreground">
+            Location photographs:{" "}
+            {destinationImageCredits.map((c, i) => (
+              <span key={c.name}>
+                {i > 0 ? "; " : ""}
+                {c.name} — {c.credit}
+              </span>
+            ))}
+            .
+          </p>
         </Container>
       </Section>
     </>

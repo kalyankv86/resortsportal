@@ -1,0 +1,40 @@
+{
+  "note": "Freely-licensed photographs for the /sightseeing destination pages. Fetched by fetch-sightseeing-media.mjs into /opt/resorts/media/library/ (served by Nginx at /media/library/). Attribution is rendered on the sightseeing pages.",
+  "items": [
+    {
+      "slug": "mahendragiri-hills",
+      "file": "sightseeing-mahendragiri-hills.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Mahendragiri_Hills.jpg",
+      "credit": "Subhamsahoo2008, CC BY-SA 4.0, via Wikimedia Commons",
+      "alt": "Forested slopes of the Mahendragiri hills, Gajapati, Odisha"
+    },
+    {
+      "slug": "gandahati-waterfall",
+      "file": "sightseeing-gandahati-waterfall.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/4/42/Gandahathi_Waterfalls_2025.jpg",
+      "credit": "Dream is ToExplore, CC BY-SA 4.0, via Wikimedia Commons",
+      "alt": "Gandahati waterfall on the Mahendratanaya river near Mohana"
+    },
+    {
+      "slug": "gajapati-palace",
+      "file": "sightseeing-gajapati-palace.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Gajapati_Palace_2025.png",
+      "credit": "Santosh Kumar Panda, CC0, via Wikimedia Commons",
+      "alt": "The Gajapati palace at Paralakhemundi"
+    },
+    {
+      "slug": "taptapani",
+      "file": "sightseeing-taptapani.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/1/11/Tapta_Pani_%28Hot_Spring%29%2C_Odisha_%281%29.jpg",
+      "credit": "Krupasindhu Muduli, CC BY-SA 3.0, via Wikimedia Commons",
+      "alt": "The Taptapani hot spring pool in the forest, Odisha"
+    },
+    {
+      "slug": "saura-villages",
+      "file": "sightseeing-saura-villages.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Idital_Wall_Painting.jpg",
+      "credit": "Hpsatapathy, CC BY-SA 3.0, via Wikimedia Commons",
+      "alt": "Saura idital wall painting"
+    }
+  ]
+}

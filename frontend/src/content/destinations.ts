@@ -1,4 +1,4 @@
-import type { MediaCategory } from "@/lib/media";
+import type { MediaCategory, MediaItem } from "@/lib/media";
 
 /**
  * Sightseeing — day trips from the wellness centre into the Eastern Ghats,
@@ -21,6 +21,12 @@ export interface Destination {
   activities: string[];
   /** Approximate coordinates for the "Open in Maps" link. */
   coords: { lat: number; lng: number };
+  /**
+   * Location photograph. Freely-licensed images from Wikimedia Commons, served
+   * from /media/library/ (see scripts/sightseeing-media.json). Destinations
+   * without one fall back to the house category photography.
+   */
+  image?: { src: string; width: number; height: number; alt: string; credit: string };
 }
 
 export const destinations: Destination[] = [
@@ -40,6 +46,13 @@ export const destinations: Destination[] = [
     bestSeason: "October – February",
     activities: ["Guided temple walk", "Forest birding", "Sunrise viewpoint", "Photography"],
     coords: { lat: 18.9667, lng: 84.3667 },
+    image: {
+      src: "/media/library/sightseeing-mahendragiri-hills.jpg",
+      width: 1600,
+      height: 1142,
+      alt: "Forested slopes of the Mahendragiri hills, Gajapati, Odisha",
+      credit: "Subhamsahoo2008, CC BY-SA 4.0, via Wikimedia Commons",
+    },
   },
   {
     slug: "gandahati-waterfall",
@@ -57,6 +70,13 @@ export const destinations: Destination[] = [
     bestSeason: "August – December (post-monsoon flow)",
     activities: ["Waterfall trail", "Deer park", "Riverside picnic", "Butterfly watching"],
     coords: { lat: 19.1333, lng: 84.2167 },
+    image: {
+      src: "/media/library/sightseeing-gandahati-waterfall.jpg",
+      width: 1600,
+      height: 1200,
+      alt: "Gandahati waterfall on the Mahendratanaya river near Mohana",
+      credit: "Dream is ToExplore, CC BY-SA 4.0, via Wikimedia Commons",
+    },
   },
   {
     slug: "gajapati-palace",
@@ -74,6 +94,13 @@ export const destinations: Destination[] = [
     bestSeason: "All year",
     activities: ["Heritage walk", "Architecture photography", "Old-town temples", "Local market"],
     coords: { lat: 18.7807, lng: 84.0827 },
+    image: {
+      src: "/media/library/sightseeing-gajapati-palace.jpg",
+      width: 900,
+      height: 1600,
+      alt: "The Gajapati palace at Paralakhemundi",
+      credit: "Santosh Kumar Panda, CC0, via Wikimedia Commons",
+    },
   },
   {
     slug: "brundaban-palace",
@@ -125,6 +152,13 @@ export const destinations: Destination[] = [
     bestSeason: "November – February",
     activities: ["Hot-spring soak", "Forest drive", "Deer park", "Temple visit"],
     coords: { lat: 19.5167, lng: 84.4167 },
+    image: {
+      src: "/media/library/sightseeing-taptapani.jpg",
+      width: 1600,
+      height: 1200,
+      alt: "The Taptapani hot spring pool in the forest, Odisha",
+      credit: "Krupasindhu Muduli, CC BY-SA 3.0, via Wikimedia Commons",
+    },
   },
   {
     slug: "saura-villages",
@@ -142,6 +176,13 @@ export const destinations: Destination[] = [
     bestSeason: "November – March",
     activities: ["Community-hosted village walk", "Idital wall art", "Craft & music", "Farm terraces"],
     coords: { lat: 19.0833, lng: 83.8167 },
+    image: {
+      src: "/media/library/sightseeing-saura-villages.jpg",
+      width: 1600,
+      height: 752,
+      alt: "Saura idital wall painting from the Gajapati hills",
+      credit: "Hpsatapathy, CC BY-SA 3.0, via Wikimedia Commons",
+    },
   },
   {
     slug: "mahendratanaya-river",
@@ -164,3 +205,22 @@ export const destinations: Destination[] = [
 
 export const destinationBySlug = (slug: string) =>
   destinations.find((d) => d.slug === slug);
+
+/** The destination's own photograph as a MediaItem, or null to fall back. */
+export function destinationImage(d: Destination): MediaItem | null {
+  if (!d.image) return null;
+  return {
+    id: `sightseeing-${d.slug}`,
+    category: d.hero,
+    src: d.image.src,
+    width: d.image.width,
+    height: d.image.height,
+    alt: d.image.alt,
+    credit: d.image.credit,
+  };
+}
+
+/** Attribution lines for every destination that uses a licensed photo. */
+export const destinationImageCredits = destinations
+  .filter((d) => d.image)
+  .map((d) => ({ name: d.name, credit: d.image!.credit }));
