@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Enquiry;
 use App\Models\NewsletterSubscriber;
+use App\Models\Setting;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class LeadController extends Controller
 {
@@ -22,7 +24,35 @@ class LeadController extends Controller
 
         $enquiry = Enquiry::create($data + ['source' => 'web', 'status' => 'new']);
 
+        $this->alert($enquiry);
+
         return response()->json(['message' => 'Thank you — our team will be in touch.', 'id' => $enquiry->id], 201);
+    }
+
+    /** Email the reservations desk. Never fails the request if mail is down. */
+    private function alert(Enquiry $enquiry): void
+    {
+        $to = Setting::get('contact.email', config('mail.from.address'));
+        if (! $to) {
+            return;
+        }
+
+        $body = "New enquiry from the website\n\n"
+            ."Name:  {$enquiry->name}\n"
+            ."Email: {$enquiry->email}\n"
+            .'Phone: '.($enquiry->phone ?: '—')."\n"
+            .'Topic: '.($enquiry->topic ?: '—')."\n\n"
+            ."Message:\n".($enquiry->message ?: '—')."\n";
+
+        try {
+            Mail::raw($body, function ($m) use ($to, $enquiry) {
+                $m->to($to)
+                    ->replyTo($enquiry->email, $enquiry->name)
+                    ->subject('Website enquiry — '.$enquiry->name);
+            });
+        } catch (\Throwable $e) {
+            report($e);
+        }
     }
 
     public function newsletter(Request $request): JsonResponse

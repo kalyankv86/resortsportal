@@ -765,26 +765,6 @@ export const PAGES: Record<string, PageDef> = {
 
   // "book-now" has a dedicated route: src/app/book-now/page.tsx
 
-  "guest-login": page({
-    slug: "guest-login",
-    title: "Sign in",
-    eyebrow: "Account",
-    summary: "One sign-in for guests and staff. Choose your account type, and you'll be taken straight to the right dashboard.",
-    hero: "meditation",
-    sections: [
-      { kind: "login", heading: "Sign in" },
-      {
-        kind: "features",
-        heading: "What you'll find inside",
-        items: [
-          { title: "Guests", text: "Your stay, daily schedule, diet chart, prescriptions, invoices and progress." },
-          { title: "Doctors & therapists", text: "Today's patients and appointments, notes, diet charts and prescriptions." },
-          { title: "Housekeeping & restaurant", text: "Room-status board, task list and live meal orders." },
-          { title: "Administration", text: "Bookings, payments, refunds, content, users, settings and the audit trail." },
-        ],
-      },
-    ],
-  }),
 };
 
 export const PAGE_SLUGS = Object.keys(PAGES);
