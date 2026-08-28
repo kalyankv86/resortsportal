@@ -29,6 +29,7 @@ export function SiteFooter() {
             </p>
             <div className="mt-2 flex flex-col gap-1 text-sm">
               <span>{site.address}</span>
+              <span className="pt-1 text-ivory/60">{site.contactName}</span>
               <a href={`tel:${site.phone.replace(/\s/g, "")}`}>{site.phone}</a>
               <a href={`mailto:${site.email}`}>{site.email}</a>
             </div>

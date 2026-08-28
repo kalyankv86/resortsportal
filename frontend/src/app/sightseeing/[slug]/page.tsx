@@ -23,9 +23,9 @@ export async function generateMetadata({
   const d = destinationBySlug(slug);
   if (!d) return {};
   return {
-    title: `${d.name} · Explore Gajapati`,
+    title: `${d.name} · Sightseeing`,
     description: d.summary,
-    alternates: { canonical: `/explore-gajapati/${slug}` },
+    alternates: { canonical: `/sightseeing/${slug}` },
   };
 }
 
@@ -45,11 +45,11 @@ export default async function DestinationPage({
   return (
     <>
       <PageHero
-        eyebrow="Explore Gajapati"
+        eyebrow="Sightseeing"
         title={d.name}
         summary={d.summary}
         cover={cover}
-        parent={{ label: "Explore Gajapati", href: "/explore-gajapati" }}
+        parent={{ label: "Sightseeing", href: "/sightseeing" }}
       />
 
       <Section>
@@ -115,7 +115,7 @@ export default async function DestinationPage({
               .map((x) => (
                 <Link
                   key={x.slug}
-                  href={`/explore-gajapati/${x.slug}`}
+                  href={`/sightseeing/${x.slug}`}
                   className="rounded-pill border border-border bg-surface px-4 py-2 font-ui text-sm font-semibold text-forest-700 hover:border-sage"
                 >
                   {x.name}

@@ -83,7 +83,7 @@
   </table>
 
   <div class="foot">
-    This is a computer-generated invoice. For queries contact {{ $booking->contact_email ? 'wellness@cutm.ac.in' : 'wellness@cutm.ac.in' }}.<br>
+    This is a computer-generated invoice. For queries contact {{ 'prasant.panda@cutm.ac.in' }}.<br>
     Cancellation &amp; refund terms apply as per the booking policy.
   </div>
 </body>

@@ -142,7 +142,7 @@ export const PAGES: Record<string, PageDef> = {
         category: "organic-farm",
         items: [
           { title: "Campus Experiences", text: "Guided visits to the organic farm, medicinal garden, hatchery and skill parks.", href: "/campus-experiences" },
-          { title: "Explore Gajapati", text: "Mahendragiri, Gandahati Waterfall, palaces and Saura villages within reach of the campus.", href: "/explore-gajapati" },
+          { title: "Sightseeing", text: "Mahendragiri, Gandahati Waterfall, palaces and Saura villages within reach of the campus.", href: "/sightseeing" },
           { title: "Gallery", text: "The campus and its surroundings through the seasons.", href: "/gallery" },
         ],
       },
@@ -151,7 +151,7 @@ export const PAGES: Record<string, PageDef> = {
         heading: "About the university",
         body: "For admissions, schools, research and campuses, visit the main Centurion University website.",
         primary: { label: "cutm.ac.in", href: "https://cutm.ac.in" },
-        secondary: { label: "Explore Gajapati", href: "/explore-gajapati" },
+        secondary: { label: "Sightseeing", href: "/sightseeing" },
       },
     ],
   }),
@@ -869,7 +869,7 @@ export const PAGES: Record<string, PageDef> = {
           { name: "Open Value", price: "Your amount", features: ["Any value from ₹2,000", "Stackable at checkout", "Valid 12 months"], href: "/contact" },
         ],
       },
-      { kind: "intro", body: ["To arrange a gift card, contact our reservations desk at wellness@cutm.ac.in or +91 90000 00000. Cards are delivered by email and are valid for twelve months."] },
+      { kind: "intro", body: ["To arrange a gift card, contact us at prasant.panda@cutm.ac.in or +91 63717 45061. Cards are delivered by email and are valid for twelve months."] },
     ],
   }),
 

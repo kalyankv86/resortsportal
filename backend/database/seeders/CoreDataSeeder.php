@@ -50,9 +50,9 @@ class CoreDataSeeder extends Seeder
         $rows = [
             ['general', 'site.name', 'string', true, 'Centurion Wellness Eco Tourism'],
             ['general', 'site.tagline', 'string', true, 'Heal • Stay • Reconnect with Nature'],
-            ['general', 'contact.email', 'string', true, 'wellness@cutm.ac.in'],
-            ['general', 'contact.phone', 'string', true, '+91 90000 00000'],
-            ['general', 'contact.address', 'string', true, 'Centurion University Campus, Odisha, India'],
+            ['general', 'contact.email', 'string', true, 'prasant.panda@cutm.ac.in'],
+            ['general', 'contact.phone', 'string', true, '+91 63717 45061'],
+            ['general', 'contact.address', 'string', true, 'Centurion University, Paralakhemundi, Gajapati, Odisha 761211'],
             ['booking', 'booking.min_nights', 'int', false, 2],
             ['booking', 'booking.max_nights', 'int', false, 21],
             ['booking', 'booking.checkin_time', 'string', true, '14:00'],

@@ -268,8 +268,10 @@ function SectionRenderer({
                 <SectionHeading title={section.heading} />
                 <dl className="mt-6 flex flex-col gap-4 text-sm">
                   <div>
-                    <dt className="font-ui text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">Reservations</dt>
+                    <dt className="font-ui text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">Reservations & enquiries</dt>
                     <dd className="mt-1 text-forest-800">
+                      {site.contactName}
+                      <br />
                       <a href={`tel:${site.phone.replace(/\s/g, "")}`}>{site.phone}</a>
                       <br />
                       <a href={`mailto:${site.email}`}>{site.email}</a>

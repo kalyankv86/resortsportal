@@ -9,10 +9,10 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Explore Gajapati",
+  title: "Sightseeing",
   description:
     "Day trips from Centurion Wellness Eco Tourism into the Eastern Ghats — Mahendragiri, Gandahati Waterfall, the Gajapati palaces, a Himalayan monastery and Saura tribal villages.",
-  alternates: { canonical: "/explore-gajapati" },
+  alternates: { canonical: "/sightseeing" },
 };
 
 export default async function ExploreGajapatiPage() {
@@ -25,7 +25,7 @@ export default async function ExploreGajapatiPage() {
     <>
       <PageHero
         eyebrow="Eco tourism"
-        title="Explore Gajapati"
+        title="Sightseeing"
         summary="The wellness centre sits at the foot of the Eastern Ghats, in one of Odisha's least-travelled districts. Sacred hills, forest waterfalls, royal heritage and a living tribal culture are all within a morning's drive."
         cover={cover}
       />
@@ -42,7 +42,7 @@ export default async function ExploreGajapatiPage() {
             {cards.map((d, i) => (
               <Reveal key={d.slug} delay={i * 0.05}>
                 <Link
-                  href={`/explore-gajapati/${d.slug}`}
+                  href={`/sightseeing/${d.slug}`}
                   className="group flex h-full flex-col overflow-hidden rounded-card border border-border bg-surface shadow-soft transition-all duration-500 ease-luxury hover:-translate-y-1 hover:shadow-lift"
                 >
                   <MediaImage

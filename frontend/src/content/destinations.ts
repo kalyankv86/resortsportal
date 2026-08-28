@@ -1,7 +1,7 @@
 import type { MediaCategory } from "@/lib/media";
 
 /**
- * Explore Gajapati — day trips from the wellness centre into the Eastern Ghats,
+ * Sightseeing — day trips from the wellness centre into the Eastern Ghats,
  * the tribal heartland and the heritage of the Paralakhemundi region.
  *
  * Distances and travel times are from the Paralakhemundi campus and are

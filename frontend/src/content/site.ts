@@ -6,8 +6,9 @@ export const site = {
   org: "Centurion University of Technology and Management",
   tagline: "Heal • Stay • Reconnect with Nature",
   url: "https://wellness.cutm.ac.in",
-  phone: "+91 90000 00000",
-  email: "wellness@cutm.ac.in",
+  phone: "+91 63717 45061",
+  email: "prasant.panda@cutm.ac.in",
+  contactName: "Prasanth Panda",
   address: "Centurion University, Paralakhemundi, Gajapati, Odisha 761211",
   campus: "Paralakhemundi Campus · foothills of the Eastern Ghats",
   socials: {
@@ -24,6 +25,14 @@ export interface NavNode {
 }
 
 export const primaryNav: NavNode[] = [
+  {
+    label: "About Us",
+    href: "/about-university",
+    children: [
+      { label: "About Centurion Wellness", href: "/about" },
+      { label: "About Centurion University", href: "/about-university" },
+    ],
+  },
   {
     label: "Wellness",
     href: "/ayurveda-wellness-centre",
@@ -68,17 +77,22 @@ export const primaryNav: NavNode[] = [
     ],
   },
   {
-    label: "Explore Gajapati",
-    href: "/explore-gajapati",
+    label: "Sightseeing",
+    href: "/sightseeing",
     children: [
-      { label: "Explore Gajapati", href: "/explore-gajapati" },
-      { label: "Mahendragiri Hills", href: "/explore-gajapati/mahendragiri-hills" },
-      { label: "Gandahati Waterfall", href: "/explore-gajapati/gandahati-waterfall" },
-      { label: "Gajapati Palace", href: "/explore-gajapati/gajapati-palace" },
-      { label: "Padmasambhava Mahavihara", href: "/explore-gajapati/padmasambhava-mahavihara" },
-      { label: "Saura Tribal Villages", href: "/explore-gajapati/saura-villages" },
-      { label: "Campus Experiences", href: "/campus-experiences" },
+      { label: "All Sightseeing", href: "/sightseeing" },
+      { label: "Mahendragiri Hills", href: "/sightseeing/mahendragiri-hills" },
+      { label: "Gandahati Waterfall", href: "/sightseeing/gandahati-waterfall" },
+      { label: "Gajapati Palace", href: "/sightseeing/gajapati-palace" },
+      { label: "Padmasambhava Mahavihara", href: "/sightseeing/padmasambhava-mahavihara" },
+      { label: "Taptapani Hot Spring", href: "/sightseeing/taptapani" },
+      { label: "Saura Tribal Villages", href: "/sightseeing/saura-villages" },
+      { label: "Mahendratanaya River", href: "/sightseeing/mahendratanaya-river" },
     ],
+  },
+  {
+    label: "Campus Experience",
+    href: "/campus-experiences",
   },
   {
     label: "Discover",
@@ -89,8 +103,7 @@ export const primaryNav: NavNode[] = [
       { label: "Events", href: "/events" },
       { label: "Testimonials", href: "/testimonials" },
       { label: "Blog", href: "/blog" },
-      { label: "About Centurion Wellness", href: "/about" },
-      { label: "About Centurion University", href: "/about-university" },
+      { label: "Retreat Calendar", href: "/retreat-calendar" },
     ],
   },
 ];
