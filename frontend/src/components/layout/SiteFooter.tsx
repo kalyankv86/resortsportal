@@ -19,10 +19,10 @@ export function SiteFooter() {
                   className="h-[38px] w-[38px] object-contain"
                 />
               </span>
-              <span className="leading-tight text-ivory">
-                <span className="block font-heading text-xl">Centurion University</span>
-                <span className="block font-ui text-[0.65rem] italic tracking-wide text-ivory/60">
-                  Shaping Lives… Empowering Communities…
+              <span className="font-heading leading-none text-ivory">
+                <span className="block text-xl">Centurion Wellness</span>
+                <span className="mt-0.5 block font-ui text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-ivory/60">
+                  Eco Tourism
                 </span>
               </span>
             </div>
