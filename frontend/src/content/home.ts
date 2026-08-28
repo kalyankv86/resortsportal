@@ -94,33 +94,5 @@ export const experiences: Experience[] = [
   { name: "Star Gazing Meadow", duration: "Evening", category: "drone", href: "/experiences" },
 ];
 
-export interface Review {
-  quote: string;
-  name: string;
-  origin: string;
-  rating: number;
-}
-
-export const reviews: Review[] = [
-  {
-    quote:
-      "Fifteen days of Panchakarma and I left lighter in every sense. The forest does half the healing.",
-    name: "Ananya R.",
-    origin: "Bengaluru",
-    rating: 5,
-  },
-  {
-    quote:
-      "The most thoughtfully run wellness centre I have visited in India. Doctors who actually listen.",
-    name: "Michael T.",
-    origin: "Melbourne",
-    rating: 5,
-  },
-  {
-    quote:
-      "Our corporate cohort came for a digital detox and went home a team. Food was extraordinary.",
-    name: "Priya S.",
-    origin: "Hyderabad",
-    rating: 5,
-  },
-];
+// Guest testimonials are entered in the admin dashboard and read from
+// /api/testimonials by <ReviewsStrip>. Nothing is hard-coded here.
