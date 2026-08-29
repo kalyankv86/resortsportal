@@ -24,7 +24,7 @@ export type Section =
   | { kind: "cta"; heading: string; body: string; primary: Link; secondary?: Link };
 
 export interface Feature { title: string; text: string }
-export interface Card { title: string; text: string; href?: string }
+export interface Card { title: string; text: string; href?: string; photo?: string }
 export interface Link { label: string; href: string }
 export interface Plan {
   name: string;
@@ -170,14 +170,13 @@ export const PAGES: Record<string, PageDef> = {
         heading: "Guided campus visits",
         category: "organic-farm",
         items: [
-          { title: "Organic Farm Tour", text: "Walk the vegetable plots, orchards and composting yards that supply the wellness kitchen." },
-          { title: "Fish Farm Experience", text: "See the university's aquaculture ponds and hatchery with a fisheries-science guide." },
-          { title: "Dairy Experience", text: "A morning at the campus dairy — milking, fodder and animal care." },
-          { title: "Medicinal Garden Walk", text: "A curated garden of Ayurvedic herbs used in the treatments, with a vaidya." },
-          { title: "Innovation Labs", text: "Food processing, agri-tech and renewable-energy workshops where students build and test." },
-          { title: "Skill Park Tour", text: "Hands-on trade workshops — the heart of the university's learn-by-doing model." },
-          { title: "Sports Complex", text: "Athletics track, courts and the campus lake for early-morning activity." },
-          { title: "Cultural Experience", text: "Folk music, Saura art and seasonal festivals with the campus community." },
+          { title: "Organic Farm Tour", text: "Walk the vegetable plots, orchards and composting yards that supply the wellness kitchen.", photo: "/media/library/AP1GczPfJXsBZlp79Y-RMUOMiF9Az3m1O-NrVSxe.jpg" },
+          { title: "Fish Farm Experience", text: "See the university's aquaculture ponds and hatchery with a fisheries-science guide.", photo: "/media/library/AP1GczMxP_g5w-s4-WJTUwQOzAhITjA7s_QKvPWU.jpg" },
+          { title: "Dairy Experience", text: "A morning at the campus dairy — milking, fodder and animal care.", photo: "/media/library/AP1GczMvdFfBse29YqFpu34XCLc5xgFhzPHIKrre.jpg" },
+          { title: "Medicinal Garden Walk", text: "A curated garden of Ayurvedic herbs used in the treatments, with a vaidya.", photo: "/media/library/AP1GczOdzWKOQrf7ORYELrNf-qZF8iU4mwkpyASw.jpg" },
+          { title: "Innovation Labs", text: "Food processing, agri-tech and renewable-energy workshops where students build and test.", photo: "/media/library/AP1GczODNG-ezKfCptKPglV0n1rxvE1uKNghPeaw.jpg" },
+          { title: "Sports Complex", text: "Athletics track, courts and the campus ground for early-morning activity.", photo: "/media/library/AP1GczMAubR_gp3MXjIrEK-_ARp6pDylEC3R0tKZ.jpg" },
+          { title: "Cultural Experience", text: "Folk music, classical dance and seasonal festivals with the campus community.", photo: "/media/library/AP1GczPvI6VYEr7ZGBGOW8Qf79HL9CTZ9WzhubHN.jpg" },
         ],
       },
       {

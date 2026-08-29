@@ -107,7 +107,9 @@ function SectionRenderer({
             <SectionHeading title={section.heading} description={section.body} />
             <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {section.items.map((c, k) => {
-                const img = media?.[k % (media?.length || 1)];
+                const img: MediaItem | undefined = c.photo
+                  ? { id: c.photo, category: section.category, src: c.photo, width: 1600, height: 1067, alt: c.title }
+                  : media?.[k % (media?.length || 1)];
                 const inner = (
                   <div className="group h-full overflow-hidden rounded-card border border-border bg-surface shadow-soft transition-all duration-500 ease-luxury hover:-translate-y-1 hover:shadow-lift">
                     {img ? (
