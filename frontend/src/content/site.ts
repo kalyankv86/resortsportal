@@ -53,8 +53,6 @@ export const primaryNav: NavNode[] = [
     children: [
       { label: "Rooms, Villas & Cottages", href: "/luxury-stay" },
       { label: "Dining", href: "/dining" },
-      { label: "Organic Café", href: "/organic-cafe" },
-      { label: "Wellness Kitchen", href: "/wellness-kitchen" },
       { label: "Eco Tourism", href: "/eco-tourism" },
       { label: "Nature Trails", href: "/nature-trails" },
       { label: "Yoga", href: "/yoga" },
@@ -120,8 +118,6 @@ export const footerNav: { label: string; children: { label: string; href: string
     children: [
       { label: "Rooms, Villas & Cottages", href: "/luxury-stay" },
       { label: "Dining", href: "/dining" },
-      { label: "Organic Café", href: "/organic-cafe" },
-      { label: "Wellness Kitchen", href: "/wellness-kitchen" },
       { label: "Sightseeing", href: "/sightseeing" },
     ],
   },

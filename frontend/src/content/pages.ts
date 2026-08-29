@@ -430,18 +430,17 @@ export const PAGES: Record<string, PageDef> = {
     title: "Dining",
     eyebrow: "Dining",
     summary:
-      "A farm-to-table restaurant, an organic café, a millet-forward wellness kitchen and a herbal tea lounge — all cooking to season and, if you wish, to prescription.",
+      "One place to eat, cooking to season and — if you wish — to prescription: a farm-to-table restaurant, an all-day organic café, a millet-forward wellness kitchen and a herbal tea lounge.",
     hero: "dining",
     sections: [
       {
-        kind: "cards",
+        kind: "features",
         heading: "Where to eat",
-        category: "dining",
         items: [
-          { title: "Farm-to-Table Restaurant", text: "The main dining hall — sattvic thalis and live counters.", href: "/dining" },
-          { title: "Organic Café", text: "All-day light plates, cold-pressed juices and house bakes.", href: "/organic-cafe" },
-          { title: "Wellness Kitchen", text: "Millet kitchen serving diet-chart meals for programme guests.", href: "/wellness-kitchen" },
-          { title: "Herbal Tea Lounge", text: "Rotating single-herb infusions and evening kadhas." },
+          { title: "Farm-to-Table Restaurant", text: "The main dining hall — sattvic thalis and live counters, from what the farm harvested that morning." },
+          { title: "Organic Café", text: "All-day light plates, cold-pressed juices and sourdough from ancient grains, on the farm edge. No refined sugar, no seed oils." },
+          { title: "Wellness Kitchen", text: "The therapeutic kitchen that cooks each programme guest's diet chart — ragi, foxtail and little millet in place of polished rice." },
+          { title: "Herbal Tea Lounge", text: "Rotating single-herb infusions through the day and evening kadhas." },
         ],
       },
       {
@@ -451,42 +450,6 @@ export const PAGES: Record<string, PageDef> = {
           { title: "Diet prescription", text: "Your doctor's chart is sent to the kitchen; meals arrive tailored." },
           { title: "Daily menu", text: "Printed each morning from what the farm harvested." },
           { title: "Meal planner", text: "Guests set preferences and allergies in the guest portal." },
-          { title: "Nutrition dashboard", text: "Track intake and hydration through your stay." },
-        ],
-      },
-      bookCta,
-    ],
-  }),
-
-  "organic-cafe": page({
-    slug: "organic-cafe",
-    title: "Organic Café",
-    eyebrow: "Dining",
-    summary: "An all-day café on the farm edge — cold-pressed juices, sourdough from ancient grains, and salads picked that morning.",
-    hero: "dining",
-    parent: { label: "Dining", href: "/dining" },
-    sections: [
-      { kind: "gallery", heading: "The café", category: "dining" },
-      { kind: "intro", body: ["Open 07:00–19:00. No refined sugar, no seed oils, no packaged imports. Everything is made on site or grown within forty acres."] },
-      bookCta,
-    ],
-  }),
-
-  "wellness-kitchen": page({
-    slug: "wellness-kitchen",
-    title: "Wellness Kitchen",
-    eyebrow: "Dining",
-    summary: "The therapeutic kitchen that cooks each programme guest's diet chart — millet-based, seasonal, and light enough to support cleansing.",
-    hero: "dining",
-    parent: { label: "Dining", href: "/dining" },
-    sections: [
-      {
-        kind: "features",
-        heading: "Principles",
-        items: [
-          { title: "Cook to prescription", text: "Six-taste balance set by your physician, not a generic menu." },
-          { title: "Millet forward", text: "Ragi, foxtail, little and kodo millets replace polished rice." },
-          { title: "Warm and simple", text: "Easy-to-digest preparations during Panchakarma." },
           { title: "Zero waste", text: "Peels and trimmings return to the farm compost." },
         ],
       },
