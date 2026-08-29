@@ -1,8 +1,8 @@
 {
   "source": "Official CUTM Google Photos album",
   "album": "https://photos.app.goo.gl/a4a4uCXvkiYRb8eo8",
-  "ingestedAt": "2026-08-26T13:25:25.889Z",
-  "count": 30,
+  "ingestedAt": "2026-08-29T03:17:59.452Z",
+  "count": 64,
   "items": [
     {
       "id": "AP1GczP4nnJwFIlwvTnjWhDu1Zn9H5-QH7Tqor4d",
@@ -98,7 +98,7 @@
       "width": 2560,
       "height": 1707,
       "category": "hero",
-      "alt": "Centurion Wellness Eco Tourism \u2014 grounds"
+      "alt": "Centurion Wellness Eco Tourism — grounds"
     },
     {
       "id": "AP1GczNLORsBtbjiLSUhWCG4BhnPSsmb-FSF2Wjf",
@@ -242,7 +242,279 @@
       "width": 2560,
       "height": 1707,
       "category": "hero",
-      "alt": "Centurion Wellness Eco Tourism \u2014 grounds"
+      "alt": "Centurion Wellness Eco Tourism — grounds"
+    },
+    {
+      "id": "AP1GczM2tFs0OZx0_jIWcZRfMLnzaP-aagb9CqUE",
+      "file": "AP1GczM2tFs0OZx0_jIWcZRfMLnzaP-aagb9CqUE.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "gallery",
+      "alt": "Student projects on show at a campus skill park"
+    },
+    {
+      "id": "AP1GczMAubR_gp3MXjIrEK-_ARp6pDylEC3R0tKZ",
+      "file": "AP1GczMAubR_gp3MXjIrEK-_ARp6pDylEC3R0tKZ.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "events",
+      "alt": "Basketball at the campus sports complex"
+    },
+    {
+      "id": "AP1GczMCFP1XQNjhroA-XQ4he_JnKaFqFBVkrTHB",
+      "file": "AP1GczMCFP1XQNjhroA-XQ4he_JnKaFqFBVkrTHB.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "gallery",
+      "alt": "Electric-vehicle training lab on campus"
+    },
+    {
+      "id": "AP1GczMKZj2FulNVn3T2d1O6W8Lq44cjx8j7Dtwh",
+      "file": "AP1GczMKZj2FulNVn3T2d1O6W8Lq44cjx8j7Dtwh.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "forest",
+      "alt": "A campus pond fringed with palms"
+    },
+    {
+      "id": "AP1GczMPdjQiqI8kZ1zV34wFmcNJhWPX8gDiHNeM",
+      "file": "AP1GczMPdjQiqI8kZ1zV34wFmcNJhWPX8gDiHNeM.jpg",
+      "width": 1920,
+      "height": 1080,
+      "category": "organic-farm",
+      "alt": "Aquaculture tanks at the campus fish farm"
+    },
+    {
+      "id": "AP1GczMe-lj9MU9uVI8l9NeENawae8wjJqkm3W8j",
+      "file": "AP1GczMe-lj9MU9uVI8l9NeENawae8wjJqkm3W8j.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "organic-farm",
+      "alt": "Recirculating fish-farm tanks on campus"
+    },
+    {
+      "id": "AP1GczMiY_8D8MBrM3wxePQN5hvR6cqbztF68ZzN",
+      "file": "AP1GczMiY_8D8MBrM3wxePQN5hvR6cqbztF68ZzN.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "events",
+      "alt": "Basketball practice on the campus ground"
+    },
+    {
+      "id": "AP1GczMu3xEu0QLJjgPFd7FdesgKVz-3WXsPqo70",
+      "file": "AP1GczMu3xEu0QLJjgPFd7FdesgKVz-3WXsPqo70.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "events",
+      "alt": "An evening cultural performance on campus"
+    },
+    {
+      "id": "AP1GczMvdFfBse29YqFpu34XCLc5xgFhzPHIKrre",
+      "file": "AP1GczMvdFfBse29YqFpu34XCLc5xgFhzPHIKrre.jpg",
+      "width": 1920,
+      "height": 999,
+      "category": "organic-farm",
+      "alt": "Dairy cattle at the campus farm"
+    },
+    {
+      "id": "AP1GczMxP_g5w-s4-WJTUwQOzAhITjA7s_QKvPWU",
+      "file": "AP1GczMxP_g5w-s4-WJTUwQOzAhITjA7s_QKvPWU.jpg",
+      "width": 1920,
+      "height": 1080,
+      "category": "organic-farm",
+      "alt": "Visitors at the campus fish farm"
+    },
+    {
+      "id": "AP1GczMxQ9TjsybIs92FIWunEU9jzV-pIWPb4_59",
+      "file": "AP1GczMxQ9TjsybIs92FIWunEU9jzV-pIWPb4_59.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "events",
+      "alt": "A live music evening on campus"
+    },
+    {
+      "id": "AP1GczN14ZQqMcQDxGkOPXbDhvcvLgb8BhaRu2xf",
+      "file": "AP1GczN14ZQqMcQDxGkOPXbDhvcvLgb8BhaRu2xf.jpg",
+      "width": 1920,
+      "height": 1080,
+      "category": "organic-farm",
+      "alt": "A guided visit to the campus fish farm"
+    },
+    {
+      "id": "AP1GczNRD7BZW84qFriYLlrfctgmNyAkimRb3viz",
+      "file": "AP1GczNRD7BZW84qFriYLlrfctgmNyAkimRb3viz.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "organic-farm",
+      "alt": "The goat unit at the campus farm"
+    },
+    {
+      "id": "AP1GczNpe6h8tdFiK-93M-mhxqTrEbfXucoP87hy",
+      "file": "AP1GczNpe6h8tdFiK-93M-mhxqTrEbfXucoP87hy.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "events",
+      "alt": "Tennis coaching at the campus courts"
+    },
+    {
+      "id": "AP1GczODNG-ezKfCptKPglV0n1rxvE1uKNghPeaw",
+      "file": "AP1GczODNG-ezKfCptKPglV0n1rxvE1uKNghPeaw.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "gallery",
+      "alt": "3D printing in a campus innovation lab"
+    },
+    {
+      "id": "AP1GczOEEm2tDtOGTslpKqztdZHchlv3Z0AT8Efr",
+      "file": "AP1GczOEEm2tDtOGTslpKqztdZHchlv3Z0AT8Efr.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "events",
+      "alt": "Cricket nets at the campus sports complex"
+    },
+    {
+      "id": "AP1GczOP_JUT6ssIxNmjcvwOcxL6Uu8hCQ5yW_aQ",
+      "file": "AP1GczOP_JUT6ssIxNmjcvwOcxL6Uu8hCQ5yW_aQ.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "gallery",
+      "alt": "Precision-machined parts made on campus"
+    },
+    {
+      "id": "AP1GczOQH2E8U1rBZzWfoEOx5bFCoaexTGN4HmaR",
+      "file": "AP1GczOQH2E8U1rBZzWfoEOx5bFCoaexTGN4HmaR.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "events",
+      "alt": "Group tennis coaching on campus"
+    },
+    {
+      "id": "AP1GczOUZsN0w5GXE-k-Dkg4n2TuFsoI4YkMiqd1",
+      "file": "AP1GczOUZsN0w5GXE-k-Dkg4n2TuFsoI4YkMiqd1.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "events",
+      "alt": "An evening game at the basketball court"
+    },
+    {
+      "id": "AP1GczOYba6up28f2iC4HX9edmjv-4Maf_uDdPvo",
+      "file": "AP1GczOYba6up28f2iC4HX9edmjv-4Maf_uDdPvo.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "events",
+      "alt": "A kabaddi match on the campus field"
+    },
+    {
+      "id": "AP1GczOdzWKOQrf7ORYELrNf-qZF8iU4mwkpyASw",
+      "file": "AP1GczOdzWKOQrf7ORYELrNf-qZF8iU4mwkpyASw.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "ayurveda",
+      "alt": "A walk through the campus medicinal-plant garden"
+    },
+    {
+      "id": "AP1GczOlOmTEg5oER9W0l5kGZ9CWwhOzvETV9TF1",
+      "file": "AP1GczOlOmTEg5oER9W0l5kGZ9CWwhOzvETV9TF1.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "gallery",
+      "alt": "Modelling a part for 3D printing on campus"
+    },
+    {
+      "id": "AP1GczOmGP-WTytXNFH0VLb7jD8iKR9UnoWS6Kgx",
+      "file": "AP1GczOmGP-WTytXNFH0VLb7jD8iKR9UnoWS6Kgx.jpg",
+      "width": 1920,
+      "height": 1065,
+      "category": "gallery",
+      "alt": "Electric rickshaws built in the campus workshop"
+    },
+    {
+      "id": "AP1GczOnAbcaKmVGTUiU_Mpu2JtQu4BCZAvF68A8",
+      "file": "AP1GczOnAbcaKmVGTUiU_Mpu2JtQu4BCZAvF68A8.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "ayurveda",
+      "alt": "A labelled medicinal plant in the campus garden"
+    },
+    {
+      "id": "AP1GczOp_G2S77pcpliLfwu891gDzvda-S_0-y4i",
+      "file": "AP1GczOp_G2S77pcpliLfwu891gDzvda-S_0-y4i.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "ayurveda",
+      "alt": "Rows of medicinal plants in the campus garden"
+    },
+    {
+      "id": "AP1GczOsVeG5TVoUrn4Z7dDVGnPWn-cUezeOKgZH",
+      "file": "AP1GczOsVeG5TVoUrn4Z7dDVGnPWn-cUezeOKgZH.jpg",
+      "width": 1920,
+      "height": 1281,
+      "category": "events",
+      "alt": "A folk performance under lights on campus"
+    },
+    {
+      "id": "AP1GczPNv0UWePSi2eGqMdDWbL11j-WOf-J8-kSL",
+      "file": "AP1GczPNv0UWePSi2eGqMdDWbL11j-WOf-J8-kSL.jpg",
+      "width": 1920,
+      "height": 804,
+      "category": "drone",
+      "alt": "Aerial view of the Paralakhemundi campus"
+    },
+    {
+      "id": "AP1GczPQ_NNp8BQ089tV-ViIgCsvvUy9Nq4ruWuF",
+      "file": "AP1GczPQ_NNp8BQ089tV-ViIgCsvvUy9Nq4ruWuF.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "gallery",
+      "alt": "Inside the campus electric-vehicle workshop"
+    },
+    {
+      "id": "AP1GczPWEV37KSp5vDbogCGZu72Pu-yRt76u14vl",
+      "file": "AP1GczPWEV37KSp5vDbogCGZu72Pu-yRt76u14vl.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "gallery",
+      "alt": "A campus veterinary health camp"
+    },
+    {
+      "id": "AP1GczPfJXsBZlp79Y-RMUOMiF9Az3m1O-NrVSxe",
+      "file": "AP1GczPfJXsBZlp79Y-RMUOMiF9Az3m1O-NrVSxe.jpg",
+      "width": 1920,
+      "height": 1161,
+      "category": "organic-farm",
+      "alt": "Touring the dragon-fruit orchard on campus"
+    },
+    {
+      "id": "AP1GczPu4hU19fSTuZBr_jQWFBhKTIuQ_2uOuu2w",
+      "file": "AP1GczPu4hU19fSTuZBr_jQWFBhKTIuQ_2uOuu2w.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "organic-farm",
+      "alt": "Preparing organic vegetable plots on campus"
+    },
+    {
+      "id": "AP1GczPvI6VYEr7ZGBGOW8Qf79HL9CTZ9WzhubHN",
+      "file": "AP1GczPvI6VYEr7ZGBGOW8Qf79HL9CTZ9WzhubHN.jpg",
+      "width": 1920,
+      "height": 1281,
+      "category": "events",
+      "alt": "A classical dance performance on campus"
+    },
+    {
+      "id": "AP1GczPxbGA1kGvpMFZteB4x4DEiOzuNkZJaVQv5",
+      "file": "AP1GczPxbGA1kGvpMFZteB4x4DEiOzuNkZJaVQv5.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "events",
+      "alt": "A Kathakali performer at a campus event"
+    },
+    {
+      "id": "AP1GczPzBPlZ3f3JsMT3QJd3wXRFu_kxyCd0-BST",
+      "file": "AP1GczPzBPlZ3f3JsMT3QJd3wXRFu_kxyCd0-BST.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "gallery",
+      "alt": "A tooling exhibition in a campus workshop"
     }
   ]
 }

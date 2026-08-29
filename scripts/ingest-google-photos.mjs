@@ -108,8 +108,18 @@ async function collectPhotoBases(send) {
   const seen = new Set();
   let stable = 0;
   for (let pass = 0; pass < 200 && stable < 6; pass++) {
+    // Google Photos now paints tiles as CSS background-image (no <img>), so
+    // collect both <img> src and every element's computed background-image.
     const res = await send("Runtime.evaluate", {
-      expression: `JSON.stringify([...document.querySelectorAll('img')].map(i=>i.src).filter(s=>/googleusercontent\\.com\\/pw\\//.test(s)))`,
+      expression: `JSON.stringify((()=>{
+        const out=[];
+        for(const i of document.querySelectorAll('img')) if(i.src) out.push(i.src);
+        for(const e of document.querySelectorAll('*')){
+          const b=getComputedStyle(e).backgroundImage;
+          if(b && b!=='none'){ const m=b.match(/url\\(["']?(.*?)["']?\\)/); if(m) out.push(m[1]); }
+        }
+        return out.filter(s=>/lh3\\.googleusercontent\\.com\\/pw\\/AP1Gcz/.test(s));
+      })())`,
       returnByValue: true,
     });
     const before = seen.size;
