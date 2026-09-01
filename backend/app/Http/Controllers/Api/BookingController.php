@@ -189,6 +189,8 @@ class BookingController extends Controller
         return [
             'check_in' => ['required', 'date'],
             'check_out' => ['required', 'date', 'after:check_in'],
+            'check_in_time' => ['nullable', 'date_format:H:i'],
+            'check_out_time' => ['nullable', 'date_format:H:i'],
             'adults' => ['nullable', 'integer', 'min:1', 'max:12'],
             'children' => ['nullable', 'integer', 'min:0', 'max:12'],
             'room_category' => ['nullable', 'string', 'exists:room_categories,slug'],
@@ -216,6 +218,8 @@ class BookingController extends Controller
             'status' => $booking->status,
             'check_in' => $booking->check_in->toDateString(),
             'check_out' => $booking->check_out->toDateString(),
+            'check_in_time' => $booking->check_in_time,
+            'check_out_time' => $booking->check_out_time,
             'nights' => $booking->nights,
             'adults' => $booking->adults,
             'children' => $booking->children,

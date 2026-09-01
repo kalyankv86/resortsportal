@@ -62,26 +62,24 @@ class BookingService
         $lines = [];
         $subtotal = 0.0;
 
+        // The wellness package is a fixed price for the treatment guest; the room
+        // is charged separately, per night, whether or not a package is chosen.
         if ($program) {
-            $amount = round((float) $program->price_from * $adults, 2);
-            $lines[] = ['label' => "{$program->name} — {$program->nights} nights × {$adults} guest".($adults > 1 ? 's' : ''), 'amount' => $amount];
+            $amount = round((float) $program->price_from, 2);
+            $lines[] = ['label' => "{$program->name} — {$program->nights}-day package", 'amount' => $amount];
             $subtotal += $amount;
         }
 
         if ($category) {
             $plan = $category->ratePlans()->first();
             $nightly = $plan ? (float) $plan->nightly_rate : 0.0;
-            if (! $program) {
-                $amount = round($nightly * $nights, 2);
-                $lines[] = ['label' => "{$category->name} — ₹".number_format($nightly)." × {$nights} night".($nights > 1 ? 's' : ''), 'amount' => $amount];
-                $subtotal += $amount;
-            } else {
-                $lines[] = ['label' => "{$category->name} (included in programme)", 'amount' => 0];
-            }
+            $amount = round($nightly * $nights, 2);
+            $lines[] = ['label' => "{$category->name} — ₹".number_format($nightly)." × {$nights} night".($nights > 1 ? 's' : ''), 'amount' => $amount];
+            $subtotal += $amount;
         }
 
         if ($subtotal <= 0) {
-            throw ValidationException::withMessages(['room_category' => ['Choose a programme or a room to price your stay.']]);
+            throw ValidationException::withMessages(['room_category' => ['Choose a package or a room to price your stay.']]);
         }
 
         $discount = 0.0;
@@ -96,14 +94,17 @@ class BookingService
             }
         }
 
+        // Tariffs are quoted GST-inclusive, so GST is shown as contained in the
+        // total rather than added on top.
         $gst = (float) (Setting::get('tax.gst_percent', 12));
-        $taxable = round($subtotal - $discount, 2);
-        $tax = round($taxable * $gst / 100, 2);
-        $total = round($taxable + $tax, 2);
+        $total = round($subtotal - $discount, 2);
+        $tax = $gst > 0 ? round($total - $total / (1 + $gst / 100), 2) : 0.0;
 
         return [
             'check_in' => $checkIn->toDateString(),
             'check_out' => $checkOut->toDateString(),
+            'check_in_time' => $in['check_in_time'] ?? null,
+            'check_out_time' => $in['check_out_time'] ?? null,
             'nights' => $nights,
             'adults' => $adults,
             'children' => $children,
@@ -169,6 +170,8 @@ class BookingService
                 'room_category_id' => $category?->id,
                 'check_in' => $quote['check_in'],
                 'check_out' => $quote['check_out'],
+                'check_in_time' => $quote['check_in_time'] ?? null,
+                'check_out_time' => $quote['check_out_time'] ?? null,
                 'nights' => $quote['nights'],
                 'adults' => $quote['adults'],
                 'children' => $quote['children'],

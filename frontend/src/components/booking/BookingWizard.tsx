@@ -52,10 +52,15 @@ interface CreatedBooking {
   pass: { url: string; qr_svg: string };
 }
 
-const STEPS = ["Dates & party", "Room & programme", "Your details", "Review"] as const;
+const STEPS = ["Wellness package", "Room & dates", "Your details", "Review"] as const;
 
 function isoPlusDays(days: number) {
   const d = new Date();
+  d.setDate(d.getDate() + days);
+  return d.toISOString().slice(0, 10);
+}
+function addDays(iso: string, days: number) {
+  const d = new Date(iso + "T00:00:00");
   d.setDate(d.getDate() + days);
   return d.toISOString().slice(0, 10);
 }
@@ -68,6 +73,8 @@ export function BookingWizard() {
   const [step, setStep] = useState(0);
   const [checkIn, setCheckIn] = useState(params.get("checkIn") || isoPlusDays(14));
   const [checkOut, setCheckOut] = useState(params.get("checkOut") || isoPlusDays(21));
+  const [checkInTime, setCheckInTime] = useState("14:00");
+  const [checkOutTime, setCheckOutTime] = useState("11:00");
   const [adults, setAdults] = useState(Number(params.get("guests")) || 2);
   const [children, setChildren] = useState(0);
   const [programSlug, setProgramSlug] = useState<string>("");
@@ -99,7 +106,7 @@ export function BookingWizard() {
     api<{ data: Program[] }>("/programs").then((r) => setPrograms(r.data)).catch(() => {});
   }, []);
 
-  // pre-select a programme from ?package=Panchakarma Detox
+  // pre-select a package from ?package=De-Stress & Detox
   useEffect(() => {
     const pkg = params.get("package");
     if (pkg && programs.length && !programSlug) {
@@ -108,6 +115,15 @@ export function BookingWizard() {
       if (match) setProgramSlug(match.slug);
     }
   }, [params, programs, programSlug]);
+
+  // choosing a package sets the stay length to match its day count
+  useEffect(() => {
+    const p = programs.find((x) => x.slug === programSlug);
+    if (p?.nights) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- derive checkout from the package length
+      setCheckOut(addDays(checkIn, p.nights));
+    }
+  }, [programSlug, programs, checkIn]);
 
   const runQuote = useCallback(async () => {
     if (!programSlug && !roomSlug) {
@@ -121,6 +137,8 @@ export function BookingWizard() {
         body: {
           check_in: checkIn,
           check_out: checkOut,
+          check_in_time: checkInTime,
+          check_out_time: checkOutTime,
           adults,
           children,
           program: programSlug || undefined,
@@ -133,7 +151,7 @@ export function BookingWizard() {
       setQuote(null);
       setQuoteErr(err instanceof ApiError ? err.message : "Could not price this stay.");
     }
-  }, [checkIn, checkOut, adults, children, programSlug, roomSlug, promo]);
+  }, [checkIn, checkOut, checkInTime, checkOutTime, adults, children, programSlug, roomSlug, promo]);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- re-price when inputs change
@@ -146,8 +164,8 @@ export function BookingWizard() {
   }, [checkIn, checkOut]);
 
   const canProceed = useMemo(() => {
-    if (step === 0) return nights >= 1 && adults >= 1;
-    if (step === 1) return !!(programSlug || roomSlug) && !!quote;
+    if (step === 0) return true; // a package, or "room only"
+    if (step === 1) return nights >= 1 && adults >= 1 && !!roomSlug && !!quote;
     if (step === 2)
       return (
         guest.first_name.trim() &&
@@ -156,7 +174,7 @@ export function BookingWizard() {
         q.consent
       );
     return true;
-  }, [step, nights, adults, programSlug, roomSlug, quote, guest, q.consent]);
+  }, [step, nights, adults, roomSlug, quote, guest, q.consent]);
 
   async function confirm() {
     setSubmitting(true);
@@ -168,6 +186,8 @@ export function BookingWizard() {
         body: {
           check_in: checkIn,
           check_out: checkOut,
+          check_in_time: checkInTime,
+          check_out_time: checkOutTime,
           adults,
           children,
           program: programSlug || undefined,
@@ -220,69 +240,100 @@ export function BookingWizard() {
         </ol>
 
         {step === 0 && (
-          <div className="grid gap-4 sm:grid-cols-2">
-            <label className="flex flex-col gap-1">
-              <span className="font-ui text-xs uppercase tracking-wide text-muted-foreground">Check in</span>
-              <input type="date" className={field} value={checkIn} min={isoPlusDays(1)} onChange={(e) => setCheckIn(e.target.value)} />
-            </label>
-            <label className="flex flex-col gap-1">
-              <span className="font-ui text-xs uppercase tracking-wide text-muted-foreground">Check out · {nights} nights</span>
-              <input type="date" className={field} value={checkOut} min={checkIn} onChange={(e) => setCheckOut(e.target.value)} />
-            </label>
-            <label className="flex flex-col gap-1">
-              <span className="font-ui text-xs uppercase tracking-wide text-muted-foreground">Adults</span>
-              <select className={field} value={adults} onChange={(e) => setAdults(Number(e.target.value))}>
-                {[1, 2, 3, 4, 5, 6].map((n) => <option key={n}>{n}</option>)}
-              </select>
-            </label>
-            <label className="flex flex-col gap-1">
-              <span className="font-ui text-xs uppercase tracking-wide text-muted-foreground">Children</span>
-              <select className={field} value={children} onChange={(e) => setChildren(Number(e.target.value))}>
-                {[0, 1, 2, 3, 4].map((n) => <option key={n}>{n}</option>)}
-              </select>
-            </label>
-            <label className="flex flex-col gap-1 sm:col-span-2">
-              <span className="font-ui text-xs uppercase tracking-wide text-muted-foreground">Booking type</span>
-              <select className={field} value={bookingType} onChange={(e) => setBookingType(e.target.value)}>
-                <option value="individual">Individual</option>
-                <option value="corporate">Corporate</option>
-                <option value="international">International guest</option>
-              </select>
-            </label>
+          <div className="flex flex-col gap-3">
+            <h3 className="font-heading text-lg text-forest-800">Choose a wellness package</h3>
+            <p className="font-ui text-sm text-muted-foreground">
+              Package prices are for the treatment guest and are inclusive of GST.
+              Accommodation is chosen next and charged per night; diet is ₹800 per
+              day. Therapies and charges may vary post consultation.
+            </p>
+            <div className="mt-1 grid gap-2">
+              {programs.map((p) => (
+                <Choice
+                  key={p.slug}
+                  active={programSlug === p.slug}
+                  onClick={() => setProgramSlug(p.slug)}
+                  title={`${p.name} · ${p.nights}-Day`}
+                  sub={p.summary}
+                  price={inr(Number(p.price_from))}
+                />
+              ))}
+              <Choice
+                active={programSlug === ""}
+                onClick={() => setProgramSlug("")}
+                title="No package — room only"
+                sub="Stay without a structured wellness programme."
+              />
+            </div>
           </div>
         )}
 
         {step === 1 && (
           <div className="flex flex-col gap-6">
-            <div>
-              <h3 className="font-heading text-lg text-forest-800">Wellness programme <span className="font-ui text-xs text-muted-foreground">(optional)</span></h3>
-              <div className="mt-3 grid gap-2">
-                <Choice active={programSlug === ""} onClick={() => setProgramSlug("")} title="Room only" sub="No structured programme — spa and dining à la carte." />
-                {programs.map((p) => (
-                  <Choice
-                    key={p.slug}
-                    active={programSlug === p.slug}
-                    onClick={() => setProgramSlug(p.slug)}
-                    title={`${p.name} · ${p.nights} nights`}
-                    sub={p.summary}
-                    price={`${inr(Number(p.price_from))} / person`}
-                  />
-                ))}
-              </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <label className="flex flex-col gap-1">
+                <span className="font-ui text-xs uppercase tracking-wide text-muted-foreground">Check-in date</span>
+                <input type="date" className={field} value={checkIn} min={isoPlusDays(1)} onChange={(e) => setCheckIn(e.target.value)} />
+              </label>
+              <label className="flex flex-col gap-1">
+                <span className="font-ui text-xs uppercase tracking-wide text-muted-foreground">Check-in time</span>
+                <input type="time" className={field} value={checkInTime} onChange={(e) => setCheckInTime(e.target.value)} />
+              </label>
+              <label className="flex flex-col gap-1">
+                <span className="font-ui text-xs uppercase tracking-wide text-muted-foreground">Check-out date · {nights} night{nights === 1 ? "" : "s"}</span>
+                <input type="date" className={field} value={checkOut} min={addDays(checkIn, 1)} onChange={(e) => setCheckOut(e.target.value)} />
+              </label>
+              <label className="flex flex-col gap-1">
+                <span className="font-ui text-xs uppercase tracking-wide text-muted-foreground">Check-out time</span>
+                <input type="time" className={field} value={checkOutTime} onChange={(e) => setCheckOutTime(e.target.value)} />
+              </label>
+              <label className="flex flex-col gap-1">
+                <span className="font-ui text-xs uppercase tracking-wide text-muted-foreground">Adults</span>
+                <select className={field} value={adults} onChange={(e) => setAdults(Number(e.target.value))}>
+                  {[1, 2, 3, 4, 5, 6].map((n) => <option key={n}>{n}</option>)}
+                </select>
+              </label>
+              <label className="flex flex-col gap-1">
+                <span className="font-ui text-xs uppercase tracking-wide text-muted-foreground">Children</span>
+                <select className={field} value={children} onChange={(e) => setChildren(Number(e.target.value))}>
+                  {[0, 1, 2, 3, 4].map((n) => <option key={n}>{n}</option>)}
+                </select>
+              </label>
+              <label className="flex flex-col gap-1 sm:col-span-2">
+                <span className="font-ui text-xs uppercase tracking-wide text-muted-foreground">Booking type</span>
+                <select className={field} value={bookingType} onChange={(e) => setBookingType(e.target.value)}>
+                  <option value="individual">Individual</option>
+                  <option value="corporate">Corporate</option>
+                  <option value="international">International guest</option>
+                </select>
+              </label>
             </div>
+
             <div>
-              <h3 className="font-heading text-lg text-forest-800">Accommodation</h3>
+              <h3 className="font-heading text-lg text-forest-800">Room</h3>
+              <p className="mt-1 font-ui text-xs text-muted-foreground">
+                Travelling with a companion for a treatment guest? Choose a
+                double-occupancy room. Rates include food.
+              </p>
               <div className="mt-3 grid gap-2">
                 {rooms.map((r) => (
                   <Choice
                     key={r.slug}
                     active={roomSlug === r.slug}
-                    onClick={() => setRoomSlug(r.slug)}
+                    onClick={() => {
+                      setRoomSlug(r.slug);
+                      setAdults(Math.max(1, r.base_occupancy || 1));
+                    }}
                     title={r.name}
                     sub={r.summary}
                     price={r.rate_plans?.[0] ? `${inr(Number(r.rate_plans[0].nightly_rate))} / night` : undefined}
                   />
                 ))}
+                {rooms.length === 0 && (
+                  <p className="rounded-card border border-dashed border-border p-4 font-ui text-sm text-muted-foreground">
+                    No rooms are loaded yet. Please contact reception to book.
+                  </p>
+                )}
               </div>
             </div>
             {quoteErr && <p className="text-sm text-terracotta-600">{quoteErr}</p>}
@@ -340,9 +391,10 @@ export function BookingWizard() {
               )}
             </label>
             <div className="rounded-card border border-border bg-surface p-5 text-sm">
-              <Row label="Stay" value={`${checkIn} → ${checkOut} · ${nights} nights`} />
+              <Row label="Stay" value={`${checkIn} → ${checkOut} · ${nights} night${nights === 1 ? "" : "s"}`} />
+              <Row label="Check-in / out" value={`${checkInTime} · ${checkOutTime}`} />
               <Row label="Guests" value={`${adults} adult${adults > 1 ? "s" : ""}${children ? `, ${children} children` : ""}`} />
-              {programSlug && <Row label="Programme" value={programs.find((p) => p.slug === programSlug)?.name ?? programSlug} />}
+              {programSlug && <Row label="Package" value={programs.find((p) => p.slug === programSlug)?.name ?? programSlug} />}
               {roomSlug && <Row label="Room" value={rooms.find((r) => r.slug === roomSlug)?.name ?? roomSlug} />}
             </div>
             {submitErr && <p className="text-sm text-terracotta-600">{submitErr}</p>}
@@ -388,15 +440,19 @@ export function BookingWizard() {
             <div className="my-2 border-t border-border" />
             <Row label="Subtotal" value={inr(quote.subtotal)} />
             {quote.discount > 0 && <Row label="Discount" value={`− ${inr(quote.discount)}`} />}
-            <Row label={`GST ${quote.gst_percent}%`} value={inr(quote.tax)} />
             <div className="mt-2 flex justify-between border-t border-border pt-3 font-heading text-xl text-forest-800">
               <span>Total</span>
               <span>{inr(quote.total)}</span>
             </div>
+            {quote.gst_percent > 0 && (
+              <p className="font-ui text-xs text-muted-foreground">
+                Includes GST {quote.gst_percent}% ({inr(quote.tax)}). Diet at ₹800/day billed on site.
+              </p>
+            )}
           </div>
         ) : (
           <p className="mt-3 font-ui text-sm text-muted-foreground">
-            Pick a programme or room to see pricing.
+            Pick a package or room to see pricing.
           </p>
         )}
       </aside>

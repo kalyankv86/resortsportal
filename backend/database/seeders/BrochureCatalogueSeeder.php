@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\RatePlan;
+use App\Models\Room;
+use App\Models\RoomCategory;
 use App\Models\Therapy;
 use App\Models\WellnessProgram;
 use Illuminate\Database\Seeder;
@@ -76,6 +79,60 @@ class BrochureCatalogueSeeder extends Seeder
             );
         }
 
-        $this->command->info('  BrochureCatalogueSeeder: '.Therapy::count().' treatments, '.WellnessProgram::count().' packages.');
+        // Accommodation — [name, tariff ₹ per night (food included), base occ, max occ]
+        $rooms = [
+            ['Suite Room — Single Occupancy (with Food)', 5500, 1, 1],
+            ['Suite Room — Double Occupancy (with Food)', 7500, 2, 2],
+            ['Executive Room — Single Occupancy (with Food)', 4000, 1, 1],
+            ['Executive Room — Double Occupancy (with Food)', 6500, 2, 2],
+        ];
+        foreach ($rooms as $i => [$name, $rate, $base, $max]) {
+            $cat = RoomCategory::updateOrCreate(
+                ['slug' => Str::slug($name)],
+                [
+                    'name' => $name,
+                    'base_occupancy' => $base,
+                    'max_occupancy' => $max,
+                    'media_category' => 'rooms',
+                    'status' => 'published',
+                    'position' => $i,
+                ],
+            );
+            RatePlan::updateOrCreate(
+                ['room_category_id' => $cat->id, 'name' => 'Standard'],
+                ['currency' => 'INR', 'nightly_rate' => $rate, 'is_active' => true],
+            );
+            for ($n = 1; $n <= 6; $n++) {
+                Room::updateOrCreate(
+                    ['code' => strtoupper(substr(Str::slug($name), 0, 3)).'-'.str_pad((string) $n, 2, '0', STR_PAD_LEFT)],
+                    ['room_category_id' => $cat->id, 'status' => 'available'],
+                );
+            }
+        }
+
+        // Venues — day-rate spaces, kept out of the guest booking flow (status "venue").
+        $venues = [
+            ['Auditorium', 22500],
+            ['Seminar Hall', 11000],
+            ['Board Room', 9500],
+        ];
+        foreach ($venues as $i => [$name, $rate]) {
+            $cat = RoomCategory::updateOrCreate(
+                ['slug' => Str::slug($name)],
+                [
+                    'name' => $name,
+                    'base_occupancy' => 1,
+                    'max_occupancy' => 1,
+                    'status' => 'venue',
+                    'position' => 100 + $i,
+                ],
+            );
+            RatePlan::updateOrCreate(
+                ['room_category_id' => $cat->id, 'name' => 'Day rate'],
+                ['currency' => 'INR', 'nightly_rate' => $rate, 'is_active' => true],
+            );
+        }
+
+        $this->command->info('  BrochureCatalogueSeeder: '.Therapy::count().' treatments, '.WellnessProgram::count().' packages, '.RoomCategory::count().' rooms/venues.');
     }
 }

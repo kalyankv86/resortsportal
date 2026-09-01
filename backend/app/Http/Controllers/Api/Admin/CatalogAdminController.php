@@ -72,7 +72,7 @@ class CatalogAdminController extends Controller
             'nightly_rate' => ['nullable', 'numeric', 'min:0'],
             'gallery' => ['nullable', 'array'],
             'gallery.*' => ['integer'],
-            'status' => ['nullable', 'in:published,draft'],
+            'status' => ['nullable', 'in:published,draft,venue'],
             'position' => ['nullable', 'integer', 'min:0'],
         ]);
 
