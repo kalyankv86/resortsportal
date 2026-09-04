@@ -12,7 +12,7 @@ export const heroContent = {
 
 export const stats: StatItem[] = [
   { value: 50, suffix: "+", label: "Ayurvedic Therapies" },
-  { value: 64, label: "Rooms & Villas" },
+  { value: 16, label: "Rooms" },
   { value: 18, label: "Doctors & Therapists" },
   { value: 120, label: "Acres of Forest" },
   { value: 40, label: "Acre Organic Farm" },

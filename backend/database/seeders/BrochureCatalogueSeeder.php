@@ -103,7 +103,7 @@ class BrochureCatalogueSeeder extends Seeder
                 ['room_category_id' => $cat->id, 'name' => 'Standard'],
                 ['currency' => 'INR', 'nightly_rate' => $rate, 'is_active' => true],
             );
-            for ($n = 1; $n <= 6; $n++) {
+            for ($n = 1; $n <= 4; $n++) { // 4 rooms x 4 categories = 16
                 Room::updateOrCreate(
                     ['code' => strtoupper(substr(Str::slug($name), 0, 3)).'-'.str_pad((string) $n, 2, '0', STR_PAD_LEFT)],
                     ['room_category_id' => $cat->id, 'status' => 'available'],

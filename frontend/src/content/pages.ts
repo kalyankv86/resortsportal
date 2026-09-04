@@ -78,7 +78,7 @@ export const PAGES: Record<string, PageDef> = {
         kind: "stats",
         items: [
           { value: 50, suffix: "+", label: "Ayurvedic Therapies" },
-          { value: 64, label: "Rooms & Villas" },
+          { value: 16, label: "Rooms" },
           { value: 18, label: "Doctors & Therapists" },
           { value: 120, label: "Acres of Forest" },
           { value: 40, label: "Acre Organic Farm" },
@@ -134,16 +134,6 @@ export const PAGES: Record<string, PageDef> = {
           { title: "Community & tribal engagement", text: "Long-running programmes with farmer producer groups and Saura tribal communities of Gajapati." },
           { title: "Sustainability", text: "Solar energy, organic cultivation, water harvesting and biodiversity conservation across the estate." },
           { title: "The Eastern Ghats setting", text: "A campus among hills, rivers and forest — the natural backdrop for the wellness centre." },
-        ],
-      },
-      {
-        kind: "cards",
-        heading: "Around the campus",
-        category: "organic-farm",
-        items: [
-          { title: "Campus Experiences", text: "Guided visits to the organic farm, medicinal garden, hatchery and skill parks.", href: "/campus-experiences" },
-          { title: "Sightseeing", text: "Mahendragiri, Gandahati Waterfall, the Gajapati palace and Saura villages within reach of the campus.", href: "/sightseeing" },
-          { title: "Gallery", text: "The campus and its surroundings through the seasons.", href: "/gallery" },
         ],
       },
       {
