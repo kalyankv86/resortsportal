@@ -70,6 +70,10 @@ export const primaryNav: NavNode[] = [
     ],
   },
   {
+    label: "Contact Us",
+    href: "/contact",
+  },
+  {
     label: "Campus Experience",
     href: "/campus-experiences",
   },
