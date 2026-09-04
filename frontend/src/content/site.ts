@@ -43,7 +43,6 @@ export const primaryNav: NavNode[] = [
       { label: "Wellness Programs", href: "/wellness-programs" },
       { label: "Panchakarma Treatments", href: "/panchakarma-treatments" },
       { label: "Therapies", href: "/therapies" },
-      { label: "Doctors & Therapists", href: "/doctors-therapists" },
       { label: "Wellness Packages", href: "/wellness-packages" },
     ],
   },

@@ -79,7 +79,6 @@ export const PAGES: Record<string, PageDef> = {
         items: [
           { value: 50, suffix: "+", label: "Ayurvedic Therapies" },
           { value: 16, label: "Rooms" },
-          { value: 18, label: "Doctors & Therapists" },
           { value: 120, label: "Acres of Forest" },
           { value: 40, label: "Acre Organic Farm" },
         ],
@@ -197,7 +196,7 @@ export const PAGES: Record<string, PageDef> = {
         items: [
           { title: "Panchakarma Treatments", text: "Classical five-action detoxification, done under daily medical supervision.", href: "/panchakarma-treatments" },
           { title: "Individual Therapies", text: "Shirodhara, Abhyanga, Pizhichil, Kati Basti and 50+ more.", href: "/therapies" },
-          { title: "Doctors & Therapists", text: "Meet the resident clinical team.", href: "/doctors-therapists" },
+          { title: "Wellness Packages", text: "Fixed-inclusion programmes from 1 to 14 days.", href: "/wellness-packages" },
         ],
       },
       bookCta,
@@ -305,24 +304,6 @@ export const PAGES: Record<string, PageDef> = {
         ],
       },
       bookCta,
-    ],
-  }),
-
-  "doctors-therapists": page({
-    slug: "doctors-therapists",
-    title: "Doctors & Therapists",
-    eyebrow: "Wellness",
-    summary:
-      "The resident clinical team — Ayurvedic physicians, yoga therapists and trained Panchakarma technicians.",
-    hero: "ayurveda",
-    sections: [
-      {
-        kind: "intro",
-        heading: "Work in progress",
-        body: [
-          "Profiles of our doctors and therapists are being prepared. Please check back soon, or ask reception to introduce the clinical team.",
-        ],
-      },
     ],
   }),
 
