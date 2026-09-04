@@ -78,7 +78,7 @@ export const PAGES: Record<string, PageDef> = {
         kind: "stats",
         items: [
           { value: 50, suffix: "+", label: "Ayurvedic Therapies" },
-          { value: 16, label: "Rooms" },
+          { value: 30, label: "Rooms" },
           { value: 120, label: "Acres of Forest" },
           { value: 40, label: "Acre Organic Farm" },
         ],
