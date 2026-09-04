@@ -49,7 +49,7 @@ export const bento: BentoItem[] = [
     copy: "Millet kitchen, herbal tea lounge and a diet prescribed by your Ayurvedic doctor.",
     href: "/dining",
     category: "dining",
-    span: "md",
+    span: "lg",
     cta: "Explore dining",
   },
   {
@@ -57,7 +57,7 @@ export const bento: BentoItem[] = [
     copy: "Waterfall treks, bird watching, village tourism, bamboo craft and star gazing.",
     href: "/eco-tourism",
     category: "forest",
-    span: "md",
+    span: "sm",
     cta: "Plan experiences",
   },
   {
