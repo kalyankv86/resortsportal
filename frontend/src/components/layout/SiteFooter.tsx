@@ -5,8 +5,8 @@ import { Container } from "@/components/ui/primitives";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-12 bg-forest-900 text-ivory/80">
-      <Container className="py-8">
+    <footer className="mt-10 bg-forest-900 text-ivory/80">
+      <Container className="py-6">
         <div className="grid gap-6 md:grid-cols-[1.5fr_repeat(3,1fr)]">
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-2.5">
@@ -106,8 +106,8 @@ export function SiteFooter() {
           ))}
         </div>
 
-        <div className="mt-7 flex flex-col gap-3 border-t border-white/10 pt-4 md:flex-row md:items-center md:justify-between">
-          <ul className="flex flex-wrap gap-x-5 gap-y-1.5 text-[0.7rem]">
+        <div className="mt-5 flex flex-col gap-2 border-t border-white/10 pt-3 md:flex-row md:items-center md:justify-between">
+          <ul className="flex flex-wrap gap-x-5 gap-y-1 text-[0.68rem]">
             {utilityNav.map((u) => (
               <li key={u.href}>
                 <Link href={u.href} className="hover:text-ivory">
@@ -116,7 +116,7 @@ export function SiteFooter() {
               </li>
             ))}
           </ul>
-          <p className="text-[0.7rem] text-ivory/50">
+          <p className="text-[0.68rem] text-ivory/50">
             © {new Date().getFullYear()} {site.org}. {site.name}.
           </p>
         </div>

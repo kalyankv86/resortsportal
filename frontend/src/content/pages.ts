@@ -534,7 +534,19 @@ export const PAGES: Record<string, PageDef> = {
     eyebrow: "Discover",
     summary: "Reach the reservations desk, request a callback, or ask the wellness team a question.",
     hero: "forest",
-    sections: [{ kind: "contact", heading: "Get in touch" }],
+    sections: [
+      { kind: "contact", heading: "Get in touch" },
+      {
+        kind: "features",
+        heading: "How to reach",
+        body: "The campus is at Village Alluri Nagar, P.O. R.Sitapur, Via Uppalada, Paralakhemundi, Gajapati district, Odisha 761211. Approximate distances and times — please confirm with reception when you book.",
+        items: [
+          { title: "By air", text: "Visakhapatnam (VTZ), Andhra Pradesh — the nearest airport, about 200 km / 4½ hours by road. Bhubaneswar (BBI), Odisha — about 230 km / 5 hours. Airport pick-up can be arranged in advance." },
+          { title: "By train", text: "Palasa (PSA) on the Howrah–Chennai main line is the nearest major railhead — about 40 km / 1 hour. Paralakhemundi (PLH) station is in the town itself, about 5 km. Other railheads: Srikakulam Road ~70 km, Brahmapur (Berhampur) ~110 km, Visakhapatnam ~190 km." },
+          { title: "By road", text: "Road distances to the campus: Srikakulam ~65 km (1½ hrs) · Vizianagaram ~110 km (2½ hrs) · Berhampur ~110 km (2½ hrs) · Visakhapatnam ~200 km (4½ hrs). OSRTC and APSRTC buses serve Paralakhemundi; taxis are available from all four cities." },
+        ],
+      },
+    ],
   }),
 
   careers: page({
