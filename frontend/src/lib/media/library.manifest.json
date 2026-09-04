@@ -1,8 +1,8 @@
 {
   "source": "Official CUTM Google Photos album",
   "album": "https://photos.app.goo.gl/a4a4uCXvkiYRb8eo8",
-  "ingestedAt": "2026-08-29T03:17:59.452Z",
-  "count": 64,
+  "ingestedAt": "2026-09-04T07:40:12.686Z",
+  "count": 76,
   "items": [
     {
       "id": "AP1GczP4nnJwFIlwvTnjWhDu1Zn9H5-QH7Tqor4d",
@@ -99,6 +99,102 @@
       "height": 1707,
       "category": "hero",
       "alt": "Centurion Wellness Eco Tourism — grounds"
+    },
+    {
+      "id": "AP1GczOWC15XXSMD8k5NwME-4OwOrnTHNzjLfMvy",
+      "file": "AP1GczOWC15XXSMD8k5NwME-4OwOrnTHNzjLfMvy.jpg",
+      "width": 1920,
+      "height": 1271,
+      "category": "rooms",
+      "alt": "Guest cottages set against the green hills of the campus"
+    },
+    {
+      "id": "AP1GczPbcpPjVNKTZ2UiDE-C88QGTS6vllhLQdHI",
+      "file": "AP1GczPbcpPjVNKTZ2UiDE-C88QGTS6vllhLQdHI.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "rooms",
+      "alt": "A comfortable double room with a private view"
+    },
+    {
+      "id": "AP1GczND55Fz3584ymqT3n8wc3vpcIKUgfO03SvA",
+      "file": "AP1GczND55Fz3584ymqT3n8wc3vpcIKUgfO03SvA.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "rooms",
+      "alt": "Double room with a garden-facing window"
+    },
+    {
+      "id": "AP1GczNDL08G29wth-dTeBL8SdPK5xBqkz_UiDqX",
+      "file": "AP1GczNDL08G29wth-dTeBL8SdPK5xBqkz_UiDqX.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "rooms",
+      "alt": "A quiet room interior with a large window"
+    },
+    {
+      "id": "AP1GczNucaub43aNfjVfXa7i_hOHvP9ip99biBYL",
+      "file": "AP1GczNucaub43aNfjVfXa7i_hOHvP9ip99biBYL.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "rooms",
+      "alt": "Double bedroom opening to the tree line"
+    },
+    {
+      "id": "AP1GczPMpUk5sIB7JRcfuMlpb00GtGhEaDQsRL6t",
+      "file": "AP1GczPMpUk5sIB7JRcfuMlpb00GtGhEaDQsRL6t.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "rooms",
+      "alt": "A restful double room"
+    },
+    {
+      "id": "AP1GczNY7bzIL55wR3SDzm6gR865rxB_YNpMn8EZ",
+      "file": "AP1GczNY7bzIL55wR3SDzm6gR865rxB_YNpMn8EZ.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "rooms",
+      "alt": "Twin-bed room for guests travelling together"
+    },
+    {
+      "id": "AP1GczMK7M8yxRDmHRmzliErgI1YiixC2s7KNkx3",
+      "file": "AP1GczMK7M8yxRDmHRmzliErgI1YiixC2s7KNkx3.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "rooms",
+      "alt": "Twin beds made up for arrival"
+    },
+    {
+      "id": "AP1GczPNz4xVKDPbjIssZKhDGzRUzQ0f7xXknrtZ",
+      "file": "AP1GczPNz4xVKDPbjIssZKhDGzRUzQ0f7xXknrtZ.jpg",
+      "width": 1280,
+      "height": 1920,
+      "category": "rooms",
+      "alt": "Private bathroom"
+    },
+    {
+      "id": "AP1GczOS72jLwkzae2IBnpJ9ygbaW63KiI4kr6UR",
+      "file": "AP1GczOS72jLwkzae2IBnpJ9ygbaW63KiI4kr6UR.jpg",
+      "width": 1280,
+      "height": 1920,
+      "category": "rooms",
+      "alt": "Bathroom with hot shower and basin"
+    },
+    {
+      "id": "AP1GczNyfT2aA-qovCpgsHe7bsvXqC_T5JWhHuYP",
+      "file": "AP1GczNyfT2aA-qovCpgsHe7bsvXqC_T5JWhHuYP.jpg",
+      "width": 1920,
+      "height": 1280,
+      "category": "rooms",
+      "alt": "A private verandah looking into the greenery"
+    },
+    {
+      "id": "AP1GczPukp5YLV3lh8Aj5nIVPkxuZAuh8r6KvrX4",
+      "file": "AP1GczPukp5YLV3lh8Aj5nIVPkxuZAuh8r6KvrX4.jpg",
+      "width": 1280,
+      "height": 1920,
+      "category": "rooms",
+      "alt": "Corner verandah with a forest view"
     },
     {
       "id": "AP1GczNLORsBtbjiLSUhWCG4BhnPSsmb-FSF2Wjf",
