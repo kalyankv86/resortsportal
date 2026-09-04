@@ -541,9 +541,9 @@ export const PAGES: Record<string, PageDef> = {
         heading: "How to reach",
         body: "The campus is at Village Alluri Nagar, P.O. R.Sitapur, Via Uppalada, Paralakhemundi, Gajapati district, Odisha 761211. Approximate distances and times — please confirm with reception when you book.",
         items: [
-          { title: "By air", text: "The new Visakhapatnam International Airport at Bhogapuram (Vizianagaram district, Andhra Pradesh) is the nearest airport — roughly 160 km / 3½ hours by road. Bhubaneswar (BBI), Odisha — about 230 km / 5 hours. Airport pick-up can be arranged in advance." },
+          { title: "By air", text: "Visakhapatnam International Airport at Bhogapuram (Vizianagaram district, Andhra Pradesh) is the nearest airport — about 134 km / 3 hours by road. Bhubaneswar (BBI), Odisha — about 230 km / 5 hours. Airport pick-up can be arranged in advance." },
           { title: "By train", text: "Palasa (PSA) on the Howrah–Chennai main line is the nearest major railhead — about 40 km / 1 hour. Paralakhemundi (PLH) station is in the town itself, about 5 km. Other railheads: Srikakulam Road ~70 km, Brahmapur (Berhampur) ~110 km, Visakhapatnam ~190 km." },
-          { title: "By road", text: "Road distances to the campus: Srikakulam ~65 km (1½ hrs) · Vizianagaram ~110 km (2½ hrs) · Berhampur ~110 km (2½ hrs) · Visakhapatnam ~200 km (4½ hrs). OSRTC and APSRTC buses serve Paralakhemundi; taxis are available from all four cities." },
+          { title: "By road", text: "Road distances to the campus: Srikakulam ~65 km (about 1½ hrs) · Berhampur ~117 km (about 2½ hrs) · Vizianagaram ~140 km (about 3 hrs) · Visakhapatnam ~170 km (about 4 hrs). OSRTC and APSRTC buses serve Paralakhemundi; taxis are available from all four cities." },
         ],
       },
     ],
