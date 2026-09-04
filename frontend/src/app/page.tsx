@@ -6,7 +6,8 @@ import { HomeCta } from "@/components/home/HomeCta";
 import { getCover } from "@/lib/media";
 
 export default async function HomePage() {
-  const heroCover = await getCover("hero");
+  // Same hero image as the Wellness Stay page (getCover("rooms")).
+  const heroCover = await getCover("rooms");
 
   return (
     <>
