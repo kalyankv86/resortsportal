@@ -52,30 +52,6 @@ export const bento: BentoItem[] = [
     span: "lg",
     cta: "Explore dining",
   },
-  {
-    title: "Eco Tourism",
-    copy: "Waterfall treks, bird watching, village tourism, bamboo craft and star gazing.",
-    href: "/eco-tourism",
-    category: "forest",
-    span: "sm",
-    cta: "Plan experiences",
-  },
-  {
-    title: "Daily Practice",
-    copy: "Guided sunrise yoga, pranayama and a forest sound-bath — open to resident guests.",
-    href: "/yoga",
-    category: "yoga",
-    span: "sm",
-    cta: "Yoga & meditation",
-  },
-  {
-    title: "Find your programme",
-    copy: "Answer a short dosha questionnaire and our advisors suggest a retreat, therapies and a daily rhythm.",
-    href: "/wellness-programs",
-    category: "meditation",
-    span: "sm",
-    cta: "Start questionnaire",
-  },
 ];
 
 export interface Experience {

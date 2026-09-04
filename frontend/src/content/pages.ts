@@ -406,14 +406,15 @@ export const PAGES: Record<string, PageDef> = {
     sections: [
       { kind: "gallery", heading: "Inside the rooms", category: "rooms" },
       {
-        kind: "features",
+        kind: "cards",
         heading: "Room categories",
         body: "Tariffs are per night and include food. Choose single or double occupancy when you book — a companion travelling with a treatment guest should book a double-occupancy room.",
+        category: "rooms",
         items: [
-          { title: "Suite Room — Single Occupancy", text: "₹5,500 per night, with food." },
-          { title: "Suite Room — Double Occupancy", text: "₹7,500 per night, with food." },
-          { title: "Executive Room — Single Occupancy", text: "₹4,000 per night, with food." },
-          { title: "Executive Room — Double Occupancy", text: "₹6,500 per night, with food." },
+          { title: "Suite Room — Single Occupancy", text: "₹5,500 per night, with food.", photo: "/media/library/AP1GczNDL08G29wth-dTeBL8SdPK5xBqkz_UiDqX.jpg" },
+          { title: "Suite Room — Double Occupancy", text: "₹7,500 per night, with food.", photo: "/media/library/AP1GczPbcpPjVNKTZ2UiDE-C88QGTS6vllhLQdHI.jpg" },
+          { title: "Executive Room — Single Occupancy", text: "₹4,000 per night, with food.", photo: "/media/library/AP1GczNucaub43aNfjVfXa7i_hOHvP9ip99biBYL.jpg" },
+          { title: "Executive Room — Double Occupancy", text: "₹6,500 per night, with food.", photo: "/media/library/AP1GczNY7bzIL55wR3SDzm6gR865rxB_YNpMn8EZ.jpg" },
         ],
       },
       {
@@ -446,16 +447,6 @@ export const PAGES: Record<string, PageDef> = {
           { title: "Organic Café", text: "All-day light plates, cold-pressed juices and sourdough from ancient grains, on the farm edge. No refined sugar, no seed oils." },
           { title: "Wellness Kitchen", text: "The therapeutic kitchen that cooks each programme guest's diet chart — ragi, foxtail and little millet in place of polished rice." },
           { title: "Herbal Tea Lounge", text: "Rotating single-herb infusions through the day and evening kadhas." },
-        ],
-      },
-      {
-        kind: "features",
-        heading: "How dining works",
-        items: [
-          { title: "Diet prescription", text: "Your doctor's chart is sent to the kitchen; meals arrive tailored." },
-          { title: "Daily menu", text: "Printed each morning from what the farm harvested." },
-          { title: "Meal planner", text: "Guests set preferences and allergies in the guest portal." },
-          { title: "Zero waste", text: "Peels and trimmings return to the farm compost." },
         ],
       },
       bookCta,
