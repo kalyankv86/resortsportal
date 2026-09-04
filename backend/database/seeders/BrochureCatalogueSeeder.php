@@ -105,7 +105,7 @@ class BrochureCatalogueSeeder extends Seeder
             );
             for ($n = 1; $n <= 4; $n++) { // 4 rooms x 4 categories = 16
                 Room::updateOrCreate(
-                    ['code' => strtoupper(substr(Str::slug($name), 0, 3)).'-'.str_pad((string) $n, 2, '0', STR_PAD_LEFT)],
+                    ['code' => 'R'.$cat->id.'-'.str_pad((string) $n, 2, '0', STR_PAD_LEFT)],
                     ['room_category_id' => $cat->id, 'status' => 'available'],
                 );
             }
