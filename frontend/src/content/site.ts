@@ -51,12 +51,10 @@ export const primaryNav: NavNode[] = [
     label: "Stay & Experiences",
     href: "/luxury-stay",
     children: [
-      { label: "Rooms, Villas & Cottages", href: "/luxury-stay" },
+      { label: "Wellness Stay", href: "/luxury-stay" },
       { label: "Dining", href: "/dining" },
       { label: "Eco Tourism", href: "/eco-tourism" },
-      { label: "Nature Trails", href: "/nature-trails" },
       { label: "Yoga", href: "/yoga" },
-      { label: "Meditation", href: "/meditation" },
     ],
   },
   {
@@ -75,16 +73,6 @@ export const primaryNav: NavNode[] = [
   {
     label: "Campus Experience",
     href: "/campus-experiences",
-  },
-  {
-    label: "Discover",
-    href: "/gallery",
-    children: [
-      { label: "Gallery", href: "/gallery" },
-      { label: "Virtual Tour", href: "/virtual-tour" },
-      { label: "Events", href: "/events" },
-      { label: "Testimonials", href: "/testimonials" },
-    ],
   },
 ];
 
@@ -116,7 +104,7 @@ export const footerNav: { label: string; children: { label: string; href: string
   {
     label: "Stay & Dining",
     children: [
-      { label: "Rooms, Villas & Cottages", href: "/luxury-stay" },
+      { label: "Wellness Stay", href: "/luxury-stay" },
       { label: "Dining", href: "/dining" },
       { label: "Sightseeing", href: "/sightseeing" },
     ],

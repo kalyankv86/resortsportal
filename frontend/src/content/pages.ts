@@ -171,18 +171,10 @@ export const PAGES: Record<string, PageDef> = {
         category: "organic-farm",
         items: [
           { title: "Organic Farm Tour", text: "Walk the vegetable plots, orchards and composting yards that supply the wellness kitchen.", photo: "/media/library/AP1GczPfJXsBZlp79Y-RMUOMiF9Az3m1O-NrVSxe.jpg" },
-          { title: "Fish Farm Experience", text: "See the university's aquaculture ponds and hatchery with a fisheries-science guide.", photo: "/media/library/AP1GczMxP_g5w-s4-WJTUwQOzAhITjA7s_QKvPWU.jpg" },
           { title: "Dairy Experience", text: "A morning at the campus dairy — milking, fodder and animal care.", photo: "/media/library/AP1GczMvdFfBse29YqFpu34XCLc5xgFhzPHIKrre.jpg" },
-          { title: "Medicinal Garden Walk", text: "A curated garden of Ayurvedic herbs used in the treatments, with a vaidya.", photo: "/media/library/AP1GczOdzWKOQrf7ORYELrNf-qZF8iU4mwkpyASw.jpg" },
           { title: "Innovation Labs", text: "Food processing, agri-tech and renewable-energy workshops where students build and test.", photo: "/media/library/AP1GczODNG-ezKfCptKPglV0n1rxvE1uKNghPeaw.jpg" },
           { title: "Sports Complex", text: "Athletics track, courts and the campus ground for early-morning activity.", photo: "/media/library/AP1GczMAubR_gp3MXjIrEK-_ARp6pDylEC3R0tKZ.jpg" },
           { title: "Cultural Experience", text: "Folk music, classical dance and seasonal festivals with the campus community.", photo: "/media/library/AP1GczPvI6VYEr7ZGBGOW8Qf79HL9CTZ9WzhubHN.jpg" },
-        ],
-      },
-      {
-        kind: "intro",
-        body: [
-          "Campus visits are arranged around your wellness schedule and run in small groups. A festival and events calendar is shared at reception and in the guest portal.",
         ],
       },
       bookCta,
@@ -458,34 +450,16 @@ export const PAGES: Record<string, PageDef> = {
     title: "Eco Tourism",
     eyebrow: "Eco Tourism",
     summary:
-      "Guided experiences across 120 acres of restored forest, water bodies and working farmland — and into the villages and craft traditions around the campus.",
+      "Guided nature experiences across the 120-acre campus — forest, water bodies and working farmland.",
     hero: "forest",
     sections: [
       {
-        kind: "features",
-        heading: "Experiences",
-        items: [
-          { title: "Forest Walk", text: "Dawn walk with a resident naturalist." },
-          { title: "Bird Watching", text: "Over 140 species recorded on the estate." },
-          { title: "Waterfall Trek", text: "Half-day hike to a seasonal cascade." },
-          { title: "Village Tourism", text: "Meet weavers, potters and farmers nearby." },
-          { title: "Organic Farming", text: "Hands in the soil — sowing, harvesting, composting." },
-          { title: "Bamboo Craft", text: "Studio session with campus artisans." },
-          { title: "Star Gazing", text: "Low light pollution, high meadow, reclining chairs." },
-          { title: "Bonfire & Stories", text: "Evening circle with folk musicians." },
+        kind: "intro",
+        heading: "Under progress",
+        body: [
+          "Our eco-tourism programme — nature trails, birding, farm visits and guided walks — is being put together. Please check back soon, or ask reception about what is currently available.",
         ],
       },
-      {
-        kind: "features",
-        heading: "Good to know",
-        items: [
-          { title: "Adventure calendar", text: "Weekly schedule published in the guest portal." },
-          { title: "GPS trails & offline maps", text: "Download before you walk — no signal needed." },
-          { title: "Guide assignment", text: "Every group outing has a trained guide." },
-          { title: "All fitness levels", text: "Routes graded easy to moderate." },
-        ],
-      },
-      bookCta,
     ],
   }),
 
