@@ -73,7 +73,8 @@ class BrochureCatalogueSeeder extends Seeder
                     'currency' => 'INR',
                     'doctor_led' => true,
                     'inclusions' => $inclusions,
-                    'status' => 'published',
+                    // The 1-day package is not offered through the online booking flow.
+                    'status' => $days === 1 ? 'draft' : 'published',
                     'position' => $i,
                 ],
             );
