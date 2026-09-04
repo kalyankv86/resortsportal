@@ -2,19 +2,19 @@ import Image from "next/image";
 
 /**
  * Slim university affiliation bar pinned above the main navigation on every
- * page. Height is 2rem (h-8); SiteHeader sits at top-8 to clear it.
+ * page. Height is 1.5rem (h-6); SiteHeader sits at top-6 to clear it.
  */
 export function AffiliationStrip() {
   return (
-    <div className="fixed inset-x-0 top-0 z-40 h-8 border-b border-white/10 bg-forest-900 text-ivory">
+    <div className="fixed inset-x-0 top-0 z-40 h-6 border-b border-white/10 bg-forest-900 text-ivory">
       <div className="mx-auto flex h-full max-w-[1280px] items-center justify-between gap-3 px-4 sm:px-6">
         <div className="flex min-w-0 items-center gap-2">
           <Image
             src="/brand/cutm-crest.png"
             alt="Centurion University"
-            width={20}
-            height={20}
-            className="h-[18px] w-[18px] shrink-0 object-contain"
+            width={16}
+            height={16}
+            className="h-[14px] w-[14px] shrink-0 object-contain"
           />
           <span className="truncate font-ui text-[0.7rem] font-medium tracking-wide text-ivory/85 sm:text-xs">
             An initiative of Centurion University

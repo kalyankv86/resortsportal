@@ -190,14 +190,9 @@ export const PAGES: Record<string, PageDef> = {
     hero: "ayurveda",
     sections: [
       {
-        kind: "intro",
-        body: [
-          "Your stay begins with a one-to-one consultation and dosha assessment. From there your physician designs a daily schedule of therapies, diet, yoga and rest — reviewed every 48 hours and adjusted to how you respond.",
-        ],
-      },
-      {
         kind: "steps",
         heading: "How a programme works",
+        body: "A one-to-one consultation and dosha assessment set your plan; your physician then reviews and adjusts it every 48 hours.",
         items: [
           { title: "Assess", text: "Pulse diagnosis, history and dosha analysis with your assigned doctor." },
           { title: "Prescribe", text: "A personalised plan — therapies, herbal medicines, diet chart and daily routine." },
@@ -328,27 +323,16 @@ export const PAGES: Record<string, PageDef> = {
     title: "Doctors & Therapists",
     eyebrow: "Wellness",
     summary:
-      "The resident clinical team — qualified Ayurvedic physicians (BAMS/MD), yoga therapists, a clinical nutritionist and trained Panchakarma technicians.",
+      "The resident clinical team — Ayurvedic physicians, yoga therapists and trained Panchakarma technicians.",
     hero: "ayurveda",
     sections: [
       {
         kind: "intro",
+        heading: "Work in progress",
         body: [
-          "Continuity matters. You are assigned one physician for the length of your stay and, wherever possible, the same therapist each day. Notes follow you from assessment to follow-up.",
+          "Profiles of our doctors and therapists are being prepared. Please check back soon, or ask reception to introduce the clinical team.",
         ],
       },
-      {
-        kind: "cards",
-        heading: "Meet the team",
-        category: "ayurveda",
-        items: [
-          { title: "Chief Medical Officer", text: "MD (Ayurveda), 20+ years in Panchakarma and chronic-pain management." },
-          { title: "Consultant Physicians", text: "BAMS/MD vaidyas across women's health, metabolic and musculoskeletal care." },
-          { title: "Yoga Therapists", text: "Certified therapeutic-yoga faculty leading daily practice." },
-          { title: "Clinical Nutritionist", text: "Translates each prescription into a daily diet chart." },
-        ],
-      },
-      bookCta,
     ],
   }),
 
